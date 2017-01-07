@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.haoshi.R;
-import com.haoshi.mvp.MvpActivity;
+import com.haoshi.mvp.activity.MvpActivity;
 import com.haoshi.rxjava.RxJavaActivity;
 import com.haoshi.tts.TTSActivity;
 

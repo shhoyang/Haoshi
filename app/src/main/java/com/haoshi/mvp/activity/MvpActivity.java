@@ -1,4 +1,4 @@
-package com.haoshi.mvp;
+package com.haoshi.mvp.activity;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -34,7 +34,7 @@ public class MvpActivity extends AppCompatActivity implements IUserLoginView {
         dialog = new ProgressDialog(this);
         dialog.setCanceledOnTouchOutside(false);
         dialog.setMessage("正在登录...");
-        findViewById(R.id.button_login).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 loginPresenter.login();
