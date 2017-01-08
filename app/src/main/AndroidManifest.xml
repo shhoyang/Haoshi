@@ -30,6 +30,8 @@
         <activity android:name=".rxjava.RxJava2Activity" />
         <activity android:name=".tts.TTSActivity" />
         <activity android:name=".mvp.MvpActivity" />
+        <activity android:name=".sqlite.SqliteActivity" />
+        <activity android:name=".sqlite.ormlite.OrmliteActivity"></activity>
     </application>
 
 </manifest>
