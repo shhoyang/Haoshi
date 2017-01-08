@@ -14,7 +14,6 @@ import java.util.List;
 public class OrmliteActivity extends BaseActivity {
 
     private EditText editName, editNum;
-    
     private DbManager dbManager;
     private Personnel personnel;
     private String name;
