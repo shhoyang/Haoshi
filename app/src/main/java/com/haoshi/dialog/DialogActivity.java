@@ -1,5 +1,6 @@
 package com.haoshi.dialog;
 
+import android.provider.Settings;
 import android.view.View;
 
 import com.haoshi.R;
@@ -20,17 +21,19 @@ public class DialogActivity extends BaseActivity {
 
     @Override
     public void setData() {
-
+        TAG = DialogActivity.class.getSimpleName();
+        setTitle(TAG);
     }
 
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.button:
-                new BottomDialog(this).showDiaog(R.layout.bottom_dialog);
+                new BottomDialog(this, R.layout.bottom_dialog).show();
                 break;
             case R.id.button1:
+                new LoadingDialog(this, "正在加载.....").show();
                 break;
         }
     }

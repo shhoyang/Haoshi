@@ -32,7 +32,8 @@
         <activity android:name=".mvp.activity.MvpActivity" />
         <activity android:name=".dialog.DialogActivity" />
         <activity android:name=".sqlite.DbActivity" />
-        <activity android:name=".sqlite.Xutils2Activity"></activity>
+        <activity android:name=".sqlite.Xutils2Activity" />
+        <activity android:name=".progressbar.ProgressBarActivity"></activity>
     </application>
 
 </manifest>

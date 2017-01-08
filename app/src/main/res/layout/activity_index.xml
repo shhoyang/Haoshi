@@ -32,10 +32,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="MVP" />
+
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MVP" />
+            android:text="progressBar" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dialog" />
     </LinearLayout>
 </ScrollView>
