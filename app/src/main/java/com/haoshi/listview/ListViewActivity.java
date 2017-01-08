@@ -1,18 +1,17 @@
-package com.haoshi.hao;
+package com.haoshi.listview;
 
 import android.content.Intent;
 import android.view.View;
 
 import com.haoshi.R;
 import com.haoshi.dialog.DialogActivity;
-import com.haoshi.listview.ListViewActivity;
+import com.haoshi.hao.BaseActivity;
 import com.haoshi.mvp.activity.MvpActivity;
 import com.haoshi.progressbar.ProgressBarActivity;
 import com.haoshi.rxjava.RxJavaActivity;
-import com.haoshi.service.ServiceActivity;
 import com.haoshi.tts.TTSActivity;
 
-public class IndexActivity extends BaseActivity {
+public class ListViewActivity extends BaseActivity {
 
     @Override
     public void initView() {
@@ -22,17 +21,16 @@ public class IndexActivity extends BaseActivity {
         findViewById(R.id.button3).setOnClickListener(this);
         findViewById(R.id.button4).setOnClickListener(this);
         findViewById(R.id.button5).setOnClickListener(this);
-        findViewById(R.id.button6).setOnClickListener(this);
     }
 
     @Override
     public int setContentViewID() {
-        return R.layout.activity_index;
+        return R.layout.activity_list_view;
     }
 
     @Override
     public void setData() {
-        TAG = IndexActivity.class.getSimpleName();
+        TAG = ListViewActivity.class.getSimpleName();
         setTitle(TAG);
     }
 
@@ -42,25 +40,27 @@ public class IndexActivity extends BaseActivity {
         Intent intent = null;
         switch (v.getId()) {
             case R.id.button:
-                intent = new Intent(this, RxJavaActivity.class);
+                intent = new Intent(this, ExpandableListViewActivity.class);
                 break;
             case R.id.button1:
-                intent = new Intent(this, TTSActivity.class);
+                intent = new Intent(this, RecyclerViewActivity.class);
+                intent.putExtra("type", 1);
                 break;
             case R.id.button2:
-                intent = new Intent(this, MvpActivity.class);
+                intent = new Intent(this, RecyclerViewActivity.class);
+                intent.putExtra("type", 2);
                 break;
             case R.id.button3:
-                intent = new Intent(this, ProgressBarActivity.class);
+                intent = new Intent(this, RecyclerViewActivity.class);
+                intent.putExtra("type", 3);
                 break;
             case R.id.button4:
-                intent = new Intent(this, DialogActivity.class);
+                intent = new Intent(this, RecyclerViewActivity.class);
+                intent.putExtra("type", 4);
                 break;
             case R.id.button5:
-                intent = new Intent(this, ListViewActivity.class);
-                break;
-            case R.id.button6:
-                intent = new Intent(this, ServiceActivity.class);
+                intent = new Intent(this, RecyclerViewActivity.class);
+                intent.putExtra("type", 5);
                 break;
         }
         startActivity(intent);

@@ -44,5 +44,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="dialog" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ListView" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="aidl" />
     </LinearLayout>
 </ScrollView>
