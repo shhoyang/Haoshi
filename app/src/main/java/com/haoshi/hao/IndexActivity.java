@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.haoshi.R;
+import com.haoshi.swipelayout.SwipeActivity;
 import com.haoshi.dialog.DialogActivity;
 import com.haoshi.listview.ListViewActivity;
 import com.haoshi.mvp.activity.MvpActivity;
@@ -108,7 +109,7 @@ public class IndexActivity extends BaseActivity {
                 intent = new Intent(this, ScrollActivity.class);
                 break;
             case R.id.button9:
-                intent = new Intent(this, ViewActivity.class);
+                intent = new Intent(this, SwipeActivity.class);
                 break;
         }
         startActivity(intent);

@@ -79,12 +79,12 @@ public class OrmliteActivity extends BaseActivity {
                 case R.id.button2:
                     if (personnel != null && !TextUtils.isEmpty(name)) {
                         personnel.setName(name);
-                        dbManager.updata(personnel);
+                        dbManager.update(personnel);
                     }
                     break;
                 case R.id.button21:
                     if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(num)) {
-                        dbManager.updataByNum(new Personnel(name, num));
+                        dbManager.updateByNum(new Personnel(name, num));
                     }
                     break;
                 case R.id.button3:

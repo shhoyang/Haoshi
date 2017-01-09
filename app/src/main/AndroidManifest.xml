@@ -43,7 +43,8 @@
 
         <activity android:name=".scrollview.ScrollActivity" />
         <activity android:name=".sqlite.greendao.GreenDaoActivity" />
-        <activity android:name=".view.ViewActivity"></activity>
+        <activity android:name=".view.ViewActivity" />
+        <activity android:name=".swipelayout.SwipeActivity"></activity>
     </application>
 
 </manifest>

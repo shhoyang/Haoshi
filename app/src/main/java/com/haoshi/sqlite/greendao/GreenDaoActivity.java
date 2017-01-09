@@ -35,12 +35,12 @@ public class GreenDaoActivity extends BaseActivity {
         findViewById(R.id.button3).setOnClickListener(this);
         findViewById(R.id.button31).setOnClickListener(this);
     }
-    
+
     @Override
     public void setData() {
-        
+
     }
-    
+
     @Override
     public int setContentViewID() {
         return R.layout.activity_ormlite;
@@ -81,12 +81,12 @@ public class GreenDaoActivity extends BaseActivity {
                 case R.id.button2:
                     if (personnel != null && !TextUtils.isEmpty(name)) {
                         personnel.setName(name);
-                        dbManager.updata(personnel);
+                        dbManager.update(personnel);
                     }
                     break;
                 case R.id.button21:
                     if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(num)) {
-                        dbManager.updataByNum(new Personnel(name, num));
+                        dbManager.updateByNum(new Personnel(name, num));
                     }
                     break;
                 case R.id.button3:

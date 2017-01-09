@@ -40,20 +40,22 @@ public class DbManager {
         return builder.delete();
     }
 
-    public void deleteAll() throws SQLException {
+    public int deleteAll() throws SQLException {
+        int result = -1;
         for (Personnel personnel : query()) {
-            delete(personnel);
+            result = delete(personnel);
         }
+        return result;
     }
 
-    public int updata(Personnel personnel) throws SQLException {
+    public int update(Personnel personnel) throws SQLException {
         return dao.update(personnel);
     }
 
-    public void updataByNum(Personnel personnel) throws SQLException {
+    public int updateByNum(Personnel personnel) throws SQLException {
         UpdateBuilder builder = dao.updateBuilder();
         builder.updateColumnValue("name", personnel.getName()).where().eq("num", personnel.getNum());
-        builder.update();
+        return builder.update();
     }
 
     public List<Personnel> queryByNum(String num) throws SQLException {
