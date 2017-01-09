@@ -1,21 +1,20 @@
-package com.haoshi.sqlite.ormlite;
+package com.haoshi.sqlite.greendao;
 
-import com.j256.ormlite.field.DatabaseField;
-import com.j256.ormlite.table.DatabaseTable;
+import org.greenrobot.greendao.annotation.Entity;
+import org.greenrobot.greendao.annotation.Generated;
+import org.greenrobot.greendao.annotation.Id;
 
 /**
  * Created by haoshi on 2017/1/8.
  */
-@DatabaseTable
+@Entity
 public class Personnel {
 
-    @DatabaseField(generatedId = true)
-    private int id;
-    @DatabaseField
+    @Id(autoincrement = true)
+    private long id;
     private String name;
-    @DatabaseField
     private String num;
-
+    
     public Personnel() {
     }
 

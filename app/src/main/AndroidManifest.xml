@@ -36,10 +36,14 @@
         <activity android:name=".listview.ExpandableListViewActivity" />
         <activity android:name=".listview.RecyclerViewActivity" />
         <activity android:name=".service.ServiceActivity" />
-        <activity android:name=".sqlite.SqliteActivity"/>
-        <activity android:name=".sqlite.ormlite.OrmliteActivity"/>
+        <activity android:name=".sqlite.SqliteActivity" />
+        <activity android:name=".sqlite.ormlite.OrmliteActivity" />
 
         <service android:name=".service.MessengerService" />
+
+        <activity android:name=".scrollview.ScrollActivity" />
+        <activity android:name=".sqlite.greendao.GreenDaoActivity" />
+        <activity android:name=".view.ViewActivity"></activity>
     </application>
 
 </manifest>

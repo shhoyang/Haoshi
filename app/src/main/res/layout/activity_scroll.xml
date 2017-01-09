@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.haoshi.scrollview.StickyScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.haoshi.scrollview.ScrollActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:background="@android:color/holo_blue_light" />
+
+            <TextView
+                android:id="@+id/text_place"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="1000dp"
+                android:layout_below="@id/text_place"
+                android:background="@android:color/holo_blue_light" />
+
+            <TextView
+                android:id="@+id/text_title"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@id/text"
+                android:background="@android:color/holo_green_light"
+                android:gravity="center"
+                android:text="标题"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+</com.haoshi.scrollview.StickyScrollView>

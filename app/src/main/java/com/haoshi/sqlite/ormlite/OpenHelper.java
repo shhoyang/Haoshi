@@ -8,16 +8,25 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 /**
- * Created by yugu on 2017/1/8.
+ * Created by haoshi on 2017/1/8.
  */
 
 public class OpenHelper extends OrmLiteSqliteOpenHelper {
 
-    private static final String DB_NAME = "Personnel";
+    private static final String DB_NAME = "ormlite";
     private static final int DB_VERSION = 1;
+
+    private static OpenHelper openHelper;
 
     public OpenHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
+    }
+
+    public synchronized static OpenHelper getInstance(Context context) {
+        if (openHelper == null) {
+            openHelper = new OpenHelper(context);
+        }
+        return openHelper;
     }
 
 

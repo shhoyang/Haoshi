@@ -29,6 +29,7 @@ public class MarqueeTextView extends TextView implements View.OnClickListener {
     public boolean isStarting = false;//是否开始滚动
     private Paint paint = null;//绘图样式
     private String text = "";//文本内容
+    private String fontColor = "#000000";
     private OnMarqueeCompleteListener marqueeCompleteListener;  //监听
 
     public MarqueeTextView(Context context) {
@@ -43,9 +44,9 @@ public class MarqueeTextView extends TextView implements View.OnClickListener {
         super(context, attrs, defStyle);
     }
 
-    public void init(WindowManager windowManager,String color) {
+    public void init(WindowManager windowManager) {
         paint = getPaint();
-        paint.setColor(Color.parseColor(color));
+        paint.setColor(Color.parseColor(fontColor));
         text = getText().toString();
         textLength = paint.measureText(text);
         viewWidth = getWidth();
@@ -171,6 +172,10 @@ public class MarqueeTextView extends TextView implements View.OnClickListener {
 
     public void setSpeed(float speed) {
         this.speed = speed;
+    }
+
+    public void setFontColor(String color) {
+        this.fontColor = color;
     }
 
     public void setOnMarqueeCompleteListener(OnMarqueeCompleteListener marqueeCompleteListener) {

@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * Created by yugu on 2017/1/8.
+ * Created by haoshi on 2017/1/8.
  */
 
 public class DbManager {
@@ -22,7 +22,7 @@ public class DbManager {
 
     public DbManager(Context context) throws SQLException {
         this.context = context;
-        openHelper = new OpenHelper(context);
+        openHelper = OpenHelper.getInstance(context);
         dao = openHelper.getDao(Personnel.class);
     }
 
@@ -47,13 +47,13 @@ public class DbManager {
     }
 
     public int updata(Personnel personnel) throws SQLException {
-        return dao.delete(personnel);
+        return dao.update(personnel);
     }
 
     public void updataByNum(Personnel personnel) throws SQLException {
         UpdateBuilder builder = dao.updateBuilder();
-        builder.where().eq("num", personnel.getNum());
-        builder.updateColumnValue("name", personnel.getName());
+        builder.updateColumnValue("name", personnel.getName()).where().eq("num", personnel.getNum());
+        builder.update();
     }
 
     public List<Personnel> queryByNum(String num) throws SQLException {

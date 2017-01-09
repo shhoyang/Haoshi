@@ -1,4 +1,4 @@
-package com.haoshi.sqlite.ormlite;
+package com.haoshi.sqlite.greendao;
 
 import android.text.TextUtils;
 import android.view.View;
@@ -6,12 +6,14 @@ import android.widget.EditText;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.sqlite.ormlite.DbManager;
+import com.haoshi.sqlite.ormlite.Personnel;
 import com.haoshi.utils.L;
 
 import java.sql.SQLException;
 import java.util.List;
 
-public class OrmliteActivity extends BaseActivity {
+public class GreenDaoActivity extends BaseActivity {
 
     private EditText editName, editNum;
     private DbManager dbManager;
@@ -40,7 +42,7 @@ public class OrmliteActivity extends BaseActivity {
 
     @Override
     public void setData() {
-        TAG = OrmliteActivity.class.getSimpleName();
+        TAG = GreenDaoActivity.class.getSimpleName();
         setTitle(TAG);
     }
 
