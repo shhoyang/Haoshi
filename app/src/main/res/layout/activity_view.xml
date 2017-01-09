@@ -16,24 +16,77 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:color/black"
-            android:gravity="center"
-            android:padding="10dp">
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin">
 
-            <com.haoshi.view.CircleImageView
-                android:id="@+id/circle_image"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                app:border_color="@android:color/white"
-                app:border_width="2dp" />
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:max="100"
+                android:progress="40"
+                android:secondaryProgress="80" />
 
+            <ProgressBar
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:indeterminate="true"
+                android:max="100"
+                android:progress="40"
+                android:secondaryProgress="80" />
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:max="100"
+                android:progress="40"
+                android:progressDrawable="@drawable/horizontal_progress_bar"
+                android:secondaryProgress="80" />
+
+            <com.haoshi.view.HorizontalProgressBar
+                android:id="@+id/progressbar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:layout_marginTop="20dp"
+                android:max="100"
+                android:progress="40"
+                android:progressDrawable="@drawable/horizontal_progress_bar"
+                android:secondaryProgress="80" />
         </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp">
+
+            <com.haoshi.view.AutoViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <LinearLayout
+                android:id="@+id/linear_point"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingBottom="6dp" />
+
+        </RelativeLayout>
 
         <com.haoshi.view.ClickLinearLayout
             android:id="@+id/click_linear"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:background="@android:color/black"
             android:gravity="center"
             android:padding="10dp">
 
@@ -41,11 +94,9 @@
                 android:id="@+id/click_image"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                app:border_color="@android:color/black"
+                app:border_color="@android:color/white"
                 app:border_width="2dp" />
 
         </com.haoshi.view.ClickLinearLayout>
-
     </LinearLayout>
-
 </ScrollView>

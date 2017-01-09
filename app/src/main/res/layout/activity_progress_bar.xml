@@ -11,43 +11,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.haoshi.progressbar.ProgressBarActivity">
 
-    <ProgressBar
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:max="100"
-        android:progress="40"
-        android:secondaryProgress="80" />
-
-    <ProgressBar
-        style="@android:style/Widget.ProgressBar.Horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_marginTop="20dp"
-        android:indeterminate="true"
-        android:max="100"
-        android:progress="40"
-        android:secondaryProgress="80" />
-
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_marginTop="20dp"
-        android:max="100"
-        android:progress="40"
-        android:progressDrawable="@drawable/horizontal_progress_bar"
-        android:secondaryProgress="80" />
-
-    <com.haoshi.progressbar.HorizontalProgressBar
-        android:id="@+id/progressbar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_marginTop="20dp"
-        android:max="100"
-        android:progress="40"
-        android:progressDrawable="@drawable/horizontal_progress_bar"
-        android:secondaryProgress="80" />
+    
 
 </LinearLayout>

@@ -4,12 +4,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.haoshi.R;
-import com.haoshi.dialog.DialogActivity;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.mvp.activity.MvpActivity;
-import com.haoshi.progressbar.ProgressBarActivity;
-import com.haoshi.rxjava.RxJavaActivity;
-import com.haoshi.tts.TTSActivity;
 
 public class ListViewActivity extends BaseActivity {
 

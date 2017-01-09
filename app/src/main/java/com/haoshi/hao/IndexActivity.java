@@ -7,7 +7,6 @@ import com.haoshi.R;
 import com.haoshi.dialog.DialogActivity;
 import com.haoshi.listview.ListViewActivity;
 import com.haoshi.mvp.activity.MvpActivity;
-import com.haoshi.progressbar.ProgressBarActivity;
 import com.haoshi.rxjava.RxJavaActivity;
 import com.haoshi.scrollview.ScrollActivity;
 import com.haoshi.service.ServiceActivity;
@@ -25,8 +24,8 @@ public class IndexActivity extends BaseActivity {
     public void initView() {
 
         marqueeTextView = (MarqueeTextView) findViewById(R.id.marquee);
-        marqueeTextView.setText("工作中搜集的资源,与同仁共享");
-        marqueeTextView.setSpeed(ScreenUtils.getScreenWidth(this) / 200);
+        marqueeTextView.setText("工作中收集的资源,与同仁共享");
+        marqueeTextView.setSpeed(ScreenUtils.getScreenWidth(this) / 300);
         marqueeTextView.setFontColor("#FFFFFF");
         marqueeTextView.init(getWindowManager());
         marqueeTextView.setOnMarqueeCompleteListener(new MarqueeTextView.OnMarqueeCompleteListener() {
@@ -91,7 +90,7 @@ public class IndexActivity extends BaseActivity {
                 intent = new Intent(this, MvpActivity.class);
                 break;
             case R.id.button3:
-                intent = new Intent(this, ProgressBarActivity.class);
+                intent = new Intent(this, ViewActivity.class);
                 break;
             case R.id.button4:
                 intent = new Intent(this, DialogActivity.class);

@@ -1,4 +1,4 @@
-package com.haoshi.progressbar;
+package com.haoshi.view;
 
 import android.content.Context;
 import android.graphics.Canvas;
