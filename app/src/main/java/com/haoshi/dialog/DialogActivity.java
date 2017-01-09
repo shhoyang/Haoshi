@@ -1,10 +1,10 @@
 package com.haoshi.dialog;
 
-import android.provider.Settings;
 import android.view.View;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.IndexActivity;
 
 public class DialogActivity extends BaseActivity {
 
@@ -13,16 +13,20 @@ public class DialogActivity extends BaseActivity {
         findViewById(R.id.button).setOnClickListener(this);
         findViewById(R.id.button1).setOnClickListener(this);
     }
+    
+    @Override
+    public void setData() {
+       
+    }
 
     @Override
     public int setContentViewID() {
         return R.layout.activity_dialog;
     }
-
+    
     @Override
-    public void setData() {
-        TAG = DialogActivity.class.getSimpleName();
-        setTitle(TAG);
+    public String setTitle() {
+        return TAG = IndexActivity.class.getSimpleName();
     }
 
     @Override

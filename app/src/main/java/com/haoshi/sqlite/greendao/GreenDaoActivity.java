@@ -6,6 +6,7 @@ import android.widget.EditText;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.IndexActivity;
 import com.haoshi.sqlite.ormlite.DbManager;
 import com.haoshi.sqlite.ormlite.Personnel;
 import com.haoshi.utils.L;
@@ -34,16 +35,20 @@ public class GreenDaoActivity extends BaseActivity {
         findViewById(R.id.button3).setOnClickListener(this);
         findViewById(R.id.button31).setOnClickListener(this);
     }
-
+    
+    @Override
+    public void setData() {
+        
+    }
+    
     @Override
     public int setContentViewID() {
         return R.layout.activity_ormlite;
     }
 
     @Override
-    public void setData() {
-        TAG = GreenDaoActivity.class.getSimpleName();
-        setTitle(TAG);
+    public String setTitle() {
+        return TAG = IndexActivity.class.getSimpleName();
     }
 
     @Override

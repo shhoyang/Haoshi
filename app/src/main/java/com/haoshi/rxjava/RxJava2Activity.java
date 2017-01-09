@@ -4,6 +4,7 @@ import android.view.View;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.IndexActivity;
 import com.haoshi.utils.L;
 
 import rx.Observer;
@@ -17,6 +18,11 @@ public class RxJava2Activity extends BaseActivity {
     public void initView() {
         findViewById(R.id.button).setOnClickListener(this);
     }
+    
+    @Override
+    public void setData() {
+        publishSubject = PublishSubject.create();
+    }
 
     @Override
     public int setContentViewID() {
@@ -24,10 +30,8 @@ public class RxJava2Activity extends BaseActivity {
     }
 
     @Override
-    public void setData() {
-        TAG = RxJava2Activity.class.getSimpleName();
-        setTitle(TAG);
-        publishSubject = PublishSubject.create();
+    public String setTitle() {
+        return TAG = IndexActivity.class.getSimpleName();
     }
 
     @Override

@@ -8,31 +8,21 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.haoshi.R;
+import com.haoshi.hao.BaseActivity;
 import com.haoshi.mvp.bean.User;
 import com.haoshi.mvp.presenter.LoginPresenter;
 import com.haoshi.mvp.view.IUserLoginView;
 
 
-public class MvpActivity extends AppCompatActivity implements IUserLoginView {
+public class MvpActivity extends BaseActivity implements IUserLoginView {
 
     private EditText editUserName, editPassword;
-    private ProgressDialog dialog;
     private LoginPresenter loginPresenter = new LoginPresenter(this);
-
+    
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mvp);
-
-        initView();
-    }
-
-    private void initView() {
-        setTitle(MvpActivity.class.getSimpleName());
+    public void initView() {
         editUserName = (EditText) findViewById(R.id.edit_username);
         editPassword = (EditText) findViewById(R.id.edit_password);
-        dialog = new ProgressDialog(this);
-        dialog.setCanceledOnTouchOutside(false);
         dialog.setMessage("正在登录...");
         findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +30,21 @@ public class MvpActivity extends AppCompatActivity implements IUserLoginView {
                 loginPresenter.login();
             }
         });
+    }
+
+    @Override
+    public void setData() {
+        
+    }
+
+    @Override
+    public int setContentViewID() {
+        return R.layout.activity_mvp;
+    }
+
+    @Override
+    public String setTitle() {
+        return TAG = MvpActivity.class.getSimpleName();
     }
 
     @Override

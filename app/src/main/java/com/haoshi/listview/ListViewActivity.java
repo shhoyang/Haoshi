@@ -24,14 +24,18 @@ public class ListViewActivity extends BaseActivity {
     }
 
     @Override
+    public void setData() {
+
+    }
+
+    @Override
     public int setContentViewID() {
         return R.layout.activity_list_view;
     }
 
     @Override
-    public void setData() {
-        TAG = ListViewActivity.class.getSimpleName();
-        setTitle(TAG);
+    public String setTitle() {
+        return TAG = ListViewActivity.class.getSimpleName();
     }
 
     @Override

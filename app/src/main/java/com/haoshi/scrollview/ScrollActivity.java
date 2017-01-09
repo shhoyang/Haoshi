@@ -4,6 +4,7 @@ import android.widget.TextView;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.IndexActivity;
 
 public class ScrollActivity extends BaseActivity {
 
@@ -20,6 +21,11 @@ public class ScrollActivity extends BaseActivity {
             }
         });
     }
+    
+    @Override
+    public void setData() {
+        
+    }
 
     @Override
     public int setContentViewID() {
@@ -27,8 +33,7 @@ public class ScrollActivity extends BaseActivity {
     }
 
     @Override
-    public void setData() {
-        TAG = ScrollActivity.class.getSimpleName();
-        setTitle(TAG);
+    public String setTitle() {
+        return TAG = IndexActivity.class.getSimpleName();
     }
 }

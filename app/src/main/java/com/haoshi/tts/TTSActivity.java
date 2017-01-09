@@ -9,6 +9,7 @@ import com.baidu.speechsynthesizer.SpeechSynthesizerListener;
 import com.baidu.speechsynthesizer.publicutility.SpeechError;
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.IndexActivity;
 import com.haoshi.utils.L;
 
 public class TTSActivity extends BaseActivity implements SpeechSynthesizerListener {
@@ -23,15 +24,18 @@ public class TTSActivity extends BaseActivity implements SpeechSynthesizerListen
     }
 
     @Override
+    public void setData() {
+        initTTS();
+    }
+
+    @Override
     public int setContentViewID() {
         return R.layout.activity_tts;
     }
 
     @Override
-    public void setData() {
-        TAG = TTSActivity.class.getSimpleName();
-        setTitle(TAG);
-        initTTS();
+    public String setTitle() {
+        return TAG = IndexActivity.class.getSimpleName();
     }
 
     @Override

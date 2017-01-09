@@ -1,9 +1,7 @@
 package com.haoshi.hao;
 
 import android.content.Intent;
-import android.view.Display;
 import android.view.View;
-import android.view.WindowManager;
 
 import com.haoshi.R;
 import com.haoshi.dialog.DialogActivity;
@@ -15,6 +13,7 @@ import com.haoshi.scrollview.ScrollActivity;
 import com.haoshi.service.ServiceActivity;
 import com.haoshi.sqlite.SqliteActivity;
 import com.haoshi.tts.TTSActivity;
+import com.haoshi.utils.ScreenUtils;
 import com.haoshi.view.MarqueeTextView;
 import com.haoshi.view.ViewActivity;
 
@@ -25,12 +24,9 @@ public class IndexActivity extends BaseActivity {
     @Override
     public void initView() {
 
-        WindowManager windowManager = getWindowManager();
-        Display display = windowManager.getDefaultDisplay();
-        int screenWidth = display.getWidth();
         marqueeTextView = (MarqueeTextView) findViewById(R.id.marquee);
         marqueeTextView.setText("工作中搜集的资源,与同仁共享");
-        marqueeTextView.setSpeed(screenWidth / 200);
+        marqueeTextView.setSpeed(ScreenUtils.getScreenWidth(this) / 200);
         marqueeTextView.setFontColor("#FFFFFF");
         marqueeTextView.init(getWindowManager());
         marqueeTextView.setOnMarqueeCompleteListener(new MarqueeTextView.OnMarqueeCompleteListener() {
@@ -53,17 +49,6 @@ public class IndexActivity extends BaseActivity {
     }
 
     @Override
-    public int setContentViewID() {
-        return R.layout.activity_index;
-    }
-
-    @Override
-    public void setData() {
-        TAG = IndexActivity.class.getSimpleName();
-        setTitle(TAG);
-    }
-
-    @Override
     protected void onStart() {
         super.onStart();
         marqueeTextView.startScroll();
@@ -73,6 +58,22 @@ public class IndexActivity extends BaseActivity {
     protected void onStop() {
         super.onStop();
         marqueeTextView.stopScroll();
+    }
+
+    @Override
+    public void setData() {
+
+    }
+
+    @Override
+    public int setContentViewID() {
+        return R.layout.activity_index;
+    }
+
+    @Override
+    public String setTitle() {
+        TAG = IndexActivity.class.getSimpleName();
+        return "豪〤世";
     }
 
     @Override

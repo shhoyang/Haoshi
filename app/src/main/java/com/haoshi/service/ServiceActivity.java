@@ -14,6 +14,7 @@ import android.view.View;
 import com.haoshi.IAidlInterface;
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.IndexActivity;
 import com.haoshi.utils.T;
 
 public class ServiceActivity extends BaseActivity {
@@ -25,6 +26,11 @@ public class ServiceActivity extends BaseActivity {
         findViewById(R.id.button2).setOnClickListener(this);
         findViewById(R.id.button3).setOnClickListener(this);
     }
+    
+    @Override
+    public void setData() {
+        
+    }
 
     @Override
     public int setContentViewID() {
@@ -32,9 +38,8 @@ public class ServiceActivity extends BaseActivity {
     }
 
     @Override
-    public void setData() {
-        TAG = ServiceActivity.class.getSimpleName();
-        setTitle(TAG);
+    public String setTitle() {
+        return TAG = IndexActivity.class.getSimpleName();
     }
 
     @Override

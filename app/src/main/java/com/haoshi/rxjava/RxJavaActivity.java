@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.IndexActivity;
 
 
 public class RxJavaActivity extends BaseActivity {
@@ -14,6 +15,11 @@ public class RxJavaActivity extends BaseActivity {
         findViewById(R.id.button).setOnClickListener(this);
         findViewById(R.id.button1).setOnClickListener(this);
     }
+    
+    @Override
+    public void setData() {
+        
+    }
 
     @Override
     public int setContentViewID() {
@@ -21,9 +27,8 @@ public class RxJavaActivity extends BaseActivity {
     }
 
     @Override
-    public void setData() {
-        TAG = RxJavaActivity.class.getSimpleName();
-        setTitle(TAG);
+    public String setTitle() {
+        return TAG = IndexActivity.class.getSimpleName();
     }
 
     @Override

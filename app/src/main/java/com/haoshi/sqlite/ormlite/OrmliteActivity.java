@@ -6,6 +6,7 @@ import android.widget.EditText;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.IndexActivity;
 import com.haoshi.utils.L;
 
 import java.sql.SQLException;
@@ -34,14 +35,18 @@ public class OrmliteActivity extends BaseActivity {
     }
 
     @Override
-    public int setContentViewID() {
-        return R.layout.activity_ormlite;
+    public void setData() {
+        
     }
 
     @Override
-    public void setData() {
-        TAG = OrmliteActivity.class.getSimpleName();
-        setTitle(TAG);
+    public int setContentViewID() {
+        return R.layout.activity_ormlite;
+    }
+    
+    @Override
+    public String setTitle() {
+        return TAG = IndexActivity.class.getSimpleName();
     }
 
     @Override

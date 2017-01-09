@@ -8,6 +8,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.IndexActivity;
 import com.haoshi.utils.T;
 
 import java.util.ArrayList;
@@ -27,15 +28,7 @@ public class RecyclerViewActivity extends BaseActivity {
     }
 
     @Override
-    public int setContentViewID() {
-        return R.layout.activity_recycler_view;
-    }
-
-    @Override
     public void setData() {
-        TAG = RecyclerViewActivity.class.getSimpleName();
-        setTitle(TAG);
-
         Intent intent = getIntent();
         type = intent.getIntExtra("type", 1);
 
@@ -79,5 +72,15 @@ public class RecyclerViewActivity extends BaseActivity {
             StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
             recyclerView.setLayoutManager(manager);
         }
+    }
+
+    @Override
+    public int setContentViewID() {
+        return R.layout.activity_recycler_view;
+    }
+
+    @Override
+    public String setTitle() {
+        return TAG = IndexActivity.class.getSimpleName();
     }
 }

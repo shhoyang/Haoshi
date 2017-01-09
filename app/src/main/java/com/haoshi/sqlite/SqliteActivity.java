@@ -5,6 +5,7 @@ import android.view.View;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.IndexActivity;
 import com.haoshi.sqlite.ormlite.OrmliteActivity;
 
 public class SqliteActivity extends BaseActivity {
@@ -15,14 +16,18 @@ public class SqliteActivity extends BaseActivity {
     }
 
     @Override
+    public void setData() {
+        
+    }
+
+    @Override
     public int setContentViewID() {
         return R.layout.activity_sqlite;
     }
 
     @Override
-    public void setData() {
-        TAG = SqliteActivity.class.getSimpleName();
-        setTitle(TAG);
+    public String setTitle() {
+        return TAG = IndexActivity.class.getSimpleName();
     }
 
     @Override

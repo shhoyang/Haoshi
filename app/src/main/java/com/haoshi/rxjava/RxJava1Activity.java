@@ -4,6 +4,7 @@ import android.view.View;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.IndexActivity;
 import com.haoshi.utils.L;
 
 import java.util.ArrayList;
@@ -23,15 +24,9 @@ public class RxJava1Activity extends BaseActivity {
     public void initView() {
         findViewById(R.id.button).setOnClickListener(this);
     }
-
-    @Override
-    public int setContentViewID() {
-        return R.layout.activity_rx_java1;
-    }
-
+    
     @Override
     public void setData() {
-        TAG = RxJava1Activity.class.getSimpleName();
         Collections.addAll(list, "0", "1", "2", "3", "4");
         //方法1
         observable = Observable.create(new Observable.OnSubscribe<String>() {
@@ -49,6 +44,16 @@ public class RxJava1Activity extends BaseActivity {
         observable = Observable.empty();
         //方法5,不回调任何方法
         observable = Observable.never();
+    }
+
+    @Override
+    public int setContentViewID() {
+        return R.layout.activity_rx_java1;
+    }
+
+    @Override
+    public String setTitle() {
+        return TAG = IndexActivity.class.getSimpleName();
     }
 
     @Override

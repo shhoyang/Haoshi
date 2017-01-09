@@ -5,6 +5,7 @@ import android.widget.ExpandableListView;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.IndexActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -20,14 +21,7 @@ public class ExpandableListViewActivity extends BaseActivity {
     }
 
     @Override
-    public int setContentViewID() {
-        return R.layout.activity_expandable_list_view;
-    }
-
-    @Override
     public void setData() {
-        TAG = ExpandableListViewActivity.class.getSimpleName();
-        setTitle(TAG);
         List<String> groupData = new ArrayList<>();
         List<List<String>> childData = new ArrayList<>();
         Collections.addAll(groupData, "item0", "item1", "item2", "item3", "item4");
@@ -47,5 +41,15 @@ public class ExpandableListViewActivity extends BaseActivity {
                 return true;
             }
         });
+    }
+
+    @Override
+    public int setContentViewID() {
+        return R.layout.activity_expandable_list_view;
+    }
+
+    @Override
+    public String setTitle() {
+        return TAG = IndexActivity.class.getSimpleName();
     }
 }

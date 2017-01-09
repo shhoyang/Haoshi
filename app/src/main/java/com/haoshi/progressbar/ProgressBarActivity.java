@@ -2,12 +2,17 @@ package com.haoshi.progressbar;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.IndexActivity;
 
 public class ProgressBarActivity extends BaseActivity {
 
     @Override
     public void initView() {
 
+    }
+    
+    @Override
+    public void setData() {
     }
 
     @Override
@@ -16,8 +21,7 @@ public class ProgressBarActivity extends BaseActivity {
     }
 
     @Override
-    public void setData() {
-        TAG = ProgressBarActivity.class.getSimpleName();
-        setTitle(TAG);
+    public String setTitle() {
+        return TAG = IndexActivity.class.getSimpleName();
     }
 }
