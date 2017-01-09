@@ -29,9 +29,15 @@
         <activity android:name=".rxjava.RxJava1Activity" />
         <activity android:name=".rxjava.RxJava2Activity" />
         <activity android:name=".tts.TTSActivity" />
-        <activity android:name=".mvp.MvpActivity" />
-        <activity android:name=".sqlite.SqliteActivity" />
-        <activity android:name=".sqlite.ormlite.OrmliteActivity"></activity>
+        <activity android:name=".mvp.activity.MvpActivity" />
+        <activity android:name=".dialog.DialogActivity" />
+        <activity android:name=".progressbar.ProgressBarActivity" />
+        <activity android:name=".listview.ListViewActivity" />
+        <activity android:name=".listview.ExpandableListViewActivity" />
+        <activity android:name=".listview.RecyclerViewActivity" />
+        <activity android:name=".service.ServiceActivity" />
+
+        <service android:name=".service.MessengerService" />
     </application>
 
 </manifest>

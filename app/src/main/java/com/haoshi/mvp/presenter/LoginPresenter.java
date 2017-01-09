@@ -5,7 +5,7 @@ import android.os.Handler;
 import com.haoshi.mvp.Biz.IUserBiz;
 import com.haoshi.mvp.Biz.OnLoginListener;
 import com.haoshi.mvp.Biz.UserBiz;
-import com.haoshi.mvp.MvpActivity;
+import com.haoshi.mvp.activity.MvpActivity;
 import com.haoshi.mvp.bean.User;
 import com.haoshi.mvp.view.IUserLoginView;
 
