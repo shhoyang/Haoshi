@@ -10,6 +10,7 @@ import com.haoshi.mvp.activity.MvpActivity;
 import com.haoshi.progressbar.ProgressBarActivity;
 import com.haoshi.rxjava.RxJavaActivity;
 import com.haoshi.service.ServiceActivity;
+import com.haoshi.sqlite.SqliteActivity;
 import com.haoshi.tts.TTSActivity;
 
 public class IndexActivity extends BaseActivity {
@@ -23,6 +24,7 @@ public class IndexActivity extends BaseActivity {
         findViewById(R.id.button4).setOnClickListener(this);
         findViewById(R.id.button5).setOnClickListener(this);
         findViewById(R.id.button6).setOnClickListener(this);
+        findViewById(R.id.button7).setOnClickListener(this);
     }
 
     @Override
@@ -61,6 +63,9 @@ public class IndexActivity extends BaseActivity {
                 break;
             case R.id.button6:
                 intent = new Intent(this, ServiceActivity.class);
+                break;
+            case R.id.button7:
+                intent = new Intent(this, SqliteActivity.class);
                 break;
         }
         startActivity(intent);

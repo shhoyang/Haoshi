@@ -1,9 +1,11 @@
 package com.haoshi.sqlite;
 
+import android.content.Intent;
 import android.view.View;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.sqlite.ormlite.OrmliteActivity;
 
 public class SqliteActivity extends BaseActivity {
 
@@ -26,10 +28,12 @@ public class SqliteActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         super.onClick(v);
+        Intent intent = null;
         switch (v.getId()) {
             case R.id.button:
-
+                intent = new Intent(this, OrmliteActivity.class);
                 break;
         }
+        startActivity(intent);
     }
 }
