@@ -18,10 +18,8 @@ public class DbManager {
 
     private OpenHelper openHelper;
     private Dao dao;
-    private Context context;
 
     public DbManager(Context context) throws SQLException {
-        this.context = context;
         openHelper = OpenHelper.getInstance(context);
         dao = openHelper.getDao(Personnel.class);
     }
@@ -36,7 +34,7 @@ public class DbManager {
 
     public int deleteByNum(String num) throws SQLException {
         DeleteBuilder builder = dao.deleteBuilder();
-        builder.where().eq("num", 1);
+        builder.where().eq("num", num);
         return builder.delete();
     }
 

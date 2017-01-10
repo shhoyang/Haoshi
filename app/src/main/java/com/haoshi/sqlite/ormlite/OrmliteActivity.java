@@ -36,17 +36,17 @@ public class OrmliteActivity extends BaseActivity {
 
     @Override
     public void setData() {
-        
+
     }
 
     @Override
     public int setContentViewID() {
         return R.layout.activity_ormlite;
     }
-    
+
     @Override
     public String setTitle() {
-        return TAG = IndexActivity.class.getSimpleName();
+        return TAG = OrmliteActivity.class.getSimpleName();
     }
 
     @Override

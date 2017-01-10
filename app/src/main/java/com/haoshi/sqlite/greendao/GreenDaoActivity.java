@@ -57,7 +57,7 @@ public class GreenDaoActivity extends BaseActivity {
         try {
             name = editName.getText().toString();
             num = editNum.getText().toString();
-            dbManager = new DbManager(this);
+            //dbManager = DbManager.getInstance(this);
             switch (v.getId()) {
                 case R.id.button:
                     if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(num)) {
