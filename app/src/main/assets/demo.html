@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title></title>
+    <style type="text/css">
+		#content{width: 100px;
+			height: 50px;
+			text-align: center;
+			font-size:15px;
+			background-color: red;
+			box-shadow: 5px 5px 3px gray;
+			border-radius:3px;
+			position: relative;
+			-webkit-animation:myfirst 5s linear 2s infinite alternate;
+		}
+
+		@-webkit-keyframes myfirst{
+			0%{background:red;left: 0px;top:0px;-webkit-transform:rotate(360deg) rotateX(360deg) rotateY(360deg) rotateZ(360deg);}
+			25%{background:yellow;left: 200px;top:0px;}
+			50%{background:blue;left: 200px;top:200px;}
+			75%{background:green;left: 0px;top:200px;}
+			100%{background:red;left: 0px;top:0px;width: 200px;height: 200px;}
+		}
+
+    </style>
+    <script type="text/javascript">
+
+        function javacalljs(){
+             document.getElementById("content").innerHTML =
+                 "<br/>JAVA无参调用JS";
+        }
+
+        function javacalljswith(arg){
+             document.getElementById("content").innerHTML =
+                 ("<br/>"+arg);
+        }
+
+    </script>
+</head>
+<body>
+<pre><span> WebView</span></pre>
+<div>
+<input type="button" value="无参调用JAVA" onclick="window.android.startFunction()"/>
+<input type="button" value="有参调用JAVA" onclick="window.android.startFunction('js调用了java的方法')"/>
+</div>
+<div id="content"></div>
+</body>
+</html>

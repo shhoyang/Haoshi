@@ -48,7 +48,7 @@ public class GreenDaoActivity extends BaseActivity {
 
     @Override
     public String setTitle() {
-        return TAG = IndexActivity.class.getSimpleName();
+        return TAG = GreenDaoActivity.class.getSimpleName();
     }
 
     @Override

@@ -27,7 +27,7 @@ public class SqliteActivity extends BaseActivity {
 
     @Override
     public String setTitle() {
-        return TAG = IndexActivity.class.getSimpleName();
+        return TAG = SqliteActivity.class.getSimpleName();
     }
 
     @Override

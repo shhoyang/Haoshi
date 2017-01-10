@@ -35,7 +35,7 @@ public class TTSActivity extends BaseActivity implements SpeechSynthesizerListen
 
     @Override
     public String setTitle() {
-        return TAG = IndexActivity.class.getSimpleName();
+        return TAG = TTSActivity.class.getSimpleName();
     }
 
     @Override

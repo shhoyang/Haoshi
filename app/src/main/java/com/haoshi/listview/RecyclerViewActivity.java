@@ -81,6 +81,6 @@ public class RecyclerViewActivity extends BaseActivity {
 
     @Override
     public String setTitle() {
-        return TAG = IndexActivity.class.getSimpleName();
+        return TAG = RecyclerViewActivity.class.getSimpleName();
     }
 }

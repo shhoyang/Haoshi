@@ -26,7 +26,7 @@ public class DialogActivity extends BaseActivity {
     
     @Override
     public String setTitle() {
-        return TAG = IndexActivity.class.getSimpleName();
+        return TAG = DialogActivity.class.getSimpleName();
     }
 
     @Override

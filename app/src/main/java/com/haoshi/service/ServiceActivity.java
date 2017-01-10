@@ -39,7 +39,7 @@ public class ServiceActivity extends BaseActivity {
 
     @Override
     public String setTitle() {
-        return TAG = IndexActivity.class.getSimpleName();
+        return TAG = ServiceActivity.class.getSimpleName();
     }
 
     @Override

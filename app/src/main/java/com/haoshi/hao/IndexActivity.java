@@ -16,6 +16,7 @@ import com.haoshi.tts.TTSActivity;
 import com.haoshi.utils.ScreenUtils;
 import com.haoshi.view.MarqueeTextView;
 import com.haoshi.view.ViewActivity;
+import com.haoshi.webview.JavaJsActivity;
 
 public class IndexActivity extends BaseActivity {
 
@@ -46,6 +47,7 @@ public class IndexActivity extends BaseActivity {
         findViewById(R.id.button7).setOnClickListener(this);
         findViewById(R.id.button8).setOnClickListener(this);
         findViewById(R.id.button9).setOnClickListener(this);
+        findViewById(R.id.button10).setOnClickListener(this);
     }
 
     @Override
@@ -110,6 +112,9 @@ public class IndexActivity extends BaseActivity {
                 break;
             case R.id.button9:
                 intent = new Intent(this, SwipeActivity.class);
+                break;
+            case R.id.button10:
+                intent = new Intent(this, JavaJsActivity.class);
                 break;
         }
         startActivity(intent);

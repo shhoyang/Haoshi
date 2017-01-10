@@ -34,6 +34,6 @@ public class ScrollActivity extends BaseActivity {
 
     @Override
     public String setTitle() {
-        return TAG = IndexActivity.class.getSimpleName();
+        return TAG = ScrollActivity.class.getSimpleName();
     }
 }

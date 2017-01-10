@@ -28,7 +28,7 @@ public class RxJavaActivity extends BaseActivity {
 
     @Override
     public String setTitle() {
-        return TAG = IndexActivity.class.getSimpleName();
+        return TAG = RxJavaActivity.class.getSimpleName();
     }
 
     @Override

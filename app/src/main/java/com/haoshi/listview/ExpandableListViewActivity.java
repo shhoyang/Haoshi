@@ -50,6 +50,6 @@ public class ExpandableListViewActivity extends BaseActivity {
 
     @Override
     public String setTitle() {
-        return TAG = IndexActivity.class.getSimpleName();
+        return TAG = ExpandableListViewActivity.class.getSimpleName();
     }
 }
