@@ -8,8 +8,15 @@ import android.app.Application;
 
 public class HaoApplication extends Application {
 
+    private static HaoApplication application;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        application = this;
+    }
+
+    public static HaoApplication getInstance() {
+        return application;
     }
 }
