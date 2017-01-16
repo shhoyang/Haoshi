@@ -8,7 +8,6 @@ public class Register extends BaseResponse {
 
     private String username;
     private String userpass;
-    private String nickname;
 
     public String getUsername() {
         return username;
@@ -26,20 +25,11 @@ public class Register extends BaseResponse {
         this.userpass = userpass;
     }
 
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
     @Override
     public String toString() {
         return "Register{" +
                 "username='" + username + '\'' +
                 ", userpass='" + userpass + '\'' +
-                ", nickname='" + nickname + '\'' +
                 '}';
     }
 }

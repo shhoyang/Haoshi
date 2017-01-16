@@ -8,7 +8,6 @@ public class Login extends BaseResponse {
     
     private String id;
     private String username;
-    private String userpass;
     private String usersex;
     private String useremail;
     private String nickname;
@@ -30,14 +29,6 @@ public class Login extends BaseResponse {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getUserpass() {
-        return userpass;
-    }
-
-    public void setUserpass(String userpass) {
-        this.userpass = userpass;
     }
 
     public String getUsersex() {
@@ -93,7 +84,6 @@ public class Login extends BaseResponse {
         return "Login{" +
                 "id='" + id + '\'' +
                 ", username='" + username + '\'' +
-                ", userpass='" + userpass + '\'' +
                 ", usersex='" + usersex + '\'' +
                 ", useremail='" + useremail + '\'' +
                 ", nickname='" + nickname + '\'' +

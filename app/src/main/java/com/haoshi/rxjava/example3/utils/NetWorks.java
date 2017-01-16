@@ -2,6 +2,7 @@ package com.haoshi.rxjava.example3.utils;
 
 import com.haoshi.hao.Constant;
 import com.haoshi.rxjava.example3.bean.Login;
+import com.haoshi.rxjava.example3.bean.News;
 import com.haoshi.rxjava.example3.bean.Register;
 
 import java.util.Map;
@@ -23,7 +24,7 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
 public class NetWorks {
-    
+
     private static final NetService service = getRetrofit().create(NetService.class);
 
     //设缓存有效期为1天
@@ -35,16 +36,16 @@ public class NetWorks {
 
     private interface NetService {
 
+        @GET(Constant.NEWS_HOT)
+        Observable<News> news();
+
         @FormUrlEncoded
-        @POST("/regist")
+        @POST("")
         Observable<Register> register(@FieldMap Map<String, String> map);
 
         @FormUrlEncoded
-        @POST("/login")
+        @POST("")
         Observable<Login> login(@Field("username") String username, @Field("password") String password);
-
-        @GET("")
-        Observable<Login> image();
 
         @GET("")
         Observable<Login> hao1(@Query("username") String username, @Query("password") String password);
@@ -58,6 +59,10 @@ public class NetWorks {
         @Headers("Cache-Control: public," + CACHE_CONTROL_NETWORK)
         @GET("")
         Observable<Login> hao3();
+    }
+
+    public static void getNews(Observer<News> observer) {
+        setSubscribe(service.news(), observer);
     }
 
     public static void doRegister(Map<String, String> map, Observer<Register> observer) {
@@ -89,10 +94,11 @@ public class NetWorks {
 
     private static Retrofit retrofit;
     private static OkHttpClient okHttpClient;
+
     private static Retrofit getRetrofit() {
 
         if (retrofit == null) {
-            
+
             if (okHttpClient == null) {
                 okHttpClient = OkHttpUtils.getOkHttpClient();
             }
