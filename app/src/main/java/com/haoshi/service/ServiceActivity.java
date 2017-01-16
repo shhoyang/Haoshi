@@ -14,7 +14,6 @@ import android.view.View;
 import com.haoshi.IAidlInterface;
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.hao.IndexActivity;
 import com.haoshi.utils.T;
 
 public class ServiceActivity extends BaseActivity {

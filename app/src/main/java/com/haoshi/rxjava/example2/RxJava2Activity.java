@@ -1,10 +1,9 @@
-package com.haoshi.rxjava;
+package com.haoshi.rxjava.example2;
 
 import android.view.View;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.hao.IndexActivity;
 import com.haoshi.utils.L;
 
 import rx.Observer;

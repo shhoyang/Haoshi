@@ -8,7 +8,6 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.hao.IndexActivity;
 import com.haoshi.utils.T;
 
 import java.util.ArrayList;

@@ -6,12 +6,8 @@ import android.widget.EditText;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.hao.IndexActivity;
-import com.haoshi.sqlite.ormlite.DbManager;
-import com.haoshi.sqlite.ormlite.Personnel;
 import com.haoshi.utils.L;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public class GreenDaoActivity extends BaseActivity {
@@ -54,61 +50,58 @@ public class GreenDaoActivity extends BaseActivity {
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        try {
-            name = editName.getText().toString();
-            num = editNum.getText().toString();
-            //dbManager = DbManager.getInstance(this);
-            switch (v.getId()) {
-                case R.id.button:
-                    if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(num)) {
-                        personnel = new Personnel(name, num);
-                        dbManager.insert(personnel);
-                    }
-                    break;
-                case R.id.button1:
-                    if (personnel != null) {
-                        dbManager.delete(personnel);
-                    }
-                    break;
-                case R.id.button11:
-                    if (!TextUtils.isEmpty(num)) {
-                        dbManager.deleteByNum(num);
-                    }
-                    break;
-                case R.id.button12:
-                    dbManager.deleteAll();
-                    break;
-                case R.id.button2:
-                    if (personnel != null && !TextUtils.isEmpty(name)) {
-                        personnel.setName(name);
-                        dbManager.update(personnel);
-                    }
-                    break;
-                case R.id.button21:
-                    if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(num)) {
-                        dbManager.updateByNum(new Personnel(name, num));
-                    }
-                    break;
-                case R.id.button3:
-                    if (!TextUtils.isEmpty(num)) {
-                        List<Personnel> list = dbManager.queryByNum(num);
-                        if (list != null && list.size() != 0) {
-                            personnel = list.get(0);
-                            for (Personnel personnel : list) {
-                                L.d(TAG, personnel.toString());
-                            }
+        name = editName.getText().toString();
+        num = editNum.getText().toString();
+        dbManager = DbManager.getInstance(this);
+        switch (v.getId()) {
+            case R.id.button:
+                if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(num)) {
+                    personnel = new Personnel(null,name,num);
+                    dbManager.insert(personnel);
+                }
+                break;
+            case R.id.button1:
+                if (personnel != null) {
+                    dbManager.delete(personnel);
+                }
+                break;
+            case R.id.button11:
+                if (!TextUtils.isEmpty(num)) {
+                    dbManager.deleteByNum(num);
+                }
+                break;
+            case R.id.button12:
+                dbManager.deleteAll();
+                break;
+            case R.id.button2:
+                if (personnel != null && !TextUtils.isEmpty(name)) {
+                    personnel.setName(name);
+                    dbManager.update(personnel);
+                }
+                break;
+            case R.id.button21:
+                if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(num)) {
+                    personnel = new Personnel(null,name,num);
+                    dbManager.updateByNum(personnel);
+                }
+                break;
+            case R.id.button3:
+                if (!TextUtils.isEmpty(num)) {
+                    List<Personnel> list = dbManager.queryByNum(num);
+                    if (list != null && list.size() != 0) {
+                        personnel = list.get(0);
+                        for (Personnel personnel : list) {
+                            L.d(TAG, personnel.toString());
                         }
                     }
-                    break;
-                case R.id.button31:
-                    List<Personnel> list = dbManager.query();
-                    for (Personnel personnel : list) {
-                        L.d(TAG, personnel.toString());
-                    }
-                    break;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
+                }
+                break;
+            case R.id.button31:
+                List<Personnel> list = dbManager.query();
+                for (Personnel personnel : list) {
+                    L.d(TAG, personnel.toString());
+                }
+                break;
         }
     }
 }

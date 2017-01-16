@@ -5,7 +5,6 @@ import android.widget.ExpandableListView;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.hao.IndexActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;

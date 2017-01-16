@@ -3,15 +3,11 @@ package com.haoshi.hao;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.haoshi.R;
-import com.haoshi.utils.L;
-import com.haoshi.utils.ScreenUtils;
 
 /**
  * Created by Haoshi on 2017/1/7.

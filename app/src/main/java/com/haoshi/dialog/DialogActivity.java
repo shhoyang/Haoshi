@@ -4,7 +4,6 @@ import android.view.View;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.hao.IndexActivity;
 
 public class DialogActivity extends BaseActivity {
 

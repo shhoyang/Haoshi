@@ -26,8 +26,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".rxjava.RxJavaActivity" />
-        <activity android:name=".rxjava.RxJava1Activity" />
-        <activity android:name=".rxjava.RxJava2Activity" />
+        <activity android:name=".rxjava.example1.RxJava1Activity" />
+        <activity android:name=".rxjava.example2.RxJava2Activity" />
         <activity android:name=".tts.TTSActivity" />
         <activity android:name=".mvp.activity.MvpActivity" />
         <activity android:name=".dialog.DialogActivity" />
@@ -45,7 +45,8 @@
         <activity android:name=".sqlite.greendao.GreenDaoActivity" />
         <activity android:name=".view.ViewActivity" />
         <activity android:name=".swipelayout.SwipeActivity" />
-        <activity android:name=".webview.JavaJsActivity"></activity>
+        <activity android:name=".webview.JavaJsActivity" />
+        <activity android:name=".rxjava.example3.RxJava3Activity"></activity>
     </application>
 
 </manifest>

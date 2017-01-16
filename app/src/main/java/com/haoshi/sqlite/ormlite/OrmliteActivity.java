@@ -6,7 +6,6 @@ import android.widget.EditText;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.hao.IndexActivity;
 import com.haoshi.utils.L;
 
 import java.sql.SQLException;

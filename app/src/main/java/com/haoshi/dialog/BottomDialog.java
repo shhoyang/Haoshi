@@ -2,8 +2,6 @@ package com.haoshi.dialog;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
-import android.view.Display;
 import android.view.Gravity;
 import android.view.Window;
 import android.view.WindowManager;

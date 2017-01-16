@@ -9,7 +9,6 @@ import com.baidu.speechsynthesizer.SpeechSynthesizerListener;
 import com.baidu.speechsynthesizer.publicutility.SpeechError;
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.hao.IndexActivity;
 import com.haoshi.utils.L;
 
 public class TTSActivity extends BaseActivity implements SpeechSynthesizerListener {
@@ -41,13 +40,14 @@ public class TTSActivity extends BaseActivity implements SpeechSynthesizerListen
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.button:
                 String content = editText.getText().toString();
                 if (content != null) {
+                    speechSynthesizer.cancel();
                     int speak = speechSynthesizer.speak(content);
-                    if (speak != -1){
-                        L.e(TAG,speak);
+                    if (speak != -1) {
+                        L.e(TAG, speak);
                     }
 
                 }
@@ -120,6 +120,6 @@ public class TTSActivity extends BaseActivity implements SpeechSynthesizerListen
 
     @Override
     public void onError(SpeechSynthesizer speechSynthesizer, SpeechError speechError) {
-        L.e(TAG,speechError.toString());
+        L.e(TAG, speechError.toString());
     }
 }

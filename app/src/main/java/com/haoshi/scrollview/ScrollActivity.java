@@ -4,7 +4,6 @@ import android.widget.TextView;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.hao.IndexActivity;
 
 public class ScrollActivity extends BaseActivity {
 

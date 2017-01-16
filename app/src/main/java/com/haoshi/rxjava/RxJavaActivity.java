@@ -5,7 +5,9 @@ import android.view.View;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.hao.IndexActivity;
+import com.haoshi.rxjava.example1.RxJava1Activity;
+import com.haoshi.rxjava.example2.RxJava2Activity;
+import com.haoshi.rxjava.example3.RxJava3Activity;
 
 
 public class RxJavaActivity extends BaseActivity {
@@ -14,6 +16,7 @@ public class RxJavaActivity extends BaseActivity {
     public void initView() {
         findViewById(R.id.button).setOnClickListener(this);
         findViewById(R.id.button1).setOnClickListener(this);
+        findViewById(R.id.button2).setOnClickListener(this);
     }
     
     @Override
@@ -41,6 +44,9 @@ public class RxJavaActivity extends BaseActivity {
                 break;
             case R.id.button1:
                 intent = new Intent(this, RxJava2Activity.class);
+                break;
+            case R.id.button2:
+                intent = new Intent(this, RxJava3Activity.class);
                 break;
         }
         startActivity(intent);

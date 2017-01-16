@@ -1,10 +1,9 @@
-package com.haoshi.rxjava;
+package com.haoshi.rxjava.example1;
 
 import android.view.View;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.hao.IndexActivity;
 import com.haoshi.utils.L;
 
 import java.util.ArrayList;
@@ -24,7 +23,7 @@ public class RxJava1Activity extends BaseActivity {
     public void initView() {
         findViewById(R.id.button).setOnClickListener(this);
     }
-    
+
     @Override
     public void setData() {
         Collections.addAll(list, "0", "1", "2", "3", "4");
