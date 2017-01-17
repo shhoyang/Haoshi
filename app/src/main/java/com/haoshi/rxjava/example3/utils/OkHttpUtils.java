@@ -31,7 +31,7 @@ public class OkHttpUtils {
 
     private static OkHttpClient okHttpClient;
 
-    private static File cacheDirectory = new File(Constant.rootDir + "/rxjava-cache");
+    private static File cacheDirectory = new File(Constant.ROOT_DIR + "/rxjava-cache");
     private static Cache cache = new Cache(cacheDirectory, 10 * 1024 * 1024);
 
     /**

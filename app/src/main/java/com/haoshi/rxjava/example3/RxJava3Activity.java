@@ -1,23 +1,20 @@
 package com.haoshi.rxjava.example3;
 
 
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.rxjava.example3.bean.Login;
-import com.haoshi.rxjava.example3.bean.Register;
+import com.haoshi.rxjava.example3.bean.News;
 import com.haoshi.rxjava.example3.utils.NetWorks;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import rx.Observer;
 
 public class RxJava3Activity extends BaseActivity {
 
     private RecyclerView recyclerView;
+    private RecyclerAdapter adapter;
 
     @Override
     public void initView() {
@@ -26,7 +23,30 @@ public class RxJava3Activity extends BaseActivity {
 
     @Override
     public void setData() {
+        adapter = new RecyclerAdapter();
+        recyclerView.setAdapter(adapter);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        manager.setOrientation(LinearLayoutManager.VERTICAL);
+        manager.setReverseLayout(false);
+        recyclerView.setLayoutManager(manager);
 
+        NetWorks.getNews(new Observer<News>() {
+
+            @Override
+            public void onCompleted() {
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onNext(News news) {
+                adapter.setList(news.getRecent());
+            }
+        });
     }
 
     @Override
@@ -37,56 +57,5 @@ public class RxJava3Activity extends BaseActivity {
     @Override
     public String setTitle() {
         return TAG = RxJava3Activity.class.getSimpleName();
-    }
-
-
-    private String username = "username";
-    private String password = "password";
-
-
-    private void register() {
-        dialog.setMessage("正在注册...");
-        dialog.show();
-        Map<String, String> map = new HashMap<>();
-        map.put("username", "");
-        map.put("password", password);
-        NetWorks.doRegister(map, new Observer<Register>() {
-            @Override
-            public void onCompleted() {
-                dialog.dismiss();
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                Log.e(TAG, e.toString());
-                dialog.dismiss();
-            }
-
-            @Override
-            public void onNext(Register register) {
-            }
-        });
-    }
-
-    private void login() {
-        dialog.setMessage("正在登陆...");
-        dialog.show();
-        NetWorks.doLogin(username, password, new Observer<Login>() {
-            @Override
-            public void onCompleted() {
-                dialog.dismiss();
-            }
-
-            @Override
-            public void onError(Throwable e) {
-                Log.e(TAG, e.toString());
-                dialog.dismiss();
-            }
-
-            @Override
-            public void onNext(Login login) {
-
-            }
-        });
     }
 }

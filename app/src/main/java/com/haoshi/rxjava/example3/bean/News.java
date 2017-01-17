@@ -3,11 +3,10 @@ package com.haoshi.rxjava.example3.bean;
 import java.util.List;
 
 /**
- * Created by Haoshi on 2017/1/16.
+ * Created by yugu on 2017/1/17.
  */
 
 public class News {
-
 
     private List<RecentBean> recent;
 
