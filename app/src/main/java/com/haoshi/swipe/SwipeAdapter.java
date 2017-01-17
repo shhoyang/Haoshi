@@ -1,4 +1,4 @@
-package com.haoshi.swipelayout;
+package com.haoshi.swipe;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,7 +12,7 @@ import com.haoshi.R;
 import com.haoshi.utils.T;
 
 /**
- * Created by haoshi on 2017/1/9.
+ * @author: HaoShi
  */
 
 public class SwipeAdapter extends BaseSwipeAdapter {

@@ -1,9 +1,13 @@
-package com.haoshi.swipelayout;
+package com.haoshi.swipe;
 
 import android.widget.ListView;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+
+/**
+ * @author: HaoShi
+ */
 
 public class SwipeActivity extends BaseActivity {
 

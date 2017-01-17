@@ -44,7 +44,7 @@
         <activity android:name=".scrollview.ScrollActivity" />
         <activity android:name=".sqlite.greendao.GreenDaoActivity" />
         <activity android:name=".view.ViewActivity" />
-        <activity android:name=".swipelayout.SwipeActivity" />
+        <activity android:name=".swipe.SwipeActivity" />
         <activity android:name=".webview.JavaJsActivity" />
         <activity android:name=".rxjava.example3.RxJava3Activity"></activity>
     </application>

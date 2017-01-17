@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.haoshi.R;
-import com.haoshi.swipelayout.SwipeActivity;
+import com.haoshi.swipe.SwipeActivity;
 import com.haoshi.dialog.DialogActivity;
 import com.haoshi.listview.ListViewActivity;
 import com.haoshi.mvp.activity.MvpActivity;
