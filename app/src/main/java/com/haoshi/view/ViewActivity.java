@@ -13,6 +13,10 @@ import com.haoshi.utils.ImageUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author: HaoShi
+ */
+
 public class ViewActivity extends BaseActivity {
 
     @Override

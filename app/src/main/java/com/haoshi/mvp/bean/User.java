@@ -1,7 +1,7 @@
 package com.haoshi.mvp.bean;
 
 /**
- * Created by yugu on 2016/12/23.
+ * @author: HaoShi
  */
 
 public class User {

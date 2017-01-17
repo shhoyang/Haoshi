@@ -9,6 +9,10 @@ import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
 import com.haoshi.utils.T;
 
+/**
+ * @author: HaoShi
+ */
+
 public class JavaJsActivity extends BaseActivity {
 
     private WebView webView;

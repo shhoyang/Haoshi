@@ -6,8 +6,9 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Property;
 
 /**
- * Created by haoshi on 2017/1/8.
+ * @author: HaoShi
  */
+
 @Entity
 public class Personnel {
 

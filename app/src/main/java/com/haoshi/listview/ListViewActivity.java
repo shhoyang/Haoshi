@@ -6,6 +6,10 @@ import android.view.View;
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
 
+/**
+ * @author: HaoShi
+ */
+
 public class ListViewActivity extends BaseActivity {
 
     @Override

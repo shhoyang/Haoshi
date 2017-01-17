@@ -12,7 +12,7 @@ import android.support.annotation.Nullable;
 import com.haoshi.utils.L;
 
 /**
- * Created by Haoshi on 2017/1/8.
+ * @author: HaoShi
  */
 
 public class MessengerService extends Service {

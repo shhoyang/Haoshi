@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.haoshi.R;
 
 /**
- * Created by Haoshi on 2017/1/7.
+ * @author: HaoShi
  */
 
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
@@ -26,7 +26,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.fram);
         View view = View.inflate(this, setContentViewID(), null);
         frameLayout.addView(view);
-        
+
         TextView title = (TextView) findViewById(R.id.title);
         title.setText(setTitle());
 

@@ -11,6 +11,10 @@ import com.haoshi.rxjava.example3.utils.NetWorks;
 
 import rx.Observer;
 
+/**
+ * @author: HaoShi
+ */
+
 public class RxJava3Activity extends BaseActivity {
 
     private RecyclerView recyclerView;

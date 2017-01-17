@@ -3,7 +3,10 @@ package com.haoshi.utils;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
-//MD5加密工具类
+/**
+ * @author: HaoShi
+ */
+
 public class MD5Utils {
 
     private static String SALT = "1254mDMEnl";//加密的盐。增加破解难度

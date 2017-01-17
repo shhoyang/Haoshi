@@ -3,7 +3,7 @@ package com.haoshi.rxjava.example3.bean;
 import java.util.List;
 
 /**
- * Created by yugu on 2017/1/17.
+ * @author: HaoShi
  */
 
 public class News {

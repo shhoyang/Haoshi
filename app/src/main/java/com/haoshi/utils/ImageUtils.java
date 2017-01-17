@@ -4,6 +4,10 @@ import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+/**
+ * @author: HaoShi
+ */
+
 public class ImageUtils {
 
     public static Bitmap createImageThumbnail(Resources res, int id) {

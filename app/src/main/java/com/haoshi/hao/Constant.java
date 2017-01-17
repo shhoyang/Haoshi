@@ -3,7 +3,7 @@ package com.haoshi.hao;
 import android.os.Environment;
 
 /**
- * Created by Haoshi on 2017/1/8.
+ * @author: HaoShi
  */
 
 public class Constant {

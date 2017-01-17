@@ -9,6 +9,9 @@ import com.haoshi.rxjava.example1.RxJava1Activity;
 import com.haoshi.rxjava.example2.RxJava2Activity;
 import com.haoshi.rxjava.example3.RxJava3Activity;
 
+/**
+ * @author: HaoShi
+ */
 
 public class RxJavaActivity extends BaseActivity {
 

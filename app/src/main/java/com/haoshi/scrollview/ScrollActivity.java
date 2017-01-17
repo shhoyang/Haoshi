@@ -5,6 +5,10 @@ import android.widget.TextView;
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
 
+/**
+ * @author: HaoShi
+ */
+
 public class ScrollActivity extends BaseActivity {
 
     @Override

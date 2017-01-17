@@ -14,6 +14,10 @@ import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
 
+/**
+ * @author: HaoShi
+ */
+
 public class RxJava1Activity extends BaseActivity {
 
     private Observable observable;

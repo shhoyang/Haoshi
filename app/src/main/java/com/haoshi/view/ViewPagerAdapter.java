@@ -1,16 +1,14 @@
 package com.haoshi.view;
 
-import android.content.Context;
 import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by yugu on 2017/1/9.
+ * @author: HaoShi
  */
 
 public class ViewPagerAdapter extends PagerAdapter {

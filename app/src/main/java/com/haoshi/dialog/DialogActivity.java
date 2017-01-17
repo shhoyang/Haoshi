@@ -5,6 +5,10 @@ import android.view.View;
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
 
+/**
+ * @author: HaoShi
+ */
+
 public class DialogActivity extends BaseActivity {
 
     @Override

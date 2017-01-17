@@ -10,6 +10,9 @@ import com.haoshi.mvp.bean.User;
 import com.haoshi.mvp.presenter.LoginPresenter;
 import com.haoshi.mvp.view.IUserLoginView;
 
+/**
+ * @author: HaoShi
+ */
 
 public class MvpActivity extends BaseActivity implements IUserLoginView {
 

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Haoshi on 2017/1/8.
+ * @author: HaoShi
  */
 
 public class ExpandableAdapter extends BaseExpandableListAdapter {

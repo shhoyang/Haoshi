@@ -16,6 +16,10 @@ import com.haoshi.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author: HaoShi
+ */
+
 public class AutoViewPager extends ViewPager {
 
     private List<ImageView> points = new ArrayList<>();

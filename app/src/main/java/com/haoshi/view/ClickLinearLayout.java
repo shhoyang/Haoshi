@@ -11,9 +11,8 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
 
-
 /**
- * Created by ShihaoYang on 2016/1/8 0020.
+ * @author: HaoShi
  */
 
 public class ClickLinearLayout extends LinearLayout {

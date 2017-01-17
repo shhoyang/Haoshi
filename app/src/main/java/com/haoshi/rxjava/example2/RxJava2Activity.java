@@ -9,6 +9,10 @@ import com.haoshi.utils.L;
 import rx.Observer;
 import rx.subjects.PublishSubject;
 
+/**
+ * @author: HaoShi
+ */
+
 public class RxJava2Activity extends BaseActivity {
 
     private PublishSubject publishSubject;

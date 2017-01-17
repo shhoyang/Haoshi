@@ -3,6 +3,10 @@ package com.haoshi.utils;
 import android.content.Context;
 import android.widget.Toast;
 
+/**
+ * @author: HaoShi
+ */
+
 public class T {
 
     private T() {

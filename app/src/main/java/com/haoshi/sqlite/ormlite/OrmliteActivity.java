@@ -11,6 +11,10 @@ import com.haoshi.utils.L;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * @author: HaoShi
+ */
+
 public class OrmliteActivity extends BaseActivity {
 
     private EditText editName, editNum;

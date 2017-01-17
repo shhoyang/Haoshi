@@ -10,7 +10,7 @@ import com.haoshi.mvp.bean.User;
 import com.haoshi.mvp.view.IUserLoginView;
 
 /**
- * Created by yugu on 2016/12/23.
+ * @author: HaoShi
  */
 
 public class LoginPresenter {

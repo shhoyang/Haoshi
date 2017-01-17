@@ -8,6 +8,10 @@ import com.haoshi.hao.BaseActivity;
 import com.haoshi.sqlite.greendao.GreenDaoActivity;
 import com.haoshi.sqlite.ormlite.OrmliteActivity;
 
+/**
+ * @author: HaoShi
+ */
+
 public class SqliteActivity extends BaseActivity {
 
     @Override

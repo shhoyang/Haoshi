@@ -4,8 +4,9 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 /**
- * Created by haoshi on 2017/1/8.
+ * @author: HaoShi
  */
+
 @DatabaseTable
 public class Personnel {
 

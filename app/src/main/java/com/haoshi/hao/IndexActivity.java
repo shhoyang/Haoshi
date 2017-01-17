@@ -18,6 +18,10 @@ import com.haoshi.view.MarqueeTextView;
 import com.haoshi.view.ViewActivity;
 import com.haoshi.webview.JavaJsActivity;
 
+/**
+ * @author: HaoShi
+ */
+
 public class IndexActivity extends BaseActivity {
 
     private MarqueeTextView marqueeTextView;

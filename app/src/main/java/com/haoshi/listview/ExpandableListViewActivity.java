@@ -10,6 +10,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+/**
+ * @author: HaoShi
+ */
+
 public class ExpandableListViewActivity extends BaseActivity {
 
     private ExpandableListView listView;

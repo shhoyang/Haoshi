@@ -24,7 +24,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 /**
- * Created by yugu on 2017/1/16.
+ * @author: HaoShi
  */
 
 public class OkHttpUtils {

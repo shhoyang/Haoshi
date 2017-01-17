@@ -9,7 +9,7 @@ import android.util.AttributeSet;
 import android.widget.ProgressBar;
 
 /**
- * Created by Haoshi on 2017/1/8.
+ * @author: HaoShi
  */
 
 public class HorizontalProgressBar extends ProgressBar {

@@ -5,8 +5,9 @@ import android.util.AttributeSet;
 import android.widget.ScrollView;
 
 /**
- * Created by ShihaoYang on 2016/12/24 0024.
+ * @author: HaoShi
  */
+
 public class StickyScrollView extends ScrollView {
 
     public StickyScrollView(Context context) {

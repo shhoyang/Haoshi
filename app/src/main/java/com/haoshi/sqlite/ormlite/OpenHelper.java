@@ -8,7 +8,7 @@ import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
 /**
- * Created by haoshi on 2017/1/8.
+ * @author: HaoShi
  */
 
 public class OpenHelper extends OrmLiteSqliteOpenHelper {

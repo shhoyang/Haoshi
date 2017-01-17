@@ -13,6 +13,10 @@ import com.haoshi.utils.T;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author: HaoShi
+ */
+
 public class RecyclerViewActivity extends BaseActivity {
 
     private RecyclerView recyclerView;

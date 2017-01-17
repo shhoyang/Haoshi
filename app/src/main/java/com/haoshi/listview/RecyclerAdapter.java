@@ -9,8 +9,9 @@ import com.haoshi.R;
 import java.util.List;
 
 /**
- * Created by Administrator on 2016/6/6 0006.
+ * @author: HaoShi
  */
+
 public class RecyclerAdapter extends RecyclerView.Adapter<VH> {
 
     private List<String> texts;

@@ -22,9 +22,8 @@ import android.widget.ImageView;
 
 import com.haoshi.R;
 
-
 /**
- * Created by ShihaoYang on 2016/10/31 0031.
+ * @author: HaoShi
  */
 
 public class CircleImageView extends ImageView {
