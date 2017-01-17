@@ -1,5 +1,6 @@
 package com.haoshi.view;
 
+import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -18,11 +19,14 @@ import java.util.List;
  */
 public class ViewActivity extends BaseActivity {
 
+    private List<View> imageList = new ArrayList<>();
+    private int count;
+
     @Override
     public void initView() {
 
         initViewPager();
-        
+
         CircleImageView clickImage = (CircleImageView) findViewById(R.id.click_image);
         clickImage.setImageBitmap(ImageUtils.createImageThumbnail(getResources(), R.mipmap.lamborghini));
     }
@@ -48,7 +52,6 @@ public class ViewActivity extends BaseActivity {
         LinearLayout.LayoutParams imageParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         LinearLayout.LayoutParams pointParams = new LinearLayout.LayoutParams(12, 12);
         pointParams.leftMargin = 8;
-        List<View> imageList = new ArrayList<>();
         List<ImageView> pointList = new ArrayList<>();
         ImageView image;
         for (int i = 0; i < 6; i++) {
@@ -65,10 +68,34 @@ public class ViewActivity extends BaseActivity {
             linearLayout.addView(image);
         }
 
-        ViewPagerAdapter adapter = new ViewPagerAdapter(imageList);
+        count = imageList.size();
         viewPager.setPoints(pointList);
         viewPager.setInterval(3);
         viewPager.setAdapter(adapter);
         viewPager.thread.start();
     }
+
+    private PagerAdapter adapter = new PagerAdapter() {
+        @Override
+        public int getCount() {
+            return Integer.MAX_VALUE;
+        }
+
+        @Override
+        public boolean isViewFromObject(View view, Object object) {
+            return view == object;
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup container, int position) {
+            View view = imageList.get(position % count);
+            container.addView(view);
+            return view;
+        }
+
+        @Override
+        public void destroyItem(ViewGroup container, int position, Object object) {
+            container.removeView(imageList.get(position % count));
+        }
+    };
 }

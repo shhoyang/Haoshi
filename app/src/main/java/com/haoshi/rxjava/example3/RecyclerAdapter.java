@@ -30,7 +30,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<VH> {
     @Override
     public VH onCreateViewHolder(ViewGroup parent, int viewType) {
         context = parent.getContext();
-        View v = View.inflate(parent.getContext(), R.layout.recycler_item1, null);
+        View v = View.inflate(parent.getContext(), R.layout.rxjava_item, null);
         VH vh = new VH(v);
         return vh;
     }

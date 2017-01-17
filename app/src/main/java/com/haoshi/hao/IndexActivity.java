@@ -1,11 +1,17 @@
 package com.haoshi.hao;
 
 import android.content.Intent;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ListView;
 
+import com.andview.refreshview.XRefreshView;
 import com.haoshi.R;
 import com.haoshi.bluetooth.BluetoothActivity;
-import com.haoshi.swipe.SwipeActivity;
 import com.haoshi.dialog.DialogActivity;
 import com.haoshi.listview.ListViewActivity;
 import com.haoshi.mvp.activity.MvpActivity;
@@ -13,11 +19,15 @@ import com.haoshi.rxjava.RxJavaActivity;
 import com.haoshi.scrollview.ScrollActivity;
 import com.haoshi.service.ServiceActivity;
 import com.haoshi.sqlite.SqliteActivity;
+import com.haoshi.swipe.SwipeActivity;
 import com.haoshi.tts.TTSActivity;
 import com.haoshi.utils.ScreenUtils;
 import com.haoshi.view.MarqueeTextView;
 import com.haoshi.view.ViewActivity;
 import com.haoshi.webview.JavaJsActivity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author: HaoShi
@@ -25,12 +35,14 @@ import com.haoshi.webview.JavaJsActivity;
 public class IndexActivity extends BaseActivity {
 
     private MarqueeTextView marqueeTextView;
+    private RecyclerView recyclerView;
+    private List<Class<?>> list = new ArrayList<>();
 
     @Override
     public void initView() {
 
         marqueeTextView = (MarqueeTextView) findViewById(R.id.marquee);
-        marqueeTextView.setText("工作中总结Demo,与同仁共享");
+        marqueeTextView.setText("工作中总结的Demo,与同仁共享");
         marqueeTextView.setSpeed(ScreenUtils.getScreenWidth(this) / 300);
         marqueeTextView.setFontColor("#FFFFFF");
         marqueeTextView.init(getWindowManager());
@@ -41,18 +53,7 @@ public class IndexActivity extends BaseActivity {
             }
         });
 
-        findViewById(R.id.button).setOnClickListener(this);
-        findViewById(R.id.button1).setOnClickListener(this);
-        findViewById(R.id.button2).setOnClickListener(this);
-        findViewById(R.id.button3).setOnClickListener(this);
-        findViewById(R.id.button4).setOnClickListener(this);
-        findViewById(R.id.button5).setOnClickListener(this);
-        findViewById(R.id.button6).setOnClickListener(this);
-        findViewById(R.id.button7).setOnClickListener(this);
-        findViewById(R.id.button8).setOnClickListener(this);
-        findViewById(R.id.button9).setOnClickListener(this);
-        findViewById(R.id.button10).setOnClickListener(this);
-        findViewById(R.id.button11).setOnClickListener(this);
+        recyclerView = (RecyclerView) findViewById(R.id.recycler);
     }
 
     @Override
@@ -69,7 +70,24 @@ public class IndexActivity extends BaseActivity {
 
     @Override
     public void setData() {
+        list.add(RxJavaActivity.class);
+        list.add(MvpActivity.class);
+        list.add(DialogActivity.class);
+        list.add(ScrollActivity.class);
+        list.add(SwipeActivity.class);
+        list.add(ListViewActivity.class);
+        list.add(JavaJsActivity.class);
+        list.add(ViewActivity.class);
+        list.add(SqliteActivity.class);
+        list.add(ServiceActivity.class);
+        list.add(TTSActivity.class);
+        list.add(BluetoothActivity.class);
 
+        recyclerView.setAdapter(adapter);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        manager.setOrientation(LinearLayoutManager.VERTICAL);
+        manager.setReverseLayout(false);
+        recyclerView.setLayoutManager(manager);
     }
 
     @Override
@@ -83,48 +101,37 @@ public class IndexActivity extends BaseActivity {
         return "豪〤世";
     }
 
-    @Override
-    public void onClick(View v) {
-        super.onClick(v);
-        Intent intent = null;
-        switch (v.getId()) {
-            case R.id.button:
-                intent = new Intent(this, RxJavaActivity.class);
-                break;
-            case R.id.button1:
-                intent = new Intent(this, TTSActivity.class);
-                break;
-            case R.id.button2:
-                intent = new Intent(this, MvpActivity.class);
-                break;
-            case R.id.button3:
-                intent = new Intent(this, ViewActivity.class);
-                break;
-            case R.id.button4:
-                intent = new Intent(this, DialogActivity.class);
-                break;
-            case R.id.button5:
-                intent = new Intent(this, ListViewActivity.class);
-                break;
-            case R.id.button6:
-                intent = new Intent(this, ServiceActivity.class);
-                break;
-            case R.id.button7:
-                intent = new Intent(this, SqliteActivity.class);
-                break;
-            case R.id.button8:
-                intent = new Intent(this, ScrollActivity.class);
-                break;
-            case R.id.button9:
-                intent = new Intent(this, SwipeActivity.class);
-                break;
-            case R.id.button10:
-                intent = new Intent(this, JavaJsActivity.class);
-                break;
-            case R.id.button11:
-                intent = new Intent(this, BluetoothActivity.class);
-                break;
+    private RecyclerView.Adapter adapter = new RecyclerView.Adapter<VH>() {
+        @Override
+        public VH onCreateViewHolder(ViewGroup parent, int viewType) {
+            View v = LayoutInflater.from(IndexActivity.this).inflate(R.layout.index_item, parent, false);
+            return new VH(v);
         }
-        startActivity(intent);
+
+        @Override
+        public void onBindViewHolder(VH holder, final int position) {
+            holder.button.setText(list.get(position).getSimpleName());
+            holder.button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    startActivity(new Intent(IndexActivity.this, list.get(position)));
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount() {
+            return list.size();
+        }
+    };
+
+    public class VH extends RecyclerView.ViewHolder {
+
+        public Button button = null;
+
+        public VH(View itemView) {
+            super(itemView);
+            button = (Button) itemView;
+        }
     }
 }
