@@ -6,7 +6,6 @@ import com.j256.ormlite.table.DatabaseTable;
 /**
  * @author: HaoShi
  */
-
 @DatabaseTable
 public class Personnel {
 

@@ -10,7 +10,6 @@ import java.util.List;
 /**
  * @author: HaoShi
  */
-
 public class ViewPagerAdapter extends PagerAdapter {
 
     public List<View> dataList = new ArrayList<>();

@@ -13,7 +13,6 @@ import java.util.List;
 /**
  * @author: HaoShi
  */
-
 public class DbManager {
 
     private OpenHelper openHelper;

@@ -5,7 +5,6 @@ import java.util.List;
 /**
  * @author: HaoShi
  */
-
 public class News {
 
     private List<RecentBean> recent;

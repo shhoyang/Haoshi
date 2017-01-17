@@ -19,7 +19,6 @@ import com.haoshi.utils.T;
 /**
  * @author: HaoShi
  */
-
 public class ServiceActivity extends BaseActivity {
 
     @Override

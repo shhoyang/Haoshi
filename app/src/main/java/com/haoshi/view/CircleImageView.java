@@ -25,7 +25,6 @@ import com.haoshi.R;
 /**
  * @author: HaoShi
  */
-
 public class CircleImageView extends ImageView {
     private static final ScaleType SCALE_TYPE = ScaleType.CENTER_CROP;
 

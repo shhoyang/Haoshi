@@ -14,7 +14,6 @@ import com.haoshi.utils.L;
 /**
  * @author: HaoShi
  */
-
 public class MessengerService extends Service {
 
     private static final String TAG = MessengerService.class.getSimpleName();

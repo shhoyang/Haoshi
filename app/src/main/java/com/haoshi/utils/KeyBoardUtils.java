@@ -9,7 +9,6 @@ import android.widget.EditText;
 /**
  * @author: HaoShi
  */
-
 public class KeyBoardUtils {
 
     private KeyBoardUtils() {

@@ -20,7 +20,6 @@ import rx.schedulers.Schedulers;
 /**
  * @author: HaoShi
  */
-
 public class NetWorks extends RetrofitUtils {
 
     private static final NetService service = getRetrofit().create(NetService.class);

@@ -5,7 +5,6 @@ import android.app.Application;
 /**
  * @author: HaoShi
  */
-
 public class HaoApplication extends Application {
 
     private static HaoApplication application;

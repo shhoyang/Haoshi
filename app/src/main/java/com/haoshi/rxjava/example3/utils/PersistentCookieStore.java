@@ -24,10 +24,8 @@ import okhttp3.HttpUrl;
 
 /**
  * @author: HaoShi
- * 
  * 持久化cookies
  */
-
 public class PersistentCookieStore {
 
     private static final String COOKIE_PREFS = "Cookies_Prefs";

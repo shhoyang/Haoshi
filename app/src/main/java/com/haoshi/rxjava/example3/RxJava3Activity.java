@@ -14,7 +14,6 @@ import rx.Observer;
 /**
  * @author: HaoShi
  */
-
 public class RxJava3Activity extends BaseActivity {
 
     private RecyclerView recyclerView;

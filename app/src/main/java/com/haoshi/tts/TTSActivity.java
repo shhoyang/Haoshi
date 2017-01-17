@@ -14,7 +14,6 @@ import com.haoshi.utils.L;
 /**
  * @author: HaoShi
  */
-
 public class TTSActivity extends BaseActivity implements SpeechSynthesizerListener {
 
     private EditText editText;

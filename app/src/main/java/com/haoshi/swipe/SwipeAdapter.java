@@ -14,7 +14,6 @@ import com.haoshi.utils.T;
 /**
  * @author: HaoShi
  */
-
 public class SwipeAdapter extends BaseSwipeAdapter {
 
     private Context context;

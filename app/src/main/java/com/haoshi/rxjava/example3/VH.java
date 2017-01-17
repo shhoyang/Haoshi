@@ -10,7 +10,6 @@ import com.haoshi.R;
 /**
  * @author: HaoShi
  */
-
 public class VH extends RecyclerView.ViewHolder {
 
     public ImageView imageView = null;

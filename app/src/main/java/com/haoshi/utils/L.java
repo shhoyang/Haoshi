@@ -5,7 +5,6 @@ import android.util.Log;
 /**
  * @author: HaoShi
  */
-
 public class L {
 
     private L() {

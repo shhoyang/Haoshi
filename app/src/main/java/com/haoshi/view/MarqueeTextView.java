@@ -15,7 +15,6 @@ import android.widget.TextView;
 /**
  * @author: HaoShi
  */
-
 public class MarqueeTextView extends TextView implements View.OnClickListener {
 
     private float textLength = 0f;//文本长度

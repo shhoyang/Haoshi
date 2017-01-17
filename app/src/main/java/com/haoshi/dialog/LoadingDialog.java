@@ -13,7 +13,6 @@ import com.haoshi.R;
 /**
  * @author: HaoShi
  */
-
 public class LoadingDialog extends Dialog {
 
     public LoadingDialog(Context context, String messsge) {

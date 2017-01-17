@@ -7,7 +7,6 @@ import com.haoshi.mvp.bean.User;
 /**
  * @author: HaoShi
  */
-
 public class UserBiz implements IUserBiz {
 
     @Override

@@ -10,7 +10,6 @@ import com.j256.ormlite.table.TableUtils;
 /**
  * @author: HaoShi
  */
-
 public class OpenHelper extends OrmLiteSqliteOpenHelper {
 
     private static final String DB_NAME = "ormlite";

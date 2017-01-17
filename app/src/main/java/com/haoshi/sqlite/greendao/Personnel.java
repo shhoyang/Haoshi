@@ -8,7 +8,6 @@ import org.greenrobot.greendao.annotation.Property;
 /**
  * @author: HaoShi
  */
-
 @Entity
 public class Personnel {
 

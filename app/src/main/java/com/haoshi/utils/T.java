@@ -6,7 +6,6 @@ import android.widget.Toast;
 /**
  * @author: HaoShi
  */
-
 public class T {
 
     private T() {

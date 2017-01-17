@@ -11,7 +11,6 @@ import com.haoshi.R;
 /**
  * @author: HaoShi
  */
-
 public class BottomDialog extends Dialog {
 
     public BottomDialog(Activity context, int layoutID) {

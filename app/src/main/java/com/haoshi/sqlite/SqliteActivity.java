@@ -11,7 +11,6 @@ import com.haoshi.sqlite.ormlite.OrmliteActivity;
 /**
  * @author: HaoShi
  */
-
 public class SqliteActivity extends BaseActivity {
 
     @Override

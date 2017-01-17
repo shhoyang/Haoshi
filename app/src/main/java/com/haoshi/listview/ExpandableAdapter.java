@@ -14,7 +14,6 @@ import java.util.List;
 /**
  * @author: HaoShi
  */
-
 public class ExpandableAdapter extends BaseExpandableListAdapter {
 
     private Context context;

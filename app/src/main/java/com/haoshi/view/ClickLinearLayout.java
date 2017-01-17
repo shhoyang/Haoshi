@@ -14,7 +14,6 @@ import android.widget.LinearLayout;
 /**
  * @author: HaoShi
  */
-
 public class ClickLinearLayout extends LinearLayout {
 
     private Animator anim1;

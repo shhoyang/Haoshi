@@ -6,10 +6,6 @@ import android.content.Context;
 import java.util.List;
 
 /**
- * @author: HaoShi
- */
-
-/**
  * eq()：==
  * noteq()：!=
  * gt()： >
@@ -64,6 +60,9 @@ import java.util.List;
  *  
  */
 
+/**
+ * @author: HaoShi
+ */
 public class DbManager {
 
     private static final String DB_NAME = "greendao.db";

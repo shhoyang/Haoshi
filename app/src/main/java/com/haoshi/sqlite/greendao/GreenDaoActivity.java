@@ -13,7 +13,6 @@ import java.util.List;
 /**
  * @author: HaoShi
  */
-
 public class GreenDaoActivity extends BaseActivity {
 
     private EditText editName, editNum;

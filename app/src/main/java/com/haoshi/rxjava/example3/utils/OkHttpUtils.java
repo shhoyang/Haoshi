@@ -26,7 +26,6 @@ import okhttp3.Response;
 /**
  * @author: HaoShi
  */
-
 public class OkHttpUtils {
 
     private static OkHttpClient okHttpClient;

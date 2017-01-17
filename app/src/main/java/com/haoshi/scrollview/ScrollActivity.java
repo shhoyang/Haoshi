@@ -8,7 +8,6 @@ import com.haoshi.hao.BaseActivity;
 /**
  * @author: HaoShi
  */
-
 public class ScrollActivity extends BaseActivity {
 
     @Override

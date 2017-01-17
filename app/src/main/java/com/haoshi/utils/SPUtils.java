@@ -10,7 +10,6 @@ import java.util.Map;
 /**
  * @author: HaoShi
  */
-
 public class SPUtils {
 
     public SPUtils() {

@@ -10,7 +10,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * @author: HaoShi
  */
-
 public class RetrofitUtils {
 
     private static Retrofit retrofit;

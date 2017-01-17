@@ -8,7 +8,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 /**
  * @author: HaoShi
  */
-
 public class AppUtils {
 
     private AppUtils() {

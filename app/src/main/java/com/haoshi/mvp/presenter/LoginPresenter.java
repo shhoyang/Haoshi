@@ -12,7 +12,6 @@ import com.haoshi.mvp.view.IUserLoginView;
 /**
  * @author: HaoShi
  */
-
 public class LoginPresenter {
     
     private IUserBiz iUserBiz;

@@ -13,7 +13,6 @@ import com.haoshi.mvp.view.IUserLoginView;
 /**
  * @author: HaoShi
  */
-
 public class MvpActivity extends BaseActivity implements IUserLoginView {
 
     private EditText editUserName, editPassword;

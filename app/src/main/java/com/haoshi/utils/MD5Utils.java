@@ -6,7 +6,6 @@ import java.security.NoSuchAlgorithmException;
 /**
  * @author: HaoShi
  */
-
 public class MD5Utils {
 
     private static String SALT = "1254mDMEnl";//加密的盐。增加破解难度

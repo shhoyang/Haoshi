@@ -12,7 +12,6 @@ import com.haoshi.R;
 /**
  * @author: HaoShi
  */
-
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
 
     protected static String TAG;

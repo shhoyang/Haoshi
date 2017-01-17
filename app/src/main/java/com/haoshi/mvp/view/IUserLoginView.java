@@ -6,7 +6,6 @@ import com.haoshi.mvp.bean.User;
 /**
  * @author: HaoShi
  */
-
 public interface IUserLoginView {
 
     String getUserName();

@@ -16,7 +16,6 @@ import java.util.List;
 /**
  * @author: HaoShi
  */
-
 public class ViewActivity extends BaseActivity {
 
     @Override

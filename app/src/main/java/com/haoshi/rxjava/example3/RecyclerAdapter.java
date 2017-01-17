@@ -16,7 +16,6 @@ import java.util.List;
 /**
  * @author: HaoShi
  */
-
 public class RecyclerAdapter extends RecyclerView.Adapter<VH> {
 
     private Context context;

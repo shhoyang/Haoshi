@@ -9,7 +9,6 @@ import com.haoshi.hao.BaseActivity;
 /**
  * @author: HaoShi
  */
-
 public class ListViewActivity extends BaseActivity {
 
     @Override

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.view.View;
 
 import com.haoshi.R;
+import com.haoshi.bluetooth.BluetoothActivity;
 import com.haoshi.swipe.SwipeActivity;
 import com.haoshi.dialog.DialogActivity;
 import com.haoshi.listview.ListViewActivity;
@@ -21,7 +22,6 @@ import com.haoshi.webview.JavaJsActivity;
 /**
  * @author: HaoShi
  */
-
 public class IndexActivity extends BaseActivity {
 
     private MarqueeTextView marqueeTextView;
@@ -30,7 +30,7 @@ public class IndexActivity extends BaseActivity {
     public void initView() {
 
         marqueeTextView = (MarqueeTextView) findViewById(R.id.marquee);
-        marqueeTextView.setText("工作中收集的资源,与同仁共享");
+        marqueeTextView.setText("工作中总结Demo,与同仁共享");
         marqueeTextView.setSpeed(ScreenUtils.getScreenWidth(this) / 300);
         marqueeTextView.setFontColor("#FFFFFF");
         marqueeTextView.init(getWindowManager());
@@ -52,6 +52,7 @@ public class IndexActivity extends BaseActivity {
         findViewById(R.id.button8).setOnClickListener(this);
         findViewById(R.id.button9).setOnClickListener(this);
         findViewById(R.id.button10).setOnClickListener(this);
+        findViewById(R.id.button11).setOnClickListener(this);
     }
 
     @Override
@@ -119,6 +120,9 @@ public class IndexActivity extends BaseActivity {
                 break;
             case R.id.button10:
                 intent = new Intent(this, JavaJsActivity.class);
+                break;
+            case R.id.button11:
+                intent = new Intent(this, BluetoothActivity.class);
                 break;
         }
         startActivity(intent);

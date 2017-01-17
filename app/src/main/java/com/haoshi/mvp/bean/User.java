@@ -3,7 +3,6 @@ package com.haoshi.mvp.bean;
 /**
  * @author: HaoShi
  */
-
 public class User {
     
     private String userName;

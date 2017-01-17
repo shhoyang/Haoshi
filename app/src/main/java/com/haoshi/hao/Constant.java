@@ -5,7 +5,6 @@ import android.os.Environment;
 /**
  * @author: HaoShi
  */
-
 public class Constant {
 
     public static final String ROOT_DIR = Environment.getExternalStorageDirectory().getAbsolutePath() + "/haoshi";

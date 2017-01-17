@@ -12,7 +12,6 @@ import com.haoshi.utils.T;
 /**
  * @author: HaoShi
  */
-
 public class JavaJsActivity extends BaseActivity {
 
     private WebView webView;

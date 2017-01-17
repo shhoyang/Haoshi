@@ -14,7 +14,6 @@ import java.util.List;
 /**
  * @author: HaoShi
  */
-
 public class OrmliteActivity extends BaseActivity {
 
     private EditText editName, editNum;

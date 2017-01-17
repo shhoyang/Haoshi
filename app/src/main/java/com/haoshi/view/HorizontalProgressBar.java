@@ -11,7 +11,6 @@ import android.widget.ProgressBar;
 /**
  * @author: HaoShi
  */
-
 public class HorizontalProgressBar extends ProgressBar {
 
     private String strProgress;
