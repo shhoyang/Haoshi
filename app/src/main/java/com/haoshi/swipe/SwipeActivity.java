@@ -6,7 +6,7 @@ import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class SwipeActivity extends BaseActivity {
 

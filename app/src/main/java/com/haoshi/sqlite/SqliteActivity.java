@@ -9,7 +9,7 @@ import com.haoshi.sqlite.greendao.GreenDaoActivity;
 import com.haoshi.sqlite.ormlite.OrmliteActivity;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class SqliteActivity extends BaseActivity {
 

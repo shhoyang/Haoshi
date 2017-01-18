@@ -15,7 +15,7 @@ import rx.Observer;
 import rx.Subscriber;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class RxJava1Activity extends BaseActivity {
 

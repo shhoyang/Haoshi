@@ -7,7 +7,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class KeyBoardUtils {
 

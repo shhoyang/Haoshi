@@ -11,7 +11,7 @@ import com.haoshi.utils.L;
 import java.util.List;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class GreenDaoActivity extends BaseActivity {
 

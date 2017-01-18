@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class RecyclerViewActivity extends BaseActivity {
 

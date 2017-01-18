@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.haoshi.R;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class LoadingDialog extends Dialog {
 

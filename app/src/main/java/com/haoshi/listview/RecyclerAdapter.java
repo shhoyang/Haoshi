@@ -9,7 +9,7 @@ import com.haoshi.R;
 import java.util.List;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<VH> {
 

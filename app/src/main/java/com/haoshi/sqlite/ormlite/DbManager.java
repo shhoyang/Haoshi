@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class DbManager {
 

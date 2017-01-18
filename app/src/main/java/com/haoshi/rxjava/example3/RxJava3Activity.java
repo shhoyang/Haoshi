@@ -6,13 +6,15 @@ import android.support.v7.widget.RecyclerView;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.Constant;
 import com.haoshi.rxjava.example3.bean.News;
 import com.haoshi.rxjava.example3.utils.NetWorks;
+import com.haoshi.utils.L;
 
 import rx.Observer;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class RxJava3Activity extends BaseActivity {
 
@@ -33,21 +35,23 @@ public class RxJava3Activity extends BaseActivity {
         manager.setReverseLayout(false);
         recyclerView.setLayoutManager(manager);
 
-        NetWorks.getNews(new Observer<News>() {
+        NetWorks.getNews(Constant.CHANNELS_KEY[0], Constant.API_KEY, new Observer<News>() {
 
             @Override
             public void onCompleted() {
-
+            
             }
 
             @Override
             public void onError(Throwable e) {
-
+                L.e(TAG,e.toString());
             }
 
             @Override
             public void onNext(News news) {
-                adapter.setList(news.getRecent());
+                L.d(TAG,news.toString());
+                if (news.getResult().getStat().equals("1"))
+                    adapter.setList(news.getResult().getData());
             }
         });
     }

@@ -4,7 +4,7 @@ package com.haoshi.mvp.view;
 import com.haoshi.mvp.bean.User;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public interface IUserLoginView {
 

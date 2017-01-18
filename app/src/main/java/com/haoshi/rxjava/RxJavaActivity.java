@@ -12,7 +12,6 @@ import com.haoshi.rxjava.example3.RxJava3Activity;
 /**
  * @author: HaoShi
  */
-
 public class RxJavaActivity extends BaseActivity {
 
     @Override

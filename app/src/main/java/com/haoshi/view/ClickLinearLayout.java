@@ -12,7 +12,7 @@ import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class ClickLinearLayout extends LinearLayout {
 

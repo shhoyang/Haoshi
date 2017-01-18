@@ -3,7 +3,7 @@ package com.haoshi.utils;
 import android.util.Log;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class L {
 

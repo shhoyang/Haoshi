@@ -4,7 +4,7 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 @DatabaseTable
 public class Personnel {

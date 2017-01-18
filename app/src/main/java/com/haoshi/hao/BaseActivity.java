@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.haoshi.R;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
 

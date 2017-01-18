@@ -1,7 +1,7 @@
 package com.haoshi.mvp.bean;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class User {
     

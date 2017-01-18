@@ -1,7 +1,7 @@
 package com.haoshi.mvp.Biz;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public interface IUserBiz {
     

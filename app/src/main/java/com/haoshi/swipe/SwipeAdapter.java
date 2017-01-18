@@ -12,7 +12,7 @@ import com.haoshi.R;
 import com.haoshi.utils.T;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class SwipeAdapter extends BaseSwipeAdapter {
 

@@ -16,7 +16,7 @@ import com.haoshi.utils.T;
 import java.util.Set;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class BluetoothActivity extends BaseActivity {
 

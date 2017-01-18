@@ -2,6 +2,7 @@ package com.haoshi.rxjava.example3;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -14,15 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class RecyclerAdapter extends RecyclerView.Adapter<VH> {
 
     private Context context;
-    private List<News.RecentBean> list = new ArrayList<>();
+    private List<News.ResultBean.DataBean> list = new ArrayList<>();
 
 
-    public void setList(List<News.RecentBean> list) {
+    public void setList(List<News.ResultBean.DataBean> list) {
         this.list = list;
         notifyDataSetChanged();
     }
@@ -30,15 +31,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<VH> {
     @Override
     public VH onCreateViewHolder(ViewGroup parent, int viewType) {
         context = parent.getContext();
-        View v = View.inflate(parent.getContext(), R.layout.rxjava_item, null);
-        VH vh = new VH(v);
-        return vh;
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.rxjava_item, parent, false);
+        return new VH(v);
     }
 
     @Override
     public void onBindViewHolder(VH holder, int position) {
         holder.textView.setText(list.get(position).getTitle());
-        Glide.with(context).load(list.get(position).getThumbnail()).into(holder.imageView);
+        Glide.with(context).load(list.get(position).getThumbnail_pic_s()).into(holder.imageView);
     }
 
     @Override

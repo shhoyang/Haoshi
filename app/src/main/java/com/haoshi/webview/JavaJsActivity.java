@@ -10,7 +10,7 @@ import com.haoshi.hao.BaseActivity;
 import com.haoshi.utils.T;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class JavaJsActivity extends BaseActivity {
 

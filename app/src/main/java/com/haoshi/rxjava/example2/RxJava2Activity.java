@@ -10,7 +10,7 @@ import rx.Observer;
 import rx.subjects.PublishSubject;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class RxJava2Activity extends BaseActivity {
 

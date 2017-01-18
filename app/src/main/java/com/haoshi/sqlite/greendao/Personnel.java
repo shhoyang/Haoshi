@@ -6,7 +6,7 @@ import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Property;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 @Entity
 public class Personnel {

@@ -33,35 +33,35 @@ public class NetWorks extends RetrofitUtils {
 
     private interface NetService {
 
-        @GET(Constant.NEWS_HOT)
-        Observable<News> news();
+        @GET(Constant.NEWS_URL)
+        Observable<News> getNews(@Query("type") String type, @Query("key") String apiKey);
 
         //POST请求传入map
         @FormUrlEncoded
-        @POST(Constant.NEWS_HOT)
+        @POST(Constant.NEWS_URL)
         Observable<News> hao(@FieldMap Map<String, String> map);
 
         //POST请求带参数
         @FormUrlEncoded
-        @POST(Constant.NEWS_HOT)
+        @POST(Constant.NEWS_URL)
         Observable<News> hao(@Field("username") String username, @Field("password") String password);
 
         //GET请求带参数
-        @GET(Constant.NEWS_HOT)
+        @GET(Constant.NEWS_URL)
         Observable<News> hao1(@Query("username") String username, @Query("password") String password);
 
         //GET请求，设置缓存
         @Headers("Cache-Control: public," + CACHE_CONTROL_CACHE)
-        @GET(Constant.NEWS_HOT)
+        @GET(Constant.NEWS_URL)
         Observable<News> hao2(@Query("username") String username, @Query("password") String password);
 
         @Headers("Cache-Control: public," + CACHE_CONTROL_NETWORK)
-        @GET(Constant.NEWS_HOT)
+        @GET(Constant.NEWS_URL)
         Observable<News> hao();
     }
 
-    public static void getNews(Observer<News> observer) {
-        setSubscribe(service.news(), observer);
+    public static void getNews(String type, String apiKey, Observer<News> observer) {
+        setSubscribe(service.getNews(type, apiKey), observer);
     }
 
     /**

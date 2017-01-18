@@ -9,7 +9,7 @@ import android.view.WindowManager;
 import com.haoshi.R;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class BottomDialog extends Dialog {
 

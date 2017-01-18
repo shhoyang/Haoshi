@@ -10,7 +10,7 @@ import com.haoshi.mvp.bean.User;
 import com.haoshi.mvp.view.IUserLoginView;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class LoginPresenter {
     

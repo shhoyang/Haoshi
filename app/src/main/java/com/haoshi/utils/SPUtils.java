@@ -8,7 +8,7 @@ import java.lang.reflect.Method;
 import java.util.Map;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class SPUtils {
 

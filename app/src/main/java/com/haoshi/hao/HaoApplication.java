@@ -3,7 +3,7 @@ package com.haoshi.hao;
 import android.app.Application;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class HaoApplication extends Application {
 

@@ -12,7 +12,7 @@ import com.haoshi.hao.BaseActivity;
 import com.haoshi.utils.L;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class TTSActivity extends BaseActivity implements SpeechSynthesizerListener {
 

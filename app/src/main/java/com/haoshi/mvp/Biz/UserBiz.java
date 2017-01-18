@@ -5,7 +5,7 @@ import android.os.SystemClock;
 import com.haoshi.mvp.bean.User;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class UserBiz implements IUserBiz {
 

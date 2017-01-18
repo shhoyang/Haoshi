@@ -61,7 +61,7 @@ import java.util.List;
  */
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class DbManager {
 

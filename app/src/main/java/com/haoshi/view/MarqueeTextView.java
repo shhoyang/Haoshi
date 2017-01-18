@@ -13,7 +13,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class MarqueeTextView extends TextView implements View.OnClickListener {
 

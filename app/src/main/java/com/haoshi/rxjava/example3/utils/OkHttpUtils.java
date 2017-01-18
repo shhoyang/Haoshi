@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 
 import com.haoshi.hao.Constant;
 import com.haoshi.hao.HaoApplication;
+import com.haoshi.utils.NetWorkUtil;
 import com.haoshi.utils.T;
 
 import java.io.File;
@@ -65,7 +66,7 @@ public class OkHttpUtils {
         @Override
         public Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
-            if (!isNetworkReachable(HaoApplication.getInstance())) {
+            if (!NetWorkUtil.isNetworkConnected(HaoApplication.getInstance())) {
                 T.showShort(HaoApplication.getInstance(), "暂无网络");
                 request = request.newBuilder()
                         .cacheControl(CacheControl.FORCE_CACHE)//无网络时只从缓存中读取
@@ -73,7 +74,7 @@ public class OkHttpUtils {
             }
 
             Response response = chain.proceed(request);
-            if (isNetworkReachable(HaoApplication.getInstance())) {
+            if (NetWorkUtil.isNetworkConnected(HaoApplication.getInstance())) {
                 int maxAge = 60 * 60; // 有网络时设置缓存超时时间1个小时
                 response.newBuilder()
                         .removeHeader("Pragma")
@@ -111,17 +112,5 @@ public class OkHttpUtils {
             List<Cookie> cookies = cookieStore.get(url);
             return cookies;
         }
-    }
-
-    /**
-     * 判断网络是否可用
-     */
-    public static Boolean isNetworkReachable(Context context) {
-        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo current = cm.getActiveNetworkInfo();
-        if (current == null) {
-            return false;
-        }
-        return (current.isAvailable());
     }
 }

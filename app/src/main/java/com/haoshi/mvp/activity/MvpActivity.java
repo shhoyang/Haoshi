@@ -11,7 +11,7 @@ import com.haoshi.mvp.presenter.LoginPresenter;
 import com.haoshi.mvp.view.IUserLoginView;
 
 /**
- * @author: HaoShi
+ * @author HaoShi
  */
 public class MvpActivity extends BaseActivity implements IUserLoginView {
 
