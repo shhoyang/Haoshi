@@ -6,7 +6,7 @@ import android.widget.EditText;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.utils.L;
+import com.haoshi.utils.LogUtils;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -95,7 +95,7 @@ public class OrmliteActivity extends BaseActivity {
                         if (list != null && list.size() != 0) {
                             personnel = list.get(0);
                             for (Personnel personnel : list) {
-                                L.d(TAG, personnel.toString());
+                                LogUtils.d(TAG, personnel.toString());
                             }
                         }
                     }
@@ -103,7 +103,7 @@ public class OrmliteActivity extends BaseActivity {
                 case R.id.button31:
                     List<Personnel> list = dbManager.query();
                     for (Personnel personnel : list) {
-                        L.d(TAG, personnel.toString());
+                        LogUtils.d(TAG, personnel.toString());
                     }
                     break;
             }

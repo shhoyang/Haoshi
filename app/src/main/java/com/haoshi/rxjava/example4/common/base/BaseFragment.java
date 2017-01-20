@@ -10,18 +10,15 @@ import android.view.ViewGroup;
 
 import com.haoshi.rxjava.example4.common.baserx.RxBus;
 
-import rx.Subscription;
-import rx.functions.Action1;
 
 /**
- * @author HaoShi
+ * Created by qihuang on 16-11-5.
  */
 
 public abstract class BaseFragment<T extends BasePresenter, E extends BaseModel> extends Fragment {
-    protected T presenter;
-    protected E model;
+    protected T mPresenter;
+    protected E mModel;
     protected View rootView;
-    protected Subscription subscribe;
     private RxBus rxBus = RxBus.getInstance();
 
     @Nullable
@@ -31,10 +28,10 @@ public abstract class BaseFragment<T extends BasePresenter, E extends BaseModel>
             rootView = inflater.inflate(getLayoutId(), container, false);
         }
         initPM();
-        if (presenter != null) {
-            presenter.context = getActivity();
+        if (mPresenter != null) {
+            mPresenter.mContext = getActivity();
         }
-        addSubscription();
+        rxBus.addSubscription(rxBus.toObserverable().subscribe(this::handleEvent));
         initView();
         return rootView;
     }
@@ -45,7 +42,7 @@ public abstract class BaseFragment<T extends BasePresenter, E extends BaseModel>
 
     protected abstract void initView();
 
-    protected abstract void addSubscription();
+    protected abstract void handleEvent(Object o);
 
     protected void startActivity(Class<?> cls) {
         startActivity(cls, null);
@@ -62,11 +59,9 @@ public abstract class BaseFragment<T extends BasePresenter, E extends BaseModel>
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        if (presenter != null) {
-            presenter.onDestroy();
+        if (mPresenter != null) {
+            mPresenter.onDestroy();
         }
-        if (subscribe != null) {
-            subscribe.unsubscribe();
-        }
+//        rxBus.unSubscribeAll();
     }
 }

@@ -1,19 +1,19 @@
 package com.haoshi.rxjava.example4.common.base;
 
 
-import com.haoshi.rxjava.example4.bean.News;
+import com.haoshi.rxjava.example4.bean.Result;
 
 /**
  * @author HaoShi
  */
 
 public class BaseResponse<T> {
-    
+
     public String reason;
     public T result;
 
     public boolean isStatus() {
-        return ((News.ResultBean) result).getStat().equals("1");
+        return ((Result) result).getStat().equals("1");
     }
 
     @Override

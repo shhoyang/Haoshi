@@ -3,9 +3,8 @@ package com.haoshi.rxjava.example3.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import android.util.Log;
 
-import com.haoshi.utils.L;
+import com.haoshi.utils.LogUtils;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -131,7 +130,7 @@ public class PersistentCookieStore {
             ObjectOutputStream outputStream = new ObjectOutputStream(os);
             outputStream.writeObject(cookie);
         } catch (IOException e) {
-            L.e(TAG, "IOException in encodeCookie" + e);
+            LogUtils.e(TAG, "IOException in encodeCookie" + e);
             return null;
         }
 
@@ -149,9 +148,9 @@ public class PersistentCookieStore {
             ObjectInputStream objectInputStream = new ObjectInputStream(byteArrayInputStream);
             cookie = ((SerializableOkHttpCookies) objectInputStream.readObject()).getCookies();
         } catch (IOException e) {
-            L.e(TAG, "IOException in decodeCookie" + e);
+            LogUtils.e(TAG, "IOException in decodeCookie" + e);
         } catch (ClassNotFoundException e) {
-            L.e(TAG, "ClassNotFoundException in decodeCookie" + e);
+            LogUtils.e(TAG, "ClassNotFoundException in decodeCookie" + e);
         }
 
         return cookie;

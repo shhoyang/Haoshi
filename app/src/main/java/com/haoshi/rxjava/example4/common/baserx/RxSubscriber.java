@@ -2,10 +2,11 @@ package com.haoshi.rxjava.example4.common.baserx;
 
 import android.content.Context;
 
+import com.haoshi.R;
 import com.haoshi.hao.HaoApplication;
 import com.haoshi.rxjava.example4.exception.NewsException;
 import com.haoshi.utils.NetWorkUtil;
-import com.haoshi.rxjava.example4.util.ToastUtil;
+import com.haoshi.utils.ToastUtils;
 
 import rx.Subscriber;
 
@@ -14,13 +15,6 @@ import rx.Subscriber;
  */
 
 public abstract class RxSubscriber<T> extends Subscriber<T> {
-    private Context mContext;
-
-
-    public RxSubscriber(Context context) {
-        mContext = context;
-    }
-
 
     @Override
     public void onStart() {
@@ -34,13 +28,13 @@ public abstract class RxSubscriber<T> extends Subscriber<T> {
 
     @Override
     public void onError(Throwable t) {
-        Context context = mContext.getApplicationContext();
+        Context context = HaoApplication.getInstance();
         if (!NetWorkUtil.isNetworkConnected(context)) {
-            com.haoshi.utils.T.showShort(HaoApplication.getInstance(), "请检查网络");
+            ToastUtils.showShort(context, "请检查网络");
         } else if (t instanceof NewsException) {
-            com.haoshi.utils.T.showShort(HaoApplication.getInstance(), t.getMessage());
+            ToastUtils.showShort(context, t.getMessage());
         } else {
-            com.haoshi.utils.T.showShort(HaoApplication.getInstance(), t.getMessage());
+            ToastUtils.showShort(context, t.getMessage());
         }
 
     }

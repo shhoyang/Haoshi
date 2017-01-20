@@ -14,7 +14,7 @@ import android.view.View;
 import com.haoshi.IAidlInterface;
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.utils.T;
+import com.haoshi.utils.ToastUtils;
 
 /**
  * @author HaoShi
@@ -72,7 +72,7 @@ public class ServiceActivity extends BaseActivity {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             if(msg.what ==2){
-                T.showShort(ServiceActivity.this, (String) msg.obj);
+                ToastUtils.showShort(ServiceActivity.this, (String) msg.obj);
             }
         }
     });
@@ -82,7 +82,7 @@ public class ServiceActivity extends BaseActivity {
         ServiceConnection connection = new ServiceConnection() {
             @Override
             public void onServiceConnected(ComponentName name, IBinder service) {
-                T.showShort(ServiceActivity.this, "链接成功");
+                ToastUtils.showShort(ServiceActivity.this, "链接成功");
                 messenger = new Messenger(service);
                 Message msg = new Message();
                 msg.what = 1;
@@ -105,7 +105,7 @@ public class ServiceActivity extends BaseActivity {
 
     private void messengerSend() {
         if(messenger == null){
-            T.showShort(this,"服务不可用");
+            ToastUtils.showShort(this,"服务不可用");
             return;
         }
         Message msg = new Message();
@@ -127,7 +127,7 @@ public class ServiceActivity extends BaseActivity {
             String info  = null;
             try {
                 info = iAidlInterface.getInfo("hello");
-                T.showLong(ServiceActivity.this,info);
+                ToastUtils.showLong(ServiceActivity.this,info);
             } catch (RemoteException e) {
                 e.printStackTrace();
             }

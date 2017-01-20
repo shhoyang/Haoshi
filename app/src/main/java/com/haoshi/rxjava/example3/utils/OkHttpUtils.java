@@ -1,13 +1,9 @@
 package com.haoshi.rxjava.example3.utils;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-
 import com.haoshi.hao.Constant;
 import com.haoshi.hao.HaoApplication;
 import com.haoshi.utils.NetWorkUtil;
-import com.haoshi.utils.T;
+import com.haoshi.utils.ToastUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -67,7 +63,7 @@ public class OkHttpUtils {
         public Response intercept(Chain chain) throws IOException {
             Request request = chain.request();
             if (!NetWorkUtil.isNetworkConnected(HaoApplication.getInstance())) {
-                T.showShort(HaoApplication.getInstance(), "暂无网络");
+                ToastUtils.showShort(HaoApplication.getInstance(), "暂无网络");
                 request = request.newBuilder()
                         .cacheControl(CacheControl.FORCE_CACHE)//无网络时只从缓存中读取
                         .build();

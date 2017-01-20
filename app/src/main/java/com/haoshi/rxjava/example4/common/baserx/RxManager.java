@@ -4,8 +4,9 @@ import rx.Subscription;
 import rx.subscriptions.CompositeSubscription;
 
 /**
- * @author HaoShi
+ * Created by qihuang on 16-11-5.
  */
+
 public class RxManager {
     private CompositeSubscription cs = new CompositeSubscription();
 
@@ -18,4 +19,5 @@ public class RxManager {
             cs.unsubscribe();
         }
     }
+
 }

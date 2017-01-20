@@ -9,7 +9,7 @@ import com.baidu.speechsynthesizer.SpeechSynthesizerListener;
 import com.baidu.speechsynthesizer.publicutility.SpeechError;
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.utils.L;
+import com.haoshi.utils.LogUtils;
 
 /**
  * @author HaoShi
@@ -50,7 +50,7 @@ public class TTSActivity extends BaseActivity implements SpeechSynthesizerListen
                     speechSynthesizer.cancel();
                     int speak = speechSynthesizer.speak(content);
                     if (speak != -1) {
-                        L.e(TAG, speak);
+                        LogUtils.e(TAG, speak);
                     }
 
                 }
@@ -123,6 +123,6 @@ public class TTSActivity extends BaseActivity implements SpeechSynthesizerListen
 
     @Override
     public void onError(SpeechSynthesizer speechSynthesizer, SpeechError speechError) {
-        L.e(TAG, speechError.toString());
+        LogUtils.e(TAG, speechError.toString());
     }
 }

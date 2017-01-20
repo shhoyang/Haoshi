@@ -8,7 +8,7 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.utils.T;
+import com.haoshi.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +50,7 @@ public class RecyclerViewActivity extends BaseActivity {
         RecyclerAdapter adapter = new RecyclerAdapter(texts, images, new RecyclerAdapter.OnRecyclerItemClickListener() {
             @Override
             public void onItemClick(int position) {
-                T.showShort(RecyclerViewActivity.this, "点击了条目" + position);
+                ToastUtils.showShort(RecyclerViewActivity.this, "点击了条目" + position);
             }
         });
         recyclerView.setAdapter(adapter);

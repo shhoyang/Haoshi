@@ -9,7 +9,7 @@ import com.haoshi.hao.BaseActivity;
 import com.haoshi.hao.Constant;
 import com.haoshi.rxjava.example3.bean.News;
 import com.haoshi.rxjava.example3.utils.NetWorks;
-import com.haoshi.utils.L;
+import com.haoshi.utils.LogUtils;
 
 import rx.Observer;
 
@@ -44,12 +44,12 @@ public class RxJava3Activity extends BaseActivity {
 
             @Override
             public void onError(Throwable e) {
-                L.e(TAG,e.toString());
+                LogUtils.e(TAG,e.toString());
             }
 
             @Override
             public void onNext(News news) {
-                L.d(TAG,news.toString());
+                LogUtils.d(TAG,news.toString());
                 if (news.getResult().getStat().equals("1"))
                     adapter.setList(news.getResult().getData());
             }

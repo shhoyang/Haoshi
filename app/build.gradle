@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'me.tatarka.retrolambda'
 
 android {
     compileSdkVersion 25
@@ -12,11 +13,17 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     greendao {
@@ -46,4 +53,6 @@ dependencies {
     compile 'org.greenrobot:greendao-generator:3.2.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.huxq17.xrefreshview:xrefreshview:3.5.2'
+    compile 'jp.wasabeef:recyclerview-animators:2.2.4'
+    compile 'com.android.support:design:25.1.0'
 }

@@ -12,23 +12,26 @@ import com.haoshi.rxjava.example4.common.baserx.RxBus;
 import com.haoshi.rxjava.example4.common.widget.StatusBarCompat;
 
 /**
- * @author HaoShi
+ * Created by qihuang on 16-11-5.
  */
-public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel> extends AppCompatActivity {
-    protected T presenter;
-    protected E model;
-    public Context context;
-    
+
+public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
+        extends AppCompatActivity {
+    protected T mPresenter;
+    protected E mModel;
+    public Context mContext;
+
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(getLayoutId());
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        context = this;
+        mContext = this;
         initPM();
-        if (presenter != null) {
-            presenter.context = this;
+        if (mPresenter != null) {
+            mPresenter.mContext = this;
         }
         setStatusBar();
         initView();
@@ -60,13 +63,15 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
     protected void setBackGesture() {
 
     }
-    
+
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (presenter != null) {
-            presenter.onDestroy();
+        if (mPresenter != null) {
+            mPresenter.onDestroy();
         }
         RxBus.getInstance().unSubscribeAll();
     }
+
 }

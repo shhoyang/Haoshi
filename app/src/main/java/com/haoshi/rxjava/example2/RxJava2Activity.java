@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.utils.L;
+import com.haoshi.utils.LogUtils;
 
 import rx.Observer;
 import rx.subjects.PublishSubject;
@@ -54,7 +54,7 @@ public class RxJava2Activity extends BaseActivity {
 
                     @Override
                     public void onNext(Object o){
-                        L.d(TAG,"收到数据" + o);
+                        LogUtils.d(TAG,"收到数据" + o);
                     }
                 });
                 break;

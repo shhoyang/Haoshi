@@ -10,8 +10,8 @@ import android.view.View;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.utils.L;
-import com.haoshi.utils.T;
+import com.haoshi.utils.LogUtils;
+import com.haoshi.utils.ToastUtils;
 
 import java.util.Set;
 
@@ -60,7 +60,7 @@ public class BluetoothActivity extends BaseActivity {
                 bluetoothAdapter.enable();
                 Set<BluetoothDevice> set = bluetoothAdapter.getBondedDevices();
                 for (BluetoothDevice bluetoothDevice : set) {
-                    L.d(TAG, bluetoothDevice.getName() + ":" + bluetoothDevice.getAddress());
+                    LogUtils.d(TAG, bluetoothDevice.getName() + ":" + bluetoothDevice.getAddress());
                 }
                 break;
             case R.id.button1:
@@ -84,11 +84,11 @@ public class BluetoothActivity extends BaseActivity {
             if (action.equals(BluetoothDevice.ACTION_FOUND)) {
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 if (device.getBondState() != BluetoothDevice.BOND_BONDED) {
-                    L.d(TAG, device.getName() + ":" + device.getAddress());
+                    LogUtils.d(TAG, device.getName() + ":" + device.getAddress());
                 }
             } else if (action.equals(BluetoothAdapter.ACTION_DISCOVERY_FINISHED)) {
                 dialog.dismiss();
-                T.showShort(BluetoothActivity.this, "搜索已完成");
+                ToastUtils.showShort(BluetoothActivity.this, "搜索已完成");
             }
         }
     };

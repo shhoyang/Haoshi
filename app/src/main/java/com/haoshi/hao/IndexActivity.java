@@ -55,7 +55,7 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
         marqueeTextView.setOnMarqueeCompleteListener(new MarqueeTextView.OnMarqueeCompleteListener() {
             @Override
             public void onMarqueeComplete() {
-                //T.showLong(IndexActivity.this, "结束");
+                //ToastUtils.showLong(IndexActivity.this, "结束");
             }
         });
 

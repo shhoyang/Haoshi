@@ -9,7 +9,7 @@ import android.os.Messenger;
 import android.os.RemoteException;
 import android.support.annotation.Nullable;
 
-import com.haoshi.utils.L;
+import com.haoshi.utils.LogUtils;
 
 /**
  * @author HaoShi
@@ -25,7 +25,7 @@ public class MessengerService extends Service {
             super.handleMessage(msg);
             switch (msg.what) {
                 case 0:
-                    L.d(TAG, msg.toString());
+                    LogUtils.d(TAG, msg.toString());
                     if (activityMessenger != null) {
                         Message message = new Message();
                         message.what = 2;
@@ -39,7 +39,7 @@ public class MessengerService extends Service {
                     break;
                 case 1:
                     activityMessenger = (Messenger) msg.obj;
-                    L.d(TAG, "已经获取到Activity发送的Messenger对象");
+                    LogUtils.d(TAG, "已经获取到Activity发送的Messenger对象");
                     break;
             }
         }

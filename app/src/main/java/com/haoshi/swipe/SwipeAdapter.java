@@ -9,7 +9,7 @@ import android.widget.Button;
 import com.daimajia.swipe.SwipeLayout;
 import com.daimajia.swipe.adapters.BaseSwipeAdapter;
 import com.haoshi.R;
-import com.haoshi.utils.T;
+import com.haoshi.utils.ToastUtils;
 
 /**
  * @author HaoShi
@@ -38,7 +38,7 @@ public class SwipeAdapter extends BaseSwipeAdapter {
             @Override
             public void onClick(View v) {
                 swipeLayout.close();
-                T.showShort(context, "点击了修改");
+                ToastUtils.showShort(context, "点击了修改");
             }
         });
 
@@ -46,7 +46,7 @@ public class SwipeAdapter extends BaseSwipeAdapter {
             @Override
             public void onClick(View v) {
                 swipeLayout.close();
-                T.showShort(context, "点击了删除");
+                ToastUtils.showShort(context, "点击了删除");
             }
         });
         return v;

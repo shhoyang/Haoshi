@@ -5,17 +5,18 @@ import android.content.Context;
 import com.haoshi.rxjava.example4.common.baserx.RxManager;
 
 /**
- * @author HaoShi
+ * Created by qihuang on 16-11-5.
  */
+
 public abstract class BasePresenter<T extends BaseView, E extends BaseModel> {
-    public Context context;
-    public T view;
-    public E model;
+    public Context mContext;
+    public T mView;
+    public E mModel;
     public RxManager rxManager;
 
     public BasePresenter(T view, E model) {
-        this.view = view;
-        this.model = model;
+        mModel = model;
+        mView = view;
         onStart();
     }
 
@@ -24,7 +25,7 @@ public abstract class BasePresenter<T extends BaseView, E extends BaseModel> {
     }
 
     protected void onDestroy() {
-        view = null;
+        mView = null;
         rxManager.clear();
     }
 }

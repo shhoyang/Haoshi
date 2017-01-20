@@ -10,8 +10,9 @@ import rx.subjects.SerializedSubject;
 import rx.subjects.Subject;
 
 /**
- * @author HaoShi
+ * Created by qihuang on 16-11-5.
  */
+
 public class RxBus {
     private static RxBus rxBus;
 

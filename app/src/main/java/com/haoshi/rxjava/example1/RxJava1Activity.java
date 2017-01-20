@@ -4,7 +4,7 @@ import android.view.View;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.utils.L;
+import com.haoshi.utils.LogUtils;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -66,7 +66,7 @@ public class RxJava1Activity extends BaseActivity {
                 observable.subscribe(new Observer<String>() {
                     @Override
                     public void onCompleted() {
-                        L.d(TAG, "onCompleted()");
+                        LogUtils.d(TAG, "onCompleted()");
                     }
 
                     @Override
@@ -76,7 +76,7 @@ public class RxJava1Activity extends BaseActivity {
 
                     @Override
                     public void onNext(String s) {
-                        L.d(TAG, s);
+                        LogUtils.d(TAG, s);
                     }
                 });
                 break;

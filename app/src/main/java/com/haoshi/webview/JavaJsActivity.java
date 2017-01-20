@@ -7,7 +7,7 @@ import android.webkit.WebView;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.utils.T;
+import com.haoshi.utils.ToastUtils;
 
 /**
  * @author HaoShi
@@ -62,7 +62,7 @@ public class JavaJsActivity extends BaseActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                T.showShort(JavaJsActivity.this, "js调用了java方法");
+                ToastUtils.showShort(JavaJsActivity.this, "js调用了java方法");
             }
         });
     }
