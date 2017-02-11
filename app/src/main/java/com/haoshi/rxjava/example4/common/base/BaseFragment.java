@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 
 import com.haoshi.rxjava.example4.common.baserx.RxBus;
 
+import rx.functions.Action1;
+
 
 /**
  * Created by qihuang on 16-11-5.
@@ -31,7 +33,12 @@ public abstract class BaseFragment<T extends BasePresenter, E extends BaseModel>
         if (mPresenter != null) {
             mPresenter.mContext = getActivity();
         }
-        rxBus.addSubscription(rxBus.toObserverable().subscribe(this::handleEvent));
+        rxBus.addSubscription(rxBus.toObservable().subscribe(new Action1<Object>() {
+            @Override
+            public void call(Object o) {
+                BaseFragment.this.handleEvent(o);
+            }
+        }));
         initView();
         return rootView;
     }

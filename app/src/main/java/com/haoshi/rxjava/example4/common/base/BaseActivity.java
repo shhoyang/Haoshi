@@ -73,5 +73,4 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         }
         RxBus.getInstance().unSubscribeAll();
     }
-
 }

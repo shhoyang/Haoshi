@@ -9,6 +9,7 @@ import com.haoshi.rxjava.example1.RxJava1Activity;
 import com.haoshi.rxjava.example2.RxJava2Activity;
 import com.haoshi.rxjava.example3.RxJava3Activity;
 import com.haoshi.rxjava.example4.ui.activity.RxJava4Activity;
+import com.haoshi.rxjava.example5.RxBusActivity;
 
 /**
  * @author: HaoShi
@@ -21,11 +22,12 @@ public class RxJavaActivity extends BaseActivity {
         findViewById(R.id.button1).setOnClickListener(this);
         findViewById(R.id.button2).setOnClickListener(this);
         findViewById(R.id.button3).setOnClickListener(this);
+        findViewById(R.id.button4).setOnClickListener(this);
     }
-    
+
     @Override
     public void setData() {
-        
+
     }
 
     @Override
@@ -54,6 +56,9 @@ public class RxJavaActivity extends BaseActivity {
                 break;
             case R.id.button3:
                 intent = new Intent(this, RxJava4Activity.class);
+                break;
+            case R.id.button4:
+                intent = new Intent(this, RxBusActivity.class);
                 break;
         }
         startActivity(intent);

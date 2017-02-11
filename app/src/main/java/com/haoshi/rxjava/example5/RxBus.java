@@ -1,4 +1,4 @@
-package com.haoshi.rxjava.example4.common.baserx;
+package com.haoshi.rxjava.example5;
 
 
 import java.util.Vector;
@@ -10,7 +10,7 @@ import rx.subjects.SerializedSubject;
 import rx.subjects.Subject;
 
 /**
- * Created by qihuang on 16-11-5.
+ * @author Haoshi
  */
 
 public class RxBus {
@@ -31,16 +31,16 @@ public class RxBus {
         return rxBus;
     }
 
-    public final Subject<Object, Object> _bus = new SerializedSubject<>(PublishSubject.create());
+    public final Subject<Object, Object> subject = new SerializedSubject<>(PublishSubject.create());
 
     public final Vector<Subscription> subscriptions = new Vector<>();
 
     public void send(Object o) {
-        _bus.onNext(o);
+        subject.onNext(o);
     }
 
     public Observable<Object> toObservable() {
-        return _bus;
+        return subject;
     }
 
     public void addSubscription(Subscription s) {

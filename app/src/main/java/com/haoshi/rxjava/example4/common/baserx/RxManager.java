@@ -19,5 +19,4 @@ public class RxManager {
             cs.unsubscribe();
         }
     }
-
 }

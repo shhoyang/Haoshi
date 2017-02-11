@@ -26,5 +26,4 @@ public class NewsPresenter extends NewsContract.Presenter {
             }
         }));
     }
-
 }
