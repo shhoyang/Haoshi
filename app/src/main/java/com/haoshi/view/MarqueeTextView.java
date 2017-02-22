@@ -154,7 +154,9 @@ public class MarqueeTextView extends TextView implements View.OnClickListener {
         }
         step += speed; //文字滚动速度。
         if (step > temp_view_plus_two_text_length) {
-            marqueeCompleteListener.onMarqueeComplete();
+            if(marqueeCompleteListener!= null){
+                marqueeCompleteListener.onMarqueeComplete();
+            }
             step = textLength;
         }
         invalidate();

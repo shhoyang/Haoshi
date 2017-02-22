@@ -13,6 +13,7 @@ import com.andview.refreshview.XRefreshView;
 import com.andview.refreshview.XRefreshViewFooter;
 import com.andview.refreshview.recyclerview.BaseRecyclerAdapter;
 import com.haoshi.R;
+import com.haoshi.androidtest.AndroidTestActivity;
 import com.haoshi.bluetooth.BluetoothActivity;
 import com.haoshi.dialog.DialogActivity;
 import com.haoshi.listview.ListViewActivity;
@@ -48,16 +49,10 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
     public void initView() {
 
         marqueeTextView = (MarqueeTextView) findViewById(R.id.marquee);
-        marqueeTextView.setText("工作中总结的Demo,与同仁共享");
+        marqueeTextView.setText("天行健,君子以自强不息;地势坤,君子以厚德载物");
         marqueeTextView.setSpeed(ScreenUtils.getScreenWidth(this) / 300);
         marqueeTextView.setFontColor("#FFFFFF");
         marqueeTextView.init(getWindowManager());
-        marqueeTextView.setOnMarqueeCompleteListener(new MarqueeTextView.OnMarqueeCompleteListener() {
-            @Override
-            public void onMarqueeComplete() {
-                //ToastUtils.showLong(IndexActivity.this, "结束");
-            }
-        });
 
         xRefreshView = (XRefreshView) findViewById(R.id.refreshview);
         xRefreshView.setPullRefreshEnable(true);
@@ -99,6 +94,7 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
         list.add(ServiceActivity.class);
         list.add(TTSActivity.class);
         list.add(BluetoothActivity.class);
+        list.add(AndroidTestActivity.class);
 
         recyclerView.setAdapter(adapter);
         LinearLayoutManager manager = new LinearLayoutManager(this);

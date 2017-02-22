@@ -54,10 +54,11 @@
         <activity android:name=".bluetooth.BluetoothActivity" />
         <activity android:name=".rxjava.example4.ui.activity.RxJava4Activity" />
         <activity android:name=".rxjava.example4.ui.activity.NewsDetailActivity" />
-        <activity android:name=".rxjava.example5.RxBusActivity"/>
+        <activity android:name=".rxjava.example5.RxBusActivity" />
 
         <service android:name=".service.MessengerService" />
 
+        <activity android:name=".androidtest.AndroidTestActivity"></activity>
     </application>
 
 </manifest>
