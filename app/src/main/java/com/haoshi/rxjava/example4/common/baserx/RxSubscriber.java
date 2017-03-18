@@ -2,9 +2,7 @@ package com.haoshi.rxjava.example4.common.baserx;
 
 import android.content.Context;
 
-import com.haoshi.R;
 import com.haoshi.hao.HaoApplication;
-import com.haoshi.rxjava.example4.exception.NewsException;
 import com.haoshi.utils.NetWorkUtil;
 import com.haoshi.utils.ToastUtils;
 

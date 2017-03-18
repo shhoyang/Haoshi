@@ -7,7 +7,8 @@ import android.os.Environment;
  */
 public class Constant {
 
-    public static final String ROOT_DIR = Environment.getExternalStorageDirectory().getAbsolutePath() + "/haoshi";
+    public static final String SD_PATH = Environment.getExternalStorageDirectory().getAbsolutePath();
+    public static final String ROOT_DIR = SD_PATH + "/haoshi";
 
     public static final String BASE_URL = "http://v.juhe.cn/toutiao/";
     public static final String NEWS_URL = "index";

@@ -16,6 +16,7 @@ import com.haoshi.R;
 import com.haoshi.androidtest.AndroidTestActivity;
 import com.haoshi.bluetooth.BluetoothActivity;
 import com.haoshi.dialog.DialogActivity;
+import com.haoshi.hotfix.HotFixActivity;
 import com.haoshi.listview.ListViewActivity;
 import com.haoshi.mvp.activity.MvpActivity;
 import com.haoshi.rxjava.RxJavaActivity;
@@ -24,6 +25,7 @@ import com.haoshi.service.ServiceActivity;
 import com.haoshi.sqlite.SqliteActivity;
 import com.haoshi.swipe.SwipeActivity;
 import com.haoshi.tts.TTSActivity;
+import com.haoshi.utils.LogUtils;
 import com.haoshi.utils.ScreenUtils;
 import com.haoshi.view.MarqueeTextView;
 import com.haoshi.view.ViewActivity;
@@ -95,6 +97,7 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
         list.add(TTSActivity.class);
         list.add(BluetoothActivity.class);
         list.add(AndroidTestActivity.class);
+        list.add(HotFixActivity.class);
 
         recyclerView.setAdapter(adapter);
         LinearLayoutManager manager = new LinearLayoutManager(this);

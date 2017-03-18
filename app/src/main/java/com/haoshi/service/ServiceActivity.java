@@ -4,6 +4,8 @@ import android.app.Service;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -15,6 +17,8 @@ import com.haoshi.IAidlInterface;
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
 import com.haoshi.utils.ToastUtils;
+
+import java.util.List;
 
 /**
  * @author HaoShi
@@ -28,10 +32,10 @@ public class ServiceActivity extends BaseActivity {
         findViewById(R.id.button2).setOnClickListener(this);
         findViewById(R.id.button3).setOnClickListener(this);
     }
-    
+
     @Override
     public void setData() {
-        
+
     }
 
     @Override
@@ -67,11 +71,11 @@ public class ServiceActivity extends BaseActivity {
 
     private Messenger messenger;
     //将该handler发送Service
-    private Messenger outMessenger = new Messenger(new Handler(){
+    private Messenger outMessenger = new Messenger(new Handler() {
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            if(msg.what ==2){
+            if (msg.what == 2) {
                 ToastUtils.showShort(ServiceActivity.this, (String) msg.obj);
             }
         }
@@ -100,12 +104,12 @@ public class ServiceActivity extends BaseActivity {
 
             }
         };
-        bindService(intent,connection, Service.BIND_AUTO_CREATE);
+        bindService(intent, connection, Service.BIND_AUTO_CREATE);
     }
 
     private void messengerSend() {
-        if(messenger == null){
-            ToastUtils.showShort(this,"服务不可用");
+        if (messenger == null) {
+            ToastUtils.showShort(this, "服务不可用");
             return;
         }
         Message msg = new Message();
@@ -124,10 +128,10 @@ public class ServiceActivity extends BaseActivity {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
             iAidlInterface = IAidlInterface.Stub.asInterface(service);
-            String info  = null;
+            String info = null;
             try {
                 info = iAidlInterface.getInfo("hello");
-                ToastUtils.showLong(ServiceActivity.this,info);
+                ToastUtils.showLong(ServiceActivity.this, info);
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -140,7 +144,17 @@ public class ServiceActivity extends BaseActivity {
     };
 
     private void aidl() {
-        Intent intent =new Intent("haoshi");
-        bindService(intent, connection, BIND_AUTO_CREATE);
+        Intent intent = new Intent("haoshiAIDL");
+        PackageManager manager = getPackageManager();
+        List<ResolveInfo> resolveInfo = manager.queryIntentServices(intent, 0);
+        if (resolveInfo != null && resolveInfo.size() == 1) {
+            ResolveInfo serviceInfo = resolveInfo.get(0);
+            String packageName = serviceInfo.serviceInfo.packageName;
+            String className = serviceInfo.serviceInfo.name;
+            ComponentName componentName = new ComponentName(packageName, className);
+            Intent explicitIntent = new Intent(intent);
+            explicitIntent.setComponent(componentName);
+            bindService(intent, connection, BIND_AUTO_CREATE);
+        }
     }
 }

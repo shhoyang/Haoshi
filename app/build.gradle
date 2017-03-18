@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 apply plugin: 'com.android.application'
 apply plugin: 'org.greenrobot.greendao'
 apply plugin: 'me.tatarka.retrolambda'
@@ -14,8 +16,30 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
-    buildTypes {
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def file = output.outputFile
+            output.outputFile = new File(file.parent, "hao" + defaultConfig.versionName + ".apk")
+        }
+    }
+
+    signingConfigs {
         release {
+            keyAlias 'haoshi'
+            keyPassword '123456'
+            storeFile file('W:/haoshi.jks')
+            storePassword '123456'
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -32,14 +56,20 @@ android {
     }
 }
 
+def buildTime() {
+    def df = new SimpleDateFormat("yyyyMMdd")
+    df.setTimeZone(TimeZone.getDefault())
+    return df.format(new Date())
+}
+
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     //23.1.1用于单元测试
-    //compile 'com.android.support:appcompat-v7:25.1.0'
-    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:appcompat-v7:25.3.0'
+    //compile 'com.android.support:appcompat-v7:23.1.1'
     testCompile 'junit:junit:4.12'
     compile 'io.reactivex:rxjava:1.2.4'
     compile 'io.reactivex:rxandroid:1.2.1'
@@ -57,4 +87,70 @@ dependencies {
     compile 'com.huxq17.xrefreshview:xrefreshview:3.5.2'
     compile 'jp.wasabeef:recyclerview-animators:2.2.4'
     compile 'com.android.support:design:25.1.0'
+    compile 'com.tencent.tinker:tinker-android-anno:1.6.2'
+    compile 'com.tencent.tinker:tinker-android-lib:1.6.2'
+    compile 'com.alipay.euler:andfix:0.3.1@aar'
+}
+
+apply plugin: 'com.tencent.tinker.patch'
+tinkerPatch {
+    oldApk = "W://app_bug.apk"
+    ignoreWarning = false
+    useSign = true
+    buildConfig{
+        tinkerId = "1.0"
+    }
+    packageConfig{
+        //写这个为了修复一个bug,相见issue #22
+        configField("TINKER_ID", "1.0")
+    }
+    dex{
+        dexMode = "jar"
+        pattern = ["classes*.dex", "assets/secondary-dex-?.jar"]
+        loader = ["com.tencent.tinker.loader.*", "com.yusong.tinker.Application"]
+    }
+    lib{
+        pattern = ["lib/armeabi/*.so","lib/arm64-v8a/*.so","lib/armeabi-v7a/*.so","lib/mips/*.so","lib/mips64/*.so","lib/x86/*.so","lib/x86_64/*.so"]
+    }
+    res{
+        pattern = ["res/*", "assets/*", "resources.arsc", "AndroidManifest.xml"]
+        largeModSize = 100
+    }
+    sevenZip{
+        zipArtifact = "com.tencent.mm:SevenZip:1.1.10"
+    }
+
+
+    /* 这个里边生成的是本次build的apk,用来当做old apk,也就是上边配置中的W:/old.apk */
+    def bakPath = file("${buildDir}/bakApk/")
+    /**
+     * bak apk and mapping
+     */
+    android.applicationVariants.all { variant ->
+        def taskName = variant.name
+        tasks.all {
+            if ("assemble${taskName.capitalize()}".equalsIgnoreCase(it.name)) {
+                it.doLast {
+                    copy {
+                        def date = new Date().format("MMdd-HH-mm-ss")
+                        from "${buildDir}/outputs/apk/${project.getName()}-${taskName}.apk"
+                        into bakPath
+                        rename { String fileName ->
+                            fileName.replace("${project.getName()}-${taskName}.apk", "${project.getName()}-${taskName}-${date}.apk")
+                        }
+                        from "${buildDir}/outputs/mapping/${taskName}/mapping.txt"
+                        into bakPath
+                        rename { String fileName ->
+                            fileName.replace("mapping.txt", "${project.getName()}-${taskName}-${date}-mapping.txt")
+                        }
+                        from "${buildDir}/intermediates/symbols/${taskName}/R.txt"
+                        into bakPath
+                        rename { String fileName ->
+                            fileName.replace("R.txt", "${project.getName()}-${taskName}-${date}-R.txt")
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
