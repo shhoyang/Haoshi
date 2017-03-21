@@ -8,7 +8,9 @@ import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
 import com.haoshi.utils.LogUtils;
 
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.List;
 
 /**

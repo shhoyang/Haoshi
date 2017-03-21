@@ -61,6 +61,9 @@
 
         <service android:name=".service.MessengerService" />
 
+        <activity android:name=".toast.ToastActivity" />
+        <activity android:name=".toast.StyleableToastActivity" />
+        <activity android:name=".toast.ToastyActivity"></activity>
     </application>
 
 </manifest>

@@ -9,7 +9,7 @@ android {
     buildToolsVersion "25.0.2"
     defaultConfig {
         applicationId "com.haoshi"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
@@ -90,6 +90,8 @@ dependencies {
     compile 'com.tencent.tinker:tinker-android-anno:1.6.2'
     compile 'com.tencent.tinker:tinker-android-lib:1.6.2'
     compile 'com.alipay.euler:andfix:0.3.1@aar'
+    compile 'com.muddzdev:styleabletoast:1.0.6'
+    compile 'com.github.GrenderG:Toasty:1.1.4'
 }
 
 apply plugin: 'com.tencent.tinker.patch'
