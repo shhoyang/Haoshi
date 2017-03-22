@@ -58,7 +58,7 @@ public class StyleableToastActivity extends BaseActivity {
                 styleableToast = new StyleableToast
                         .Builder(this, "Turn off fly mode")
                         .withBackgroundColor(Color.parseColor("#865aff"))
-                        .withIcon(R.drawable.ic_airplanemode_inactive_black_24dp)
+                        .withIcon(R.drawable.styleable_toast_fly)
                         .withMaxAlpha()
                         .build();
                 styleableToast.show();
@@ -67,7 +67,7 @@ public class StyleableToastActivity extends BaseActivity {
                 styleableToast = new StyleableToast(this, "Updating profile", Toast.LENGTH_LONG);
                 styleableToast.setBackgroundColor(Color.parseColor("#ff5a5f"));
                 styleableToast.setTextColor(Color.WHITE);
-                styleableToast.setIcon(R.drawable.ic_autorenew_black_24dp);
+                styleableToast.setIcon(R.drawable.styleable_toast_refresh);
                 styleableToast.spinIcon();
                 styleableToast.setMaxAlpha();
                 styleableToast.show();

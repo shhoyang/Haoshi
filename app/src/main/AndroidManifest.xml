@@ -23,7 +23,7 @@
     <application
         android:name=".Application"
         android:allowBackup="true"
-        android:icon="@mipmap/katong"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -58,12 +58,15 @@
         <activity android:name=".rxjava.example5.RxBusActivity" />
         <activity android:name=".androidtest.AndroidTestActivity" />
         <activity android:name=".hotfix.HotFixActivity" />
-
-        <service android:name=".service.MessengerService" />
-
         <activity android:name=".toast.ToastActivity" />
         <activity android:name=".toast.StyleableToastActivity" />
         <activity android:name=".toast.ToastyActivity"></activity>
+        <activity android:name=".lottie.LottieActivity" />
+        <activity android:name=".lottie.NetWorkAnimActivity" />
+        <activity android:name=".lottie.LottieSimpleActivity" />
+        <activity android:name=".lottie.ProgressAnimActivity"/>
+
+        <service android:name=".service.MessengerService" />
     </application>
 
 </manifest>

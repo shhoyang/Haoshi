@@ -62,7 +62,7 @@ public class ToastyActivity extends BaseActivity {
                 Toasty.normal(this, "Normal toast w/o icon").show();
                 break;
             case R.id.button5:
-                Drawable icon = getResources().getDrawable(R.mipmap.ic_pets_white_48dp);
+                Drawable icon = getResources().getDrawable(R.mipmap.toasty_baidu);
                 Toasty.normal(this, "Normal toast w/ icon", icon).show();
                 break;
             case R.id.button6:

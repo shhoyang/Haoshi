@@ -45,13 +45,7 @@ public class CustomerFooter extends LinearLayout implements IFooterCallBack {
             show(Utils.isRecyclerViewFullscreen(recyclerView));
         }
         mClickView.setText(com.andview.refreshview.R.string.xrefreshview_footer_hint_click);
-        mClickView.setOnClickListener(new OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                xRefreshView.notifyLoadMore();
-            }
-        });
+        mClickView.setOnClickListener(v -> xRefreshView.notifyLoadMore());
     }
 
     @Override

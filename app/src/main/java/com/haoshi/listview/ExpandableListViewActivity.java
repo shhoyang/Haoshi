@@ -1,6 +1,5 @@
 package com.haoshi.listview;
 
-import android.view.View;
 import android.widget.ExpandableListView;
 
 import com.haoshi.R;
@@ -36,12 +35,9 @@ public class ExpandableListViewActivity extends BaseActivity {
             listView.expandGroup(i);
         }
 
-        listView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
-            @Override
-            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                //返回true,Group点击不闭合
-                return true;
-            }
+        listView.setOnGroupClickListener((parent, v, groupPosition, id) -> {
+            //返回true,Group点击不闭合
+            return true;
         });
     }
 

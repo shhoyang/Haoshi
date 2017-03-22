@@ -1,7 +1,6 @@
 package com.haoshi.view;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
@@ -66,14 +65,11 @@ public class AutoViewPager extends ViewPager {
         }
     };
 
-    public Thread thread = new Thread(new Runnable() {
-        @Override
-        public void run() {
-            while (true) {
-                if (isContinue) {
-                    handler.sendEmptyMessage(0);
-                    SystemClock.sleep(interval);
-                }
+    public Thread thread = new Thread(() -> {
+        while (true) {
+            if (isContinue) {
+                handler.sendEmptyMessage(0);
+                SystemClock.sleep(interval);
             }
         }
     });

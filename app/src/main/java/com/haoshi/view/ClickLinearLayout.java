@@ -79,12 +79,9 @@ public class ClickLinearLayout extends LinearLayout {
             case MotionEvent.ACTION_MOVE:
                 break;
             case MotionEvent.ACTION_UP:
-                mHandler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        anim1.end();
-                        anim2.start();
-                    }
+                mHandler.post(() -> {
+                    anim1.end();
+                    anim2.start();
                 });
                 if (listener != null) {
                     listener.onClick(this);
@@ -109,7 +106,7 @@ public class ClickLinearLayout extends LinearLayout {
 
     //点击事件处理回调　
     public interface OnClickListener {
-        public void onClick(View view);
+        void onClick(View view);
     }
 
     @Override

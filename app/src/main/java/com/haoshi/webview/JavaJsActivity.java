@@ -21,7 +21,7 @@ public class JavaJsActivity extends BaseActivity {
         webView = (WebView) findViewById(R.id.webview);
         // 启用javascript
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.loadUrl("file:///android_asset/demo.html");
+        webView.loadUrl("file:///android_asset/hybrid_demo.html");
         webView.addJavascriptInterface(JavaJsActivity.this, "android");
         findViewById(R.id.button).setOnClickListener(this);
         findViewById(R.id.button1).setOnClickListener(this);
@@ -58,23 +58,11 @@ public class JavaJsActivity extends BaseActivity {
     //由于安全原因 需要加 @JavascriptInterface
     @JavascriptInterface
     public void startFunction() {
-
-        runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                ToastUtils.showShort(JavaJsActivity.this, "js调用了java方法");
-            }
-        });
+        runOnUiThread(() -> ToastUtils.showShort(JavaJsActivity.this, "js调用了java方法"));
     }
 
     @JavascriptInterface
     public void startFunction(final String text) {
-        runOnUiThread(new Runnable() {
-
-            @Override
-            public void run() {
-                new AlertDialog.Builder(JavaJsActivity.this).setMessage(text).show();
-            }
-        });
+        runOnUiThread(() -> new AlertDialog.Builder(JavaJsActivity.this).setMessage(text).show());
     }
 }

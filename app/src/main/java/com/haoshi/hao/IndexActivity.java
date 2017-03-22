@@ -18,6 +18,7 @@ import com.haoshi.bluetooth.BluetoothActivity;
 import com.haoshi.dialog.DialogActivity;
 import com.haoshi.hotfix.HotFixActivity;
 import com.haoshi.listview.ListViewActivity;
+import com.haoshi.lottie.LottieActivity;
 import com.haoshi.mvp.activity.MvpActivity;
 import com.haoshi.rxjava.RxJavaActivity;
 import com.haoshi.scrollview.ScrollActivity;
@@ -99,6 +100,7 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
         list.add(AndroidTestActivity.class);
         list.add(HotFixActivity.class);
         list.add(ToastActivity.class);
+        list.add(LottieActivity.class);
 
         recyclerView.setAdapter(adapter);
         LinearLayoutManager manager = new LinearLayoutManager(this);
@@ -124,12 +126,9 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
     @Override
     public void onRefresh() {
         xRefreshView.restoreLastRefreshTime(lastTime);
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                xRefreshView.stopRefresh();
-                lastTime = xRefreshView.getLastRefreshTime();
-            }
+        handler.postDelayed(() -> {
+            xRefreshView.stopRefresh();
+            lastTime = xRefreshView.getLastRefreshTime();
         }, 2000);
     }
 
@@ -137,12 +136,9 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
     public void onLoadMore(boolean isSilence) {
         xRefreshView.restoreLastRefreshTime(lastTime);
 
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                xRefreshView.stopLoadMore();
-                lastTime = xRefreshView.getLastRefreshTime();
-            }
+        handler.postDelayed(() -> {
+            xRefreshView.stopLoadMore();
+            lastTime = xRefreshView.getLastRefreshTime();
         }, 2000);
     }
 
@@ -182,12 +178,7 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
         public void onBindViewHolder(VH holder, final int position, boolean isItem) {
             name = list.get(position).getSimpleName();
             holder.button.setText(name.substring(0, name.lastIndexOf("Activity")));
-            holder.button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    startActivity(new Intent(IndexActivity.this, list.get(position)));
-                }
-            });
+            holder.button.setOnClickListener(view -> startActivity(new Intent(IndexActivity.this, list.get(position))));
         }
     };
 

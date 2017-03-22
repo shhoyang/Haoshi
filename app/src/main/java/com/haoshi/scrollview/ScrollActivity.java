@@ -15,12 +15,9 @@ public class ScrollActivity extends BaseActivity {
         final TextView textPlace = (TextView) findViewById(R.id.text_place);
         final TextView textTitle = (TextView) findViewById(R.id.text_title);
         StickyScrollView scrollView = (StickyScrollView) findViewById(R.id.activity_scroll);
-        scrollView.setOnScrollListener(new StickyScrollView.OnScrollListener() {
-            @Override
-            public void onScroll(int scrollY) {
-                int top = Math.max(scrollY, textPlace.getTop());
-                textTitle.layout(0, top, textTitle.getWidth(), top + textTitle.getHeight());
-            }
+        scrollView.setOnScrollListener(scrollY -> {
+            int top = Math.max(scrollY, textPlace.getTop());
+            textTitle.layout(0, top, textTitle.getWidth(), top + textTitle.getHeight());
         });
     }
     

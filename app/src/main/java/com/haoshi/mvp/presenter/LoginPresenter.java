@@ -28,24 +28,18 @@ public class LoginPresenter {
         iUserBiz.login(iUserLoginView.getUserName(), iUserLoginView.getPassword(), new OnLoginListener() {
             @Override
             public void loginSuccess(final User user) {
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        iUserLoginView.toActivity(user);
-                        iUserLoginView.clearInfo();
-                        iUserLoginView.hideLoading();
-                    }
+                handler.post(() -> {
+                    iUserLoginView.toActivity(user);
+                    iUserLoginView.clearInfo();
+                    iUserLoginView.hideLoading();
                 });
             }
 
             @Override
             public void loginFailed() {
-                handler.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        iUserLoginView.showFailedError();
-                        iUserLoginView.hideLoading();
-                    }
+                handler.post(() -> {
+                    iUserLoginView.showFailedError();
+                    iUserLoginView.hideLoading();
                 });
             }
         });

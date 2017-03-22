@@ -1,6 +1,5 @@
 package com.haoshi.mvp.activity;
 
-import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -23,12 +22,7 @@ public class MvpActivity extends BaseActivity implements IUserLoginView {
         editUserName = (EditText) findViewById(R.id.edit_username);
         editPassword = (EditText) findViewById(R.id.edit_password);
         dialog.setMessage("正在登录...");
-        findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                loginPresenter.login();
-            }
-        });
+        findViewById(R.id.button).setOnClickListener(view -> loginPresenter.login());
     }
 
     @Override

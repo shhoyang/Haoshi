@@ -39,20 +39,15 @@ public class RecyclerViewActivity extends BaseActivity {
         }
 
         for (int i = 0; i < 10; i++) {
-            images.add(R.mipmap.a);
-            images.add(R.mipmap.b);
-            images.add(R.mipmap.c);
-            images.add(R.mipmap.d);
-            images.add(R.mipmap.e);
-            images.add(R.mipmap.f);
+            images.add(R.mipmap.ic_launcher);
+            images.add(R.mipmap.lamborghini);
+            images.add(R.mipmap.share);
+            images.add(R.mipmap.header);
+            images.add(R.mipmap.toasty_baidu);
+            images.add(R.mipmap.up);
         }
 
-        RecyclerAdapter adapter = new RecyclerAdapter(texts, images, new RecyclerAdapter.OnRecyclerItemClickListener() {
-            @Override
-            public void onItemClick(int position) {
-                ToastUtils.showShort(RecyclerViewActivity.this, "点击了条目" + position);
-            }
-        });
+        RecyclerAdapter adapter = new RecyclerAdapter(texts, images, position -> ToastUtils.showShort(RecyclerViewActivity.this, "点击了条目" + position));
         recyclerView.setAdapter(adapter);
         if (type == 1) {
             LinearLayoutManager manager = new LinearLayoutManager(this);

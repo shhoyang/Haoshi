@@ -34,12 +34,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<VH> {
     public void onBindViewHolder(final VH holder, final int position) {
         holder.textView.setText(texts.get(position));
         holder.imageView.setImageResource(images.get(position));
-        holder.imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onItemClick.onItemClick(holder.getLayoutPosition());
-            }
-        });
+        holder.imageView.setOnClickListener(v -> onItemClick.onItemClick(holder.getLayoutPosition()));
     }
 
     @Override

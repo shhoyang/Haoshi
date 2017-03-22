@@ -292,15 +292,12 @@ public class SmileyLoadingView extends View {
         mValueAnimator.setInterpolator(new LinearInterpolator());
         mValueAnimator.setRepeatCount(mAnimRepeatCount);
         mValueAnimator.setRepeatMode(ValueAnimator.RESTART);
-        mValueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-            @Override
-            public void onAnimationUpdate(ValueAnimator animation) {
-                if (!animation.isRunning()) {
-                    return;
-                }
-                float animatedValue = (float) animation.getAnimatedValue();
-                update(animatedValue);
+        mValueAnimator.addUpdateListener(animation -> {
+            if (!animation.isRunning()) {
+                return;
             }
+            float animatedValue = (float) animation.getAnimatedValue();
+            update(animatedValue);
         });
         mValueAnimator.addListener(new Animator.AnimatorListener() {
             @Override

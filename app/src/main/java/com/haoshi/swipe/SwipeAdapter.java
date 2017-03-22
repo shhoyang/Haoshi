@@ -42,12 +42,9 @@ public class SwipeAdapter extends BaseSwipeAdapter {
             }
         });
 
-        btnDelete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                swipeLayout.close();
-                ToastUtils.showShort(context, "点击了删除");
-            }
+        btnDelete.setOnClickListener(v1 -> {
+            swipeLayout.close();
+            ToastUtils.showShort(context, "点击了删除");
         });
         return v;
     }
