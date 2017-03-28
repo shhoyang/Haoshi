@@ -3,8 +3,11 @@ package com.haoshi.hao;
 import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.haoshi.R;
@@ -15,6 +18,8 @@ import com.haoshi.R;
 public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
 
     protected static String TAG;
+
+    protected ImageView menu;
     protected ProgressDialog dialog;
 
     @Override
@@ -22,12 +27,13 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
 
-        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.fram);
+        FrameLayout frameLayout = (FrameLayout) findViewById(R.id.frame);
         View view = View.inflate(this, setContentViewID(), null);
         frameLayout.addView(view);
 
-        TextView title = (TextView) findViewById(R.id.title);
-        title.setText(setTitle());
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        setTitle(setTitle());
 
         dialog = new ProgressDialog(this);
         dialog.setCanceledOnTouchOutside(false);

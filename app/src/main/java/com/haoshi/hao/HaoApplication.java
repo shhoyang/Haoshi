@@ -7,6 +7,7 @@ import android.content.res.AssetManager;
 import android.content.res.Resources;
 
 import com.alipay.euler.andfix.patch.PatchManager;
+import com.baidu.mapapi.SDKInitializer;
 import com.haoshi.utils.LogUtils;
 import com.tencent.tinker.anno.DefaultLifeCycle;
 import com.tencent.tinker.lib.tinker.TinkerInstaller;
@@ -43,7 +44,11 @@ public class HaoApplication extends DefaultApplicationLike {
     public void onBaseContextAttached(Context base) {
         super.onBaseContextAttached(base);
         application = getApplication();
+        //初始化百度地图
+        SDKInitializer.initialize(application);
+        //初始化Tinker
         TinkerInstaller.install(this);
+        //初始化AndFix
         andFix();
     }
 
@@ -60,13 +65,18 @@ public class HaoApplication extends DefaultApplicationLike {
             LogUtils.d(TAG, "patch load");
 
             String patchPath = Constant.SD_PATH + "/patch.apatch";
+            File patchFile = new File(patchPath);
+            if(!patchFile.exists()){
+                return;
+            }
             patchManager.addPatch(patchPath);
             File file = new File(application.getFilesDir(), "apatch/patch.apatch");
-            if (file.exists()) {
-                boolean result = new File(patchPath).delete();
-                if (!result) {
-                    LogUtils.d(TAG, patchPath + " delete fail");
-                }
+            if (!file.exists()) {
+                return;
+            }
+            boolean result = patchFile.delete();
+            if (!result) {
+                LogUtils.d(TAG, patchPath + " delete fail");
             }
         } catch (IOException e) {
             LogUtils.e(TAG, e.toString());

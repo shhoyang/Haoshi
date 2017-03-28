@@ -14,34 +14,36 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/text"
+            <ImageView
+                android:id="@+id/image"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@android:color/holo_blue_light" />
+                android:scaleType="fitXY"
+                android:src="@mipmap/lamborghini" />
 
             <TextView
                 android:id="@+id/text_place"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_below="@id/text" />
+                android:layout_below="@id/image" />
 
-            <TextView
+            <ListView
+                android:id="@+id/list"
                 android:layout_width="match_parent"
                 android:layout_height="1000dp"
-                android:layout_below="@id/text_place"
-                android:background="@android:color/holo_blue_light" />
+                android:layout_below="@id/text_title" />
 
             <TextView
                 android:id="@+id/text_title"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_below="@id/text"
-                android:background="@android:color/holo_green_light"
+                android:layout_below="@id/image"
+                android:background="@android:color/holo_blue_light"
                 android:gravity="center"
                 android:text="标题"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
+
         </RelativeLayout>
     </LinearLayout>
 

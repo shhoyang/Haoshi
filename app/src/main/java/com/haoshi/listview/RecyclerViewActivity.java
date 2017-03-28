@@ -5,6 +5,8 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
@@ -22,8 +24,6 @@ public class RecyclerViewActivity extends BaseActivity {
     private List<String> texts = new ArrayList<>();
     private List<Integer> images = new ArrayList<>();
 
-    private int type;
-
     @Override
     public void initView() {
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
@@ -31,44 +31,54 @@ public class RecyclerViewActivity extends BaseActivity {
 
     @Override
     public void setData() {
-        Intent intent = getIntent();
-        type = intent.getIntExtra("type", 1);
-
-        for (int i = 0; i < 60; i++) {
+        for (int i = 0; i < 50; i++) {
             texts.add("条目" + i);
-        }
-
-        for (int i = 0; i < 10; i++) {
             images.add(R.mipmap.ic_launcher);
-            images.add(R.mipmap.lamborghini);
-            images.add(R.mipmap.share);
-            images.add(R.mipmap.header);
-            images.add(R.mipmap.toasty_baidu);
-            images.add(R.mipmap.up);
         }
 
         RecyclerAdapter adapter = new RecyclerAdapter(texts, images, position -> ToastUtils.showShort(RecyclerViewActivity.this, "点击了条目" + position));
         recyclerView.setAdapter(adapter);
-        if (type == 1) {
-            LinearLayoutManager manager = new LinearLayoutManager(this);
-            manager.setOrientation(LinearLayoutManager.VERTICAL);
-            manager.setReverseLayout(false);
-            recyclerView.setLayoutManager(manager);
-        } else if (type == 2) {
-            LinearLayoutManager manager = new LinearLayoutManager(this);
-            manager.setOrientation(LinearLayoutManager.HORIZONTAL);
-            manager.setReverseLayout(false);
-            recyclerView.setLayoutManager(manager);
-        } else if (type == 3) {
-            GridLayoutManager manager = new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false);
-            recyclerView.setLayoutManager(manager);
-        } else if (type == 4) {
-            GridLayoutManager manager = new GridLayoutManager(this, 2, LinearLayoutManager.HORIZONTAL, false);
-            recyclerView.setLayoutManager(manager);
-        } else if (type == 5) {
-            StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-            recyclerView.setLayoutManager(manager);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        linearLayoutManager.setReverseLayout(false);
+        recyclerView.setLayoutManager(linearLayoutManager);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.recycler_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_list_vertical:
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
+                linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+                linearLayoutManager.setReverseLayout(false);
+                recyclerView.setLayoutManager(linearLayoutManager);
+                break;
+            case R.id.action_list_horizontal:
+                LinearLayoutManager linearLayoutManager1 = new LinearLayoutManager(this);
+                linearLayoutManager1.setOrientation(LinearLayoutManager.HORIZONTAL);
+                linearLayoutManager1.setReverseLayout(false);
+                recyclerView.setLayoutManager(linearLayoutManager1);
+                break;
+            case R.id.action_grid_vertical:
+                GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2, LinearLayoutManager.VERTICAL, false);
+                recyclerView.setLayoutManager(gridLayoutManager);
+                break;
+            case R.id.action_grid_horizontal:
+                GridLayoutManager gridLayoutManager1 = new GridLayoutManager(this, 2, LinearLayoutManager.HORIZONTAL, false);
+                recyclerView.setLayoutManager(gridLayoutManager1);
+                break;
+            case R.id.action_flow:
+                StaggeredGridLayoutManager staggeredGridLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
+                recyclerView.setLayoutManager(staggeredGridLayoutManager);
+                break;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

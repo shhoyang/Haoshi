@@ -8,13 +8,12 @@
     android:orientation="vertical"
     tools:context="com.haoshi.hao.IndexActivity">
 
-    <com.haoshi.view.MarqueeTextView
+    <com.haoshi.customview.MarqueeTextView
         android:id="@+id/marquee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_light"
+        android:background="@color/colorPrimary"
         android:paddingBottom="5dp"
-        android:paddingTop="5dp"
         android:singleLine="true"
         android:textSize="15sp" />
 
@@ -27,15 +26,12 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:paddingLeft="@dimen/activity_vertical_margin"
-            android:paddingRight="@dimen/activity_vertical_margin" />
+            android:layout_height="match_parent" />
 
     </com.andview.refreshview.XRefreshView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/button_up"
-        android:background="#00ffff"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

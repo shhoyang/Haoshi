@@ -34,12 +34,9 @@ public class SwipeAdapter extends BaseSwipeAdapter {
         Button btnUpdate = (Button) v.findViewById(R.id.swipe_update);
         Button btnDelete = (Button) v.findViewById(R.id.swipe_delete);
 
-        btnUpdate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                swipeLayout.close();
-                ToastUtils.showShort(context, "点击了修改");
-            }
+        btnUpdate.setOnClickListener(v12 -> {
+            swipeLayout.close();
+            ToastUtils.showShort(context, "点击了修改");
         });
 
         btnDelete.setOnClickListener(v1 -> {
@@ -55,7 +52,7 @@ public class SwipeAdapter extends BaseSwipeAdapter {
 
     @Override
     public int getCount() {
-        return 10;
+        return 20;
     }
 
     @Override

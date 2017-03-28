@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.andview.refreshview.XRefreshView;
 import com.andview.refreshview.XRefreshViewFooter;
@@ -17,22 +18,28 @@ import com.haoshi.R;
 import com.haoshi.androidtest.AndroidTestActivity;
 import com.haoshi.bluetooth.BluetoothActivity;
 import com.haoshi.dialog.DialogActivity;
-import com.haoshi.hotfix.HotFixActivity;
-import com.haoshi.listview.ListViewActivity;
+import com.haoshi.rxjava.cookie.RxJavaCookieActivity;
+import com.haoshi.rxjava.mvp.ui.activity.RxJavaMvpActivity;
+import com.haoshi.tinker.TinkerActivity;
+import com.haoshi.listview.ExpandableListViewActivity;
+import com.haoshi.listview.RecyclerViewActivity;
 import com.haoshi.lottie.LottieActivity;
+import com.haoshi.baidumap.BaiduMapActivity;
 import com.haoshi.mvp.activity.MvpActivity;
 import com.haoshi.rxjava.RxJavaActivity;
 import com.haoshi.scrollview.ScrollActivity;
 import com.haoshi.service.ServiceActivity;
-import com.haoshi.sqlite.SqliteActivity;
+import com.haoshi.sqlite.greendao.GreenDaoActivity;
+import com.haoshi.sqlite.ormlite.OrmliteActivity;
 import com.haoshi.swipe.SwipeActivity;
-import com.haoshi.toast.ToastActivity;
+import com.haoshi.toast.StyleableToastActivity;
+import com.haoshi.toast.ToastyActivity;
 import com.haoshi.tts.TTSActivity;
 import com.haoshi.utils.ScreenUtils;
-import com.haoshi.view.MarqueeTextView;
-import com.haoshi.view.ViewActivity;
-import com.haoshi.view.xrefreshview.SmileyHeaderView;
-import com.haoshi.webview.JavaJsActivity;
+import com.haoshi.customview.MarqueeTextView;
+import com.haoshi.customview.ViewActivity;
+import com.haoshi.customview.xrefreshview.SmileyHeaderView;
+import com.haoshi.javajs.JavaJsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +54,7 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
     private MarqueeTextView marqueeTextView;
     private XRefreshView xRefreshView;
     private RecyclerView recyclerView;
-    private List<Class<?>> list = new ArrayList<>();
+    private List<ActionBean> list = new ArrayList<>();
     private Handler handler = new Handler();
     private long lastTime = 0;
 
@@ -91,22 +98,28 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
 
     @Override
     public void setData() {
-        list.add(RxJavaActivity.class);
-        list.add(MvpActivity.class);
-        list.add(DialogActivity.class);
-        list.add(ScrollActivity.class);
-        list.add(SwipeActivity.class);
-        list.add(ListViewActivity.class);
-        list.add(JavaJsActivity.class);
-        list.add(ViewActivity.class);
-        list.add(SqliteActivity.class);
-        list.add(ServiceActivity.class);
-        list.add(TTSActivity.class);
-        list.add(BluetoothActivity.class);
-        list.add(AndroidTestActivity.class);
-        list.add(HotFixActivity.class);
-        list.add(ToastActivity.class);
-        list.add(LottieActivity.class);
+        list.add(new ActionBean("AndroidTest", AndroidTestActivity.class));
+        list.add(new ActionBean("BaiduMap", BaiduMapActivity.class));
+        list.add(new ActionBean("Bluetooth", BluetoothActivity.class));
+        list.add(new ActionBean("CustomView", ViewActivity.class));
+        list.add(new ActionBean("Dialog", DialogActivity.class));
+        list.add(new ActionBean("ExpandableListView", ExpandableListViewActivity.class));
+        list.add(new ActionBean("GreenDao", GreenDaoActivity.class));
+        list.add(new ActionBean("JavaJs", JavaJsActivity.class));
+        list.add(new ActionBean("Lottie", LottieActivity.class));
+        list.add(new ActionBean("MVP", MvpActivity.class));
+        list.add(new ActionBean("Ormlite", OrmliteActivity.class));
+        list.add(new ActionBean("RecyclerView", RecyclerViewActivity.class));
+        list.add(new ActionBean("RxJava", RxJavaActivity.class));
+        list.add(new ActionBean("RxJavaCookie", RxJavaCookieActivity.class));
+        list.add(new ActionBean("RxJavaMvp", RxJavaMvpActivity.class));
+        list.add(new ActionBean("Service", ServiceActivity.class));
+        list.add(new ActionBean("StickScroll", ScrollActivity.class));
+        list.add(new ActionBean("StyleableToast", StyleableToastActivity.class));
+        list.add(new ActionBean("Swpie", SwipeActivity.class));
+        list.add(new ActionBean("Tinker", TinkerActivity.class));
+        list.add(new ActionBean("Toasty", ToastyActivity.class));
+        list.add(new ActionBean("TTS", TTSActivity.class));
 
         recyclerView.setAdapter(adapter);
         LinearLayoutManager manager = new LinearLayoutManager(this);
@@ -129,7 +142,7 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.button_up:
                 recyclerView.scrollToPosition(0);
                 break;
@@ -171,7 +184,6 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
     /**
      * RecyclerView
      */
-    private String name;
     private BaseRecyclerAdapter adapter = new BaseRecyclerAdapter<VH>() {
 
         @Override
@@ -192,20 +204,21 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
 
         @Override
         public void onBindViewHolder(VH holder, final int position, boolean isItem) {
-            name = list.get(position).getSimpleName();
-            holder.button.setText(name.substring(0, name.lastIndexOf("Activity")));
-            holder.button.setOnClickListener(view -> startActivity(new Intent(IndexActivity.this, list.get(position))));
+            holder.textContent.setText(list.get(position).getAction());
+            holder.textContent.setOnClickListener(view -> startActivity(new Intent(IndexActivity.this, list.get(position).getCls())));
         }
     };
 
     public class VH extends RecyclerView.ViewHolder {
 
-        public Button button = null;
+        public TextView textContent = null;
+        public TextView textLine = null;
 
         public VH(View itemView, boolean isItem) {
             super(itemView);
             if (isItem) {
-                button = (Button) itemView;
+                textContent = (TextView) itemView.findViewById(R.id.index_item_text_content);
+                textLine = (TextView) itemView.findViewById(R.id.index_item_text_line);
             }
         }
     }

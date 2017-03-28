@@ -1,14 +1,24 @@
 package com.haoshi.scrollview;
 
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.utils.ToastUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author HaoShi
  */
 public class ScrollActivity extends BaseActivity {
+
+    private ListView listView;
 
     @Override
     public void initView() {
@@ -19,11 +29,21 @@ public class ScrollActivity extends BaseActivity {
             int top = Math.max(scrollY, textPlace.getTop());
             textTitle.layout(0, top, textTitle.getWidth(), top + textTitle.getHeight());
         });
+
+        listView = (ListView) findViewById(R.id.list);
+        listView.setFocusable(false);
+        listView.setOnItemClickListener((adapterView, view, i, l) -> ToastUtils.showShort(ScrollActivity.this, "点击了条目" + i));
     }
-    
+
     @Override
     public void setData() {
-        
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < 20; i++) {
+            list.add("item" + i);
+        }
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
+        listView.setAdapter(adapter);
     }
 
     @Override

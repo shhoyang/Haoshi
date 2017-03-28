@@ -39,7 +39,7 @@ public class DialogActivity extends BaseActivity {
                 new BottomDialog(this, R.layout.bottom_dialog).show();
                 break;
             case R.id.button1:
-                new LoadingDialog(this, "正在加载.....").show();
+                new LoadingDialog(this, "正在加载...").show();
                 break;
         }
     }

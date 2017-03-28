@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="20dp">
 
-    <com.haoshi.view.xrefreshview.SmileyLoadingView
+    <com.haoshi.customview.xrefreshview.SmileyLoadingView
         android:id="@+id/loading_view"
         android:layout_width="36dp"
         android:layout_height="36dp"

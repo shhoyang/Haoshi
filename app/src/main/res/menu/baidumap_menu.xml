@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".baidumap.BaiduMapActivity">
+    <item
+        android:id="@+id/action_search"
+        android:icon="@mipmap/ic_launcher"
+        android:title="搜索"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_location"
+        android:icon="@mipmap/ic_launcher"
+        android:title="定位"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_my_location"
+        android:icon="@mipmap/ic_launcher"
+        android:title="我的位置"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_start_nav"
+        android:icon="@mipmap/ic_launcher"
+        android:title="开始导航"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_end_nav"
+        android:icon="@mipmap/ic_launcher"
+        android:title="结束导航"
+        app:showAsAction="never" />
+
+</menu>

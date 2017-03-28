@@ -16,6 +16,20 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
+    <!-- 百度地图权限 -->
+    <uses-permission android:name="android.permission.ACCES_MOCK_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_GPS" />
+    <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.BODY_SENSORS" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+    <!-- 百度地图权限 -->
     <uses-feature
         android:name="android.hardware.bluetooth_le"
         android:required="true" />
@@ -35,38 +49,45 @@
             </intent-filter>
         </activity>
         <activity android:name=".rxjava.RxJavaActivity" />
-        <activity android:name=".rxjava.example1.RxJava1Activity" />
-        <activity android:name=".rxjava.example2.RxJava2Activity" />
+        <activity android:name=".rxjava.RxJavaSimple1Activity" />
+        <activity android:name=".rxjava.RxJavaSimple2Activity" />
         <activity android:name=".tts.TTSActivity" />
         <activity android:name=".mvp.activity.MvpActivity" />
         <activity android:name=".dialog.DialogActivity" />
-        <activity android:name=".listview.ListViewActivity" />
         <activity android:name=".listview.ExpandableListViewActivity" />
         <activity android:name=".listview.RecyclerViewActivity" />
         <activity android:name=".service.ServiceActivity" />
-        <activity android:name=".sqlite.SqliteActivity" />
         <activity android:name=".sqlite.ormlite.OrmliteActivity" />
         <activity android:name=".scrollview.ScrollActivity" />
         <activity android:name=".sqlite.greendao.GreenDaoActivity" />
-        <activity android:name=".view.ViewActivity" />
+        <activity android:name=".customview.ViewActivity" />
         <activity android:name=".swipe.SwipeActivity" />
-        <activity android:name=".webview.JavaJsActivity" />
-        <activity android:name=".rxjava.example3.RxJava3Activity" />
+        <activity android:name=".javajs.JavaJsActivity" />
+        <activity android:name=".rxjava.cookie.RxJavaCookieActivity" />
         <activity android:name=".bluetooth.BluetoothActivity" />
-        <activity android:name=".rxjava.example4.ui.activity.RxJava4Activity" />
-        <activity android:name=".rxjava.example4.ui.activity.NewsDetailActivity" />
-        <activity android:name=".rxjava.example5.RxBusActivity" />
+        <activity android:name=".rxjava.mvp.ui.activity.RxJavaMvpActivity" />
+        <activity android:name=".rxjava.mvp.ui.activity.NewsDetailActivity" />
+        <activity android:name=".rxjava.rxbus.RxBusActivity" />
         <activity android:name=".androidtest.AndroidTestActivity" />
-        <activity android:name=".hotfix.HotFixActivity" />
-        <activity android:name=".toast.ToastActivity" />
+        <activity android:name=".tinker.TinkerActivity" />
         <activity android:name=".toast.StyleableToastActivity" />
-        <activity android:name=".toast.ToastyActivity"></activity>
+        <activity android:name=".toast.ToastyActivity" />
         <activity android:name=".lottie.LottieActivity" />
         <activity android:name=".lottie.NetWorkAnimActivity" />
         <activity android:name=".lottie.LottieSimpleActivity" />
-        <activity android:name=".lottie.ProgressAnimActivity"/>
+        <activity android:name=".lottie.ProgressAnimActivity" />
+        <activity android:name=".baidumap.BaiduMapActivity" />
 
         <service android:name=".service.MessengerService" />
+        <service
+            android:name="com.baidu.location.f"
+            android:enabled="true"
+            android:process=":remote" />
+
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="Atk0uv00pgR4xLVRgAOvI9XZ5WqPD8l0" />
+
     </application>
 
 </manifest>

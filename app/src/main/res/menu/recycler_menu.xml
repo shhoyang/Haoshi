@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_list_vertical"
+        android:title="垂直list"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_list_horizontal"
+        android:title="水平list"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_grid_vertical"
+        android:title="垂直grid"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_grid_horizontal"
+        android:title="水平grid"
+        app:showAsAction="never" />
+
+    <item
+        android:id="@+id/action_flow"
+        android:title="瀑布流"
+        app:showAsAction="never" />
+</menu>
