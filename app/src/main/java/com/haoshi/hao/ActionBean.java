@@ -7,7 +7,7 @@ package com.haoshi.hao;
 public class ActionBean {
 
     private String action;
-    private Class<?> cls;
+    private Class cls;
 
     public ActionBean(String action, Class cls) {
         this.action = action;
@@ -22,11 +22,11 @@ public class ActionBean {
         this.action = action;
     }
 
-    public Class<?> getCls() {
+    public Class getCls() {
         return cls;
     }
 
-    public void setCls(Class<?> cls) {
+    public void setCls(Class cls) {
         this.cls = cls;
     }
 }

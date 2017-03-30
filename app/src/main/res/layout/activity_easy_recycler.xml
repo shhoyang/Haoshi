@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_recycler_view"
+    android:id="@+id/activity_easy_recycler"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.haoshi.listview.recycler.RecyclerViewActivity">
+    tools:context="com.haoshi.listview.easyrecycler.EasyRecyclerActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler"
+    <com.camnter.easyrecyclerview.widget.EasyRecyclerView
+        android:id="@id/recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

@@ -16,6 +16,15 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
+    <!-- ShareSdk -->
+    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <!-- ShareSdk -->
+
+
     <!-- 百度地图权限 -->
     <uses-permission android:name="android.permission.ACCES_MOCK_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_GPS" />
@@ -54,8 +63,8 @@
         <activity android:name=".tts.TTSActivity" />
         <activity android:name=".mvp.activity.MvpActivity" />
         <activity android:name=".dialog.DialogActivity" />
-        <activity android:name=".listview.ExpandableListViewActivity" />
-        <activity android:name=".listview.RecyclerViewActivity" />
+        <activity android:name=".listview.expandable.ExpandableListViewActivity" />
+        <activity android:name=".listview.recycler.RecyclerViewActivity" />
         <activity android:name=".service.ServiceActivity" />
         <activity android:name=".sqlite.ormlite.OrmliteActivity" />
         <activity android:name=".scrollview.ScrollActivity" />
@@ -77,6 +86,8 @@
         <activity android:name=".lottie.LottieSimpleActivity" />
         <activity android:name=".lottie.ProgressAnimActivity" />
         <activity android:name=".baidumap.BaiduMapActivity" />
+        <activity android:name=".sms.SmsActivity" />
+        <activity android:name=".sharesdk.ShareSdkActivity" />
 
         <service android:name=".service.MessengerService" />
         <service
@@ -88,6 +99,33 @@
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="Atk0uv00pgR4xLVRgAOvI9XZ5WqPD8l0" />
 
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <data android:scheme="tencent100371282" />
+
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <!-- 微信分享回调 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity android:name=".listview.easyrecycler.EasyRecyclerActivity" />
+        <activity android:name=".listview.easyrecyclerwithrefresh.EasyRecyclerWithRefreshActivity" />
+        <activity android:name=".listview.animators.RecyclerAnimatorsActivity" />
+        <activity android:name=".listview.indexablerecyclerview.IndexableRecyclerActivity"></activity>
     </application>
 
 </manifest>

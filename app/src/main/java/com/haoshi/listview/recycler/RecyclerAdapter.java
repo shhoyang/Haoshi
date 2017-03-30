@@ -1,19 +1,20 @@
-package com.haoshi.listview;
+package com.haoshi.listview.recycler;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.haoshi.R;
-import com.haoshi.hao.IndexActivity;
 
 import java.util.List;
 
 /**
  * @author HaoShi
  */
-public class RecyclerAdapter extends RecyclerView.Adapter<VH> {
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.VH> {
 
     private List<String> texts;
     private List<Integer> images;
@@ -46,5 +47,17 @@ public class RecyclerAdapter extends RecyclerView.Adapter<VH> {
 
     public interface OnRecyclerItemClickListener {
         void onItemClick(int position);
+    }
+
+    public static class VH extends RecyclerView.ViewHolder {
+
+        public ImageView imageView = null;
+        public TextView textView = null;
+
+        public VH(View itemView) {
+            super(itemView);
+            imageView = (ImageView) itemView.findViewById(R.id.image);
+            textView = (TextView) itemView.findViewById(R.id.text);
+        }
     }
 }

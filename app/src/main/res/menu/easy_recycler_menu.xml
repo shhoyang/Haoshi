@@ -3,29 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".baidumap.BaiduMapActivity">
+
     <item
-        android:id="@+id/action_search"
-        android:title="搜索"
+        android:id="@+id/action_clear"
+        android:title="清除分割线"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_margin"
+        android:title="添加margin"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_location"
-        android:title="定位"
+        android:id="@+id/action_default_divider"
+        android:title="默认分割线"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_my_location"
-        android:title="我的位置"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_start_nav"
-        android:title="开始导航"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_end_nav"
-        android:title="结束导航"
+        android:id="@+id/action_custom_divider"
+        android:title="自定义分割线"
         app:showAsAction="never" />
 
 </menu>

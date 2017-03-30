@@ -2,49 +2,52 @@ package com.haoshi.hao;
 
 import android.content.Intent;
 import android.os.Handler;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.OvershootInterpolator;
-import android.widget.Button;
 import android.widget.TextView;
 
 import com.andview.refreshview.XRefreshView;
 import com.andview.refreshview.XRefreshViewFooter;
+import com.andview.refreshview.XRefreshViewHeader;
 import com.andview.refreshview.recyclerview.BaseRecyclerAdapter;
 import com.haoshi.R;
 import com.haoshi.androidtest.AndroidTestActivity;
-import com.haoshi.bluetooth.BluetoothActivity;
-import com.haoshi.dialog.DialogActivity;
-import com.haoshi.rxjava.cookie.RxJavaCookieActivity;
-import com.haoshi.rxjava.mvp.ui.activity.RxJavaMvpActivity;
-import com.haoshi.tinker.TinkerActivity;
-import com.haoshi.listview.ExpandableListViewActivity;
-import com.haoshi.listview.RecyclerViewActivity;
-import com.haoshi.lottie.LottieActivity;
 import com.haoshi.baidumap.BaiduMapActivity;
+import com.haoshi.bluetooth.BluetoothActivity;
+import com.haoshi.customview.MarqueeTextView;
+import com.haoshi.customview.ViewActivity;
+import com.haoshi.customview.xrefreshview.SmileyHeaderView;
+import com.haoshi.dialog.DialogActivity;
+import com.haoshi.javajs.JavaJsActivity;
+import com.haoshi.listview.easyrecycler.EasyRecyclerActivity;
+import com.haoshi.listview.easyrecyclerwithrefresh.EasyRecyclerWithRefreshActivity;
+import com.haoshi.listview.expandable.ExpandableListViewActivity;
+import com.haoshi.listview.indexablerecyclerview.IndexableRecyclerActivity;
+import com.haoshi.listview.recycler.RecyclerViewActivity;
+import com.haoshi.lottie.LottieActivity;
 import com.haoshi.mvp.activity.MvpActivity;
 import com.haoshi.rxjava.RxJavaActivity;
+import com.haoshi.rxjava.cookie.RxJavaCookieActivity;
+import com.haoshi.rxjava.mvp.ui.activity.RxJavaMvpActivity;
 import com.haoshi.scrollview.ScrollActivity;
 import com.haoshi.service.ServiceActivity;
+import com.haoshi.sharesdk.ShareSdkActivity;
+import com.haoshi.sms.SmsActivity;
 import com.haoshi.sqlite.greendao.GreenDaoActivity;
 import com.haoshi.sqlite.ormlite.OrmliteActivity;
 import com.haoshi.swipe.SwipeActivity;
+import com.haoshi.tinker.TinkerActivity;
 import com.haoshi.toast.StyleableToastActivity;
 import com.haoshi.toast.ToastyActivity;
 import com.haoshi.tts.TTSActivity;
 import com.haoshi.utils.ScreenUtils;
-import com.haoshi.customview.MarqueeTextView;
-import com.haoshi.customview.ViewActivity;
-import com.haoshi.customview.xrefreshview.SmileyHeaderView;
-import com.haoshi.javajs.JavaJsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
 
 /**
  * @author HaoShi
@@ -56,7 +59,6 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
     private RecyclerView recyclerView;
     private List<ActionBean> list = new ArrayList<>();
     private Handler handler = new Handler();
-    private long lastTime = 0;
 
     @Override
     public void initView() {
@@ -69,18 +71,15 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
 
         xRefreshView = (XRefreshView) findViewById(R.id.refreshview);
         xRefreshView.setPullRefreshEnable(true);
-        xRefreshView.setPullLoadEnable(false);
+        xRefreshView.setPullLoadEnable(true);
         xRefreshView.setPinnedTime(500);
-        //xRefreshView.setHideFooterWhenComplete(true);
-        xRefreshView.setAutoRefresh(false);
-        //xRefreshView.setPreLoadCount(4);
         xRefreshView.setCustomHeaderView(new SmileyHeaderView(this));
-        xRefreshView.setCustomFooterView(new XRefreshViewFooter(this));
+        adapter.setCustomLoadMoreView(new XRefreshViewFooter(this));
         xRefreshView.setXRefreshViewListener(this);
-        lastTime = System.currentTimeMillis();
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
-        recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f)));
-        recyclerView.getItemAnimator().setAddDuration(800);
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
         findViewById(R.id.button_up).setOnClickListener(this);
     }
 
@@ -98,12 +97,16 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
 
     @Override
     public void setData() {
+
         list.add(new ActionBean("AndroidTest", AndroidTestActivity.class));
         list.add(new ActionBean("BaiduMap", BaiduMapActivity.class));
         list.add(new ActionBean("Bluetooth", BluetoothActivity.class));
         list.add(new ActionBean("CustomView", ViewActivity.class));
         list.add(new ActionBean("Dialog", DialogActivity.class));
+        list.add(new ActionBean("EasyRecyclerView", EasyRecyclerActivity.class));
+        list.add(new ActionBean("EasyRecyclerViewWithRefresh", EasyRecyclerWithRefreshActivity.class));
         list.add(new ActionBean("ExpandableListView", ExpandableListViewActivity.class));
+        list.add(new ActionBean("IndexableRecyclerView", IndexableRecyclerActivity.class));
         list.add(new ActionBean("GreenDao", GreenDaoActivity.class));
         list.add(new ActionBean("JavaJs", JavaJsActivity.class));
         list.add(new ActionBean("Lottie", LottieActivity.class));
@@ -114,18 +117,16 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
         list.add(new ActionBean("RxJavaCookie", RxJavaCookieActivity.class));
         list.add(new ActionBean("RxJavaMvp", RxJavaMvpActivity.class));
         list.add(new ActionBean("Service", ServiceActivity.class));
+        list.add(new ActionBean("ShareSdk", ShareSdkActivity.class));
+        list.add(new ActionBean("SMS", SmsActivity.class));
         list.add(new ActionBean("StickScroll", ScrollActivity.class));
         list.add(new ActionBean("StyleableToast", StyleableToastActivity.class));
-        list.add(new ActionBean("Swpie", SwipeActivity.class));
+        list.add(new ActionBean("SwipeLayout", SwipeActivity.class));
         list.add(new ActionBean("Tinker", TinkerActivity.class));
         list.add(new ActionBean("Toasty", ToastyActivity.class));
         list.add(new ActionBean("TTS", TTSActivity.class));
 
         recyclerView.setAdapter(adapter);
-        LinearLayoutManager manager = new LinearLayoutManager(this);
-        manager.setOrientation(LinearLayoutManager.VERTICAL);
-        manager.setReverseLayout(false);
-        recyclerView.setLayoutManager(manager);
     }
 
     @Override
@@ -149,25 +150,26 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
         }
     }
 
+    @Override
+    public void onRefresh() {
+
+    }
+
     /**
      * XRefreshView
      */
     @Override
-    public void onRefresh() {
-        xRefreshView.restoreLastRefreshTime(lastTime);
-        handler.postDelayed(() -> {
-            xRefreshView.stopRefresh();
-            lastTime = xRefreshView.getLastRefreshTime();
-        }, 2000);
+    public void onRefresh(boolean isPullDown) {
+        handler.postDelayed(() -> xRefreshView.stopRefresh(), 2000);
     }
 
     @Override
     public void onLoadMore(boolean isSilence) {
-        xRefreshView.restoreLastRefreshTime(lastTime);
-
         handler.postDelayed(() -> {
+            //无更多数据
+            //xRefreshView.setLoadComplete(true);
+            //成功/失败
             xRefreshView.stopLoadMore();
-            lastTime = xRefreshView.getLastRefreshTime();
         }, 2000);
     }
 
@@ -181,16 +183,7 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
 
     }
 
-    /**
-     * RecyclerView
-     */
     private BaseRecyclerAdapter adapter = new BaseRecyclerAdapter<VH>() {
-
-        @Override
-        public int getAdapterItemCount() {
-            return list.size();
-        }
-
         @Override
         public VH getViewHolder(View view) {
             return new VH(view, false);
@@ -203,22 +196,26 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
         }
 
         @Override
-        public void onBindViewHolder(VH holder, final int position, boolean isItem) {
-            holder.textContent.setText(list.get(position).getAction());
-            holder.textContent.setOnClickListener(view -> startActivity(new Intent(IndexActivity.this, list.get(position).getCls())));
+        public void onBindViewHolder(VH holder, int position, boolean isItem) {
+            holder.textView.setText(list.get(position).getAction());
+            holder.textView.setOnClickListener(view ->
+                    startActivity(new Intent(IndexActivity.this, list.get(position).getCls())));
+        }
+
+        @Override
+        public int getAdapterItemCount() {
+            return list.size();
         }
     };
 
-    public class VH extends RecyclerView.ViewHolder {
+    public static class VH extends RecyclerView.ViewHolder {
 
-        public TextView textContent = null;
-        public TextView textLine = null;
+        public TextView textView = null;
 
         public VH(View itemView, boolean isItem) {
             super(itemView);
             if (isItem) {
-                textContent = (TextView) itemView.findViewById(R.id.index_item_text_content);
-                textLine = (TextView) itemView.findViewById(R.id.index_item_text_line);
+                textView = (TextView) itemView;
             }
         }
     }

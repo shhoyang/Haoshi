@@ -1,4 +1,4 @@
-package com.haoshi.listview;
+package com.haoshi.listview.expandable;
 
 import android.widget.ExpandableListView;
 

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
+import android.support.multidex.MultiDexApplication;
 
 import com.alipay.euler.andfix.patch.PatchManager;
 import com.baidu.mapapi.SDKInitializer;
@@ -66,7 +67,7 @@ public class HaoApplication extends DefaultApplicationLike {
 
             String patchPath = Constant.SD_PATH + "/patch.apatch";
             File patchFile = new File(patchPath);
-            if(!patchFile.exists()){
+            if (!patchFile.exists()) {
                 return;
             }
             patchManager.addPatch(patchPath);

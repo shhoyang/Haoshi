@@ -1,6 +1,5 @@
-package com.haoshi.listview;
+package com.haoshi.listview.recycler;
 
-import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -38,6 +37,7 @@ public class RecyclerViewActivity extends BaseActivity {
 
         RecyclerAdapter adapter = new RecyclerAdapter(texts, images, position -> ToastUtils.showShort(RecyclerViewActivity.this, "点击了条目" + position));
         recyclerView.setAdapter(adapter);
+
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         linearLayoutManager.setReverseLayout(false);

@@ -4,7 +4,7 @@
     android:id="@+id/activity_expandable_list_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.haoshi.listview.ExpandableListViewActivity">
+    tools:context="com.haoshi.listview.expandable.ExpandableListViewActivity">
 
     <!--groupIndicator去箭头-->
     <ExpandableListView

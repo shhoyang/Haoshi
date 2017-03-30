@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.haoshi.R;
-import com.haoshi.listview.VH;
 import com.haoshi.rxjava.cookie.bean.News;
 
 import java.util.ArrayList;

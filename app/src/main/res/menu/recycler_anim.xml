@@ -4,28 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".baidumap.BaiduMapActivity">
     <item
-        android:id="@+id/action_search"
-        android:title="搜索"
+        android:id="@+id/action_alpha"
+        android:title="Alpha"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_location"
-        android:title="定位"
+        android:id="@+id/action_slide_left"
+        android:title="Slide Left"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_my_location"
-        android:title="我的位置"
+        android:id="@+id/action_slide_right"
+        android:title="Slide Right"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_start_nav"
-        android:title="开始导航"
+        android:id="@+id/action_slide_bottom"
+        android:title="Slide Bottom"
         app:showAsAction="never" />
 
     <item
-        android:id="@+id/action_end_nav"
-        android:title="结束导航"
+        android:id="@+id/action_scale"
+        android:title="Scale"
         app:showAsAction="never" />
 
 </menu>

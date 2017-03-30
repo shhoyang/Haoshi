@@ -9,6 +9,7 @@ import com.baidu.location.LocationClientOption;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.MyLocationConfiguration;
@@ -44,13 +45,14 @@ public class LocationUtils implements BDLocationListener {
         locationClient.registerLocationListener(this);
         descriptor = BitmapDescriptorFactory.fromResource(R.mipmap.arrow);
         configuration = new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, descriptor);
+
     }
 
     @Override
     public void onReceiveLocation(BDLocation bdLocation) {
         MyLocationData locationData = new MyLocationData.Builder()
                 .accuracy(bdLocation.getRadius())
-                .direction(100) // 此处设置开发者获取到的方向信息，顺时针0-360
+                .direction(0) // 此处设置开发者获取到的方向信息，顺时针0-360
                 .latitude(bdLocation.getLatitude())
                 .longitude(bdLocation.getLongitude())
                 .build();
@@ -90,7 +92,11 @@ public class LocationUtils implements BDLocationListener {
         if (latitude == 0 || longitude == 0) {
             return;
         }
-        MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory.newLatLng(new LatLng(latitude, longitude));
+        MapStatus mapStatus = new MapStatus.Builder()
+                .target(new LatLng(latitude, longitude))
+                .zoom(20.0f)
+                .build();
+        MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory.newMapStatus(mapStatus);
         baiduMap.animateMapStatus(mapStatusUpdate);
     }
 }

@@ -13,6 +13,7 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
 
@@ -56,6 +57,12 @@ android {
     }
 }
 
+repositories{
+    flatDir{
+        dirs 'libs'
+    }
+}
+
 def buildTime() {
     def df = new SimpleDateFormat("yyyyMMdd")
     df.setTimeZone(TimeZone.getDefault())
@@ -71,6 +78,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.0'
     //compile 'com.android.support:appcompat-v7:23.1.1'
     testCompile 'junit:junit:4.12'
+    compile 'com.android.support:design:25.1.0'
     compile 'io.reactivex:rxjava:1.2.4'
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
@@ -78,21 +86,27 @@ dependencies {
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'
     compile 'com.squareup.okhttp3:okhttp:3.5.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
+    compile 'com.huxq17.xrefreshview:xrefreshview:3.6.5'
     compile 'com.android.support:cardview-v7:25.1.0'
     compile 'com.android.support:recyclerview-v7:25.1.0'
+    compile 'com.jude:easyrecyclerview:4.4.0'
+    compile 'com.camnter.easyrecyclerview:easyrecyclerview:1.1.0'
+    compile 'jp.wasabeef:recyclerview-animators:2.2.4'
+    compile 'com.github.gabrielemariotti.recyclerview:recyclerview-animators:0.3.0-SNAPSHOT@aar'
     compile 'com.j256.ormlite:ormlite-android:5.0'
     compile 'org.greenrobot:greendao:3.2.0'
     compile 'org.greenrobot:greendao-generator:3.2.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.huxq17.xrefreshview:xrefreshview:3.5.2'
-    compile 'jp.wasabeef:recyclerview-animators:2.2.4'
-    compile 'com.android.support:design:25.1.0'
     compile 'com.tencent.tinker:tinker-android-anno:1.6.2'
     compile 'com.tencent.tinker:tinker-android-lib:1.6.2'
     compile 'com.alipay.euler:andfix:0.3.1@aar'
     compile 'com.muddzdev:styleabletoast:1.0.6'
     compile 'com.github.GrenderG:Toasty:1.1.4'
     compile 'com.airbnb.android:lottie:2.0.0-beta2'
+    compile 'me.yokeyword:indexablerecyclerview:1.2.3'
+
+    compile(name:'SMSSDK-2.1.3', ext:'aar')
+    compile(name:'SMSSDKGUI-2.1.3', ext:'aar')
 }
 
 apply plugin: 'com.tencent.tinker.patch'
