@@ -2,6 +2,7 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:cardview="http://schemas.android.com/apk/res-auto"
     android:id="@+id/cardview"
+    android:foreground="@drawable/card_foreground"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     cardview:cardCornerRadius="@dimen/radius"

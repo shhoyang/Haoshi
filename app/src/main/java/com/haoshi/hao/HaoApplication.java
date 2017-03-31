@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.AssetManager;
 import android.content.res.Resources;
-import android.support.multidex.MultiDexApplication;
 
 import com.alipay.euler.andfix.patch.PatchManager;
 import com.baidu.mapapi.SDKInitializer;
@@ -17,8 +16,6 @@ import com.tencent.tinker.loader.shareutil.ShareConstants;
 
 import java.io.File;
 import java.io.IOException;
-
-import cn.sharesdk.framework.ShareSDK;
 
 /**
  * @author HaoShi
