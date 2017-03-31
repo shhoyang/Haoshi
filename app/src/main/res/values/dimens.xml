@@ -2,9 +2,18 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="lce_content_view_animation_translate_y">40dp</dimen>
-    <dimen name="fab_margin">16dp</dimen>
-    <!-- Default screen margins, per the Android Design guidelines. -->
-    <dimen name="nav_header_vertical_spacing">16dp</dimen>
-    <dimen name="nav_header_height">160dp</dimen>
+    <!-- <dimen name="lce_content_view_animation_translate_y">40dp</dimen>-->
+    <dimen name="radius">6dp</dimen>
+    <dimen name="margin_s">4dp</dimen>
+    <dimen name="margin_m">6dp</dimen>
+    <dimen name="margin_l">8dp</dimen>
+    <dimen name="margin_xl">10dp</dimen>
+    <dimen name="item_height_s">40dp</dimen>
+    <dimen name="item_height_m">48dp</dimen>
+    <dimen name="item_height_l">60dp</dimen>
+    <dimen name="item_height_xl">100dp</dimen>
+    <dimen name="text_s">16sp</dimen>
+    <dimen name="text_m">18sp</dimen>
+    <dimen name="text_l">20sp</dimen>
+
 </resources>

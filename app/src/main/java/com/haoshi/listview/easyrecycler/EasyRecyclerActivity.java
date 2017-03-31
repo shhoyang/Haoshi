@@ -3,17 +3,18 @@ package com.haoshi.listview.easyrecycler;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.camnter.easyrecyclerview.widget.EasyRecyclerView;
 import com.camnter.easyrecyclerview.widget.decorator.EasyBorderDividerItemDecoration;
 import com.camnter.easyrecyclerview.widget.decorator.EasyDividerItemDecoration;
 import com.haoshi.R;
-import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.BaseListActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class EasyRecyclerActivity extends BaseActivity {
+public class EasyRecyclerActivity extends BaseListActivity {
 
     private EasyRecyclerView recyclerView;
     private List<RecyclerView.ItemDecoration> dividers = new ArrayList<>();
@@ -23,18 +24,16 @@ public class EasyRecyclerActivity extends BaseActivity {
     @Override
     public void initView() {
         recyclerView = (EasyRecyclerView) findViewById(R.id.recycler);
+        recyclerView.setAdapter(new EasyAdapter());
+    }
+
+    @Override
+    public View getListView() {
+        return recyclerView;
     }
 
     @Override
     public void setData() {
-        List<String> list = new ArrayList<>();
-        for (int i = 0; i < 20; i++) {
-            list.add("item" + i);
-        }
-        EasyAdapter adapter = new EasyAdapter();
-        adapter.setList(list);
-        recyclerView.setAdapter(adapter);
-
         dividers.add(new EasyBorderDividerItemDecoration(
                 getResources().getDimensionPixelOffset(R.dimen.activity_vertical_margin),
                 getResources().getDimensionPixelOffset(R.dimen.activity_horizontal_margin)));

@@ -1,13 +1,12 @@
 package com.haoshi.scrollview;
 
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.haoshi.R;
-import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.BaseListActivity;
 import com.haoshi.utils.ToastUtils;
 
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ import java.util.List;
 /**
  * @author HaoShi
  */
-public class ScrollActivity extends BaseActivity {
+public class ScrollActivity extends BaseListActivity {
 
     private ListView listView;
 
@@ -33,6 +32,11 @@ public class ScrollActivity extends BaseActivity {
         listView = (ListView) findViewById(R.id.list);
         listView.setFocusable(false);
         listView.setOnItemClickListener((adapterView, view, i, l) -> ToastUtils.showShort(ScrollActivity.this, "点击了条目" + i));
+    }
+
+    @Override
+    public View getListView() {
+        return listView;
     }
 
     @Override

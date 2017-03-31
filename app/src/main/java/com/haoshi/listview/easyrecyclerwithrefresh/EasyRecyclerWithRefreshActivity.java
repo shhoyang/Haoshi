@@ -1,16 +1,16 @@
 package com.haoshi.listview.easyrecyclerwithrefresh;
 
-import android.graphics.Color;
 import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.haoshi.R;
-import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.BaseListActivity;
 import com.haoshi.utils.ToastUtils;
 import com.jude.easyrecyclerview.EasyRecyclerView;
-import com.jude.easyrecyclerview.decoration.DividerDecoration;
+import com.jude.easyrecyclerview.decoration.SpaceDecoration;
 
 import it.gmariotti.recyclerview.adapter.AlphaAnimatorAdapter;
 import it.gmariotti.recyclerview.adapter.ScaleInAnimatorAdapter;
@@ -18,7 +18,7 @@ import it.gmariotti.recyclerview.adapter.SlideInBottomAnimatorAdapter;
 import it.gmariotti.recyclerview.adapter.SlideInLeftAnimatorAdapter;
 import it.gmariotti.recyclerview.adapter.SlideInRightAnimatorAdapter;
 
-public class EasyRecyclerWithRefreshActivity extends BaseActivity {
+public class EasyRecyclerWithRefreshActivity extends BaseListActivity {
 
     private EasyRecyclerView recyclerView;
     private Handler handler = new Handler();
@@ -35,13 +35,16 @@ public class EasyRecyclerWithRefreshActivity extends BaseActivity {
                 android.R.color.holo_orange_light,
                 android.R.color.holo_red_light);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        DividerDecoration itemDecoration = new DividerDecoration(Color.GRAY, 2);
-        itemDecoration.setDrawLastItem(false);
-        recyclerView.addItemDecoration(itemDecoration);
+        recyclerView.addItemDecoration(new SpaceDecoration(16));
         adapter = new EasyAdapter(this);
         adapter.setNotifyOnChange(true);
         ScaleInAnimatorAdapter animatorAdapter = new ScaleInAnimatorAdapter(adapter, recyclerView.getRecyclerView());
         recyclerView.setAdapter(animatorAdapter);
+    }
+
+    @Override
+    public View getListView() {
+        return recyclerView;
     }
 
     @Override
@@ -58,7 +61,7 @@ public class EasyRecyclerWithRefreshActivity extends BaseActivity {
                 handler.postDelayed(() -> {
                     isAddTop = false;
                     setData();
-                }, 2000));
+                }, 1000));
 
         adapter.setOnItemClickListener(position -> {
             ToastUtils.showShort(this, "点击了item" + (position + 1 + minIndex));

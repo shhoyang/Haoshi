@@ -18,11 +18,11 @@ public class NewsPresenter extends NewsContract.Presenter {
 
     @Override
     public void getChannelList(String type) {
-        rxManager.add(mModel.getChannelList(type).subscribe(new RxSubscriber<List<Data>>() {
+        rxManager.add(model.getChannelList(type).subscribe(new RxSubscriber<List<Data>>() {
             @Override
             protected void _onNext(List<Data> dataList) {
-                mView.returnChannelList(dataList);
-                mView.finishLoading();
+                view.returnChannelList(dataList);
+                view.finishLoading();
             }
         }));
     }

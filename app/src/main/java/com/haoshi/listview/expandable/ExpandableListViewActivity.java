@@ -1,9 +1,10 @@
 package com.haoshi.listview.expandable;
 
+import android.view.View;
 import android.widget.ExpandableListView;
 
 import com.haoshi.R;
-import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.BaseListActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,13 +13,18 @@ import java.util.List;
 /**
  * @author HaoShi
  */
-public class ExpandableListViewActivity extends BaseActivity {
+public class ExpandableListViewActivity extends BaseListActivity {
 
     private ExpandableListView listView;
 
     @Override
     public void initView() {
         listView = (ExpandableListView) findViewById(R.id.list);
+    }
+
+    @Override
+    public View getListView() {
+        return listView;
     }
 
     @Override

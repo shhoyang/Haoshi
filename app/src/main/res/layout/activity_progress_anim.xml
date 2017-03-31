@@ -28,9 +28,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="@dimen/margin_l"
         android:textColor="@android:color/white"
-        android:textSize="16sp" />
+        android:textSize="@dimen/text_s" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottie_view"

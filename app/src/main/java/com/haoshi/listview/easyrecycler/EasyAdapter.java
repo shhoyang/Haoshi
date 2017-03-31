@@ -12,28 +12,36 @@ import com.haoshi.R;
  */
 
 public class EasyAdapter extends EasyRecyclerViewAdapter {
+
     @Override
     public int[] getItemLayouts() {
-        return new int[]{R.layout.easy_recycler_item_single, R.layout.easy_recycler_item_double};
+        return new int[]{R.layout.list_item_1, R.layout.list_item_1};
     }
 
+    /**
+     * 模拟多布局
+     * @param viewHolder
+     * @param position
+     */
     @Override
     public void onBindRecycleViewHolder(EasyRecyclerViewHolder viewHolder, int position) {
         int type = getRecycleViewItemType(position);
         if (type == 0) {
-            String s = (String) getList().get(position);
             ImageView imageView = viewHolder.findViewById(R.id.image);
             TextView textView = viewHolder.findViewById(R.id.text);
             imageView.setImageResource(R.mipmap.ic_launcher);
-            textView.setText(s);
+            textView.setText("item" + position);
         } else if (type == 1) {
-            String s = (String) getList().get(position);
             ImageView imageView = viewHolder.findViewById(R.id.image);
             TextView textView = viewHolder.findViewById(R.id.text);
-            imageView.setImageResource(R.mipmap.ic_launcher);
-            textView.setText(s);
+            imageView.setImageResource(R.mipmap.ic_launcher2);
+            textView.setText("item" + position);
         }
+    }
 
+    @Override
+    public int getItemCount() {
+        return 30;
     }
 
     @Override

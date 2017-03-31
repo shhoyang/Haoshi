@@ -17,9 +17,9 @@ import com.haoshi.rxjava.mvp.common.widget.StatusBarCompat;
 
 public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         extends AppCompatActivity {
-    protected T mPresenter;
-    protected E mModel;
-    public Context mContext;
+    protected T presenter;
+    protected E model;
+    public Context context;
 
 
     @Override
@@ -28,10 +28,10 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(getLayoutId());
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-        mContext = this;
+        context = this;
         initPM();
-        if (mPresenter != null) {
-            mPresenter.mContext = this;
+        if (presenter != null) {
+            presenter.context = this;
         }
         //setStatusBar();
         initView();
@@ -68,8 +68,8 @@ public abstract class BaseActivity<T extends BasePresenter, E extends BaseModel>
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        if (mPresenter != null) {
-            mPresenter.onDestroy();
+        if (presenter != null) {
+            presenter.onDestroy();
         }
         RxBus.getInstance().unSubscribeAll();
     }

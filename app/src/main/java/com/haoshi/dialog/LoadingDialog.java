@@ -17,7 +17,7 @@ public class LoadingDialog extends Dialog {
 
     public LoadingDialog(Context context, String messsge) {
         super(context, R.style.LoadingDialog);
-        View view = View.inflate(context, R.layout.loadingdialog, null);
+        View view = View.inflate(context, R.layout.dialog_loading, null);
         ImageView imageView = (ImageView) view.findViewById(R.id.image);
         TextView textView = (TextView) view.findViewById(R.id.text);
         textView.setText(messsge);

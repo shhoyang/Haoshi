@@ -60,7 +60,7 @@ public class EasyAdapter extends RecyclerArrayAdapter<String> {
         private TextView textView;
 
         public VH(ViewGroup itemView) {
-            super(itemView, R.layout.easy_recycler_item_single);
+            super(itemView, R.layout.list_item_1);
             imageView = $(R.id.image);
             textView = $(R.id.text);
         }

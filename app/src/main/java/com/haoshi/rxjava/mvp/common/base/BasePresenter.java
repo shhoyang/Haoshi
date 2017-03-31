@@ -9,14 +9,14 @@ import com.haoshi.rxjava.mvp.common.baserx.RxManager;
  */
 
 public abstract class BasePresenter<T extends BaseView, E extends BaseModel> {
-    public Context mContext;
-    public T mView;
-    public E mModel;
+    public Context context;
+    public T view;
+    public E model;
     public RxManager rxManager;
 
     public BasePresenter(T view, E model) {
-        mModel = model;
-        mView = view;
+        this.model = model;
+        this.view = view;
         onStart();
     }
 
@@ -25,7 +25,7 @@ public abstract class BasePresenter<T extends BaseView, E extends BaseModel> {
     }
 
     protected void onDestroy() {
-        mView = null;
+        view = null;
         rxManager.clear();
     }
 }

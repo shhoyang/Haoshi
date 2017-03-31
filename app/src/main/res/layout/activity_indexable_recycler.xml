@@ -10,11 +10,11 @@
     <android.support.v7.widget.SearchView
         android:id="@+id/searchview"
         android:layout_width="match_parent"
-        android:layout_height="42dp"
-        android:layout_marginBottom="4dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="@dimen/item_height_m"
+        android:layout_marginBottom="@dimen/margin_m"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/margin_m"
         android:background="#f3f3f3"
         android:focusable="false"
         android:focusableInTouchMode="false"
@@ -32,7 +32,7 @@
         app:indexBar_background="#08000000"
         app:indexBar_layout_width="24dp"
         app:indexBar_textColor="@android:color/black"
-        app:indexBar_textSpace="8dp" />
+        app:indexBar_textSpace="@dimen/margin_l" />
 
     <fragment
         android:id="@+id/fragment_search"

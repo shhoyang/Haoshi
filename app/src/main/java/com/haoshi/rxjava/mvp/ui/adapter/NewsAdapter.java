@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.haoshi.R;
 import com.haoshi.rxjava.mvp.bean.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,113 +21,84 @@ import java.util.List;
  */
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
+
     private Context context;
-    private LayoutInflater inflater;
-    private List<Data> mDatas;
-    private List<Integer> heights;
-    private int layoutId;
+    private List<Data> list = new ArrayList<>();
 
 
     private OnItemClickListener onItemClickListener;
-    private OnItemLongClickListener onItemLongClickListener;
 
     public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
         this.onItemClickListener = onItemClickListener;
     }
 
-    public void setOnItemLongClickListener(OnItemLongClickListener onItemLongClickListener) {
-        this.onItemLongClickListener = onItemLongClickListener;
-    }
-
     public interface OnItemClickListener {
-        void onItemClick(View view, int position);
-    }
-
-    public interface OnItemLongClickListener {
-        void onItemLongClick(View view, int position);
-    }
-
-    public NewsAdapter(Context context, List<Data> datas, int layoutId) {
-        this.context = context;
-        inflater = LayoutInflater.from(context);
-        mDatas = datas;
-        this.layoutId = layoutId;
+        void onItemClick(int position);
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        ViewHolder holder = new ViewHolder(inflater.inflate(layoutId, parent, false));
-        return holder;
+        context = parent.getContext();
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_1, parent, false);
+        return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        if (heights != null && layoutId == R.layout.adapter_news_grid) {
-            int height = heights.get(position);
-            ViewGroup.LayoutParams params = holder.iv_news.getLayoutParams();
-            params.height = height;
-            holder.iv_news.setLayoutParams(params);
-        }
-        Data data = mDatas.get(position);
-        holder.tv_title.setText(data.getTitle());
-        holder.tv_time.setText(data.getDate());
+        Data data = list.get(position);
+        holder.textView.setText(data.getTitle());
         Glide.with(context)
                 .load(data.getThumbnail_pic_s())
                 .crossFade()
-                .into(holder.iv_news);
+                .into(holder.imageView);
         if (onItemClickListener != null) {
-            holder.itemView.setBackgroundResource(R.drawable.item_bg);
             holder.cardView.setOnClickListener(v -> {
                 int pos = holder.getAdapterPosition();
-                onItemClickListener.onItemClick(holder.itemView, pos);
-            });
-        }
-
-        if (onItemLongClickListener != null) {
-            holder.itemView.setBackgroundResource(R.drawable.item_bg);
-            holder.cardView.setOnLongClickListener(v -> {
-                int pos = holder.getLayoutPosition();
-                onItemLongClickListener.onItemLongClick(holder.itemView, pos);
-                return true;
+                onItemClickListener.onItemClick(pos);
             });
         }
     }
 
     @Override
     public int getItemCount() {
-        return mDatas.size();
+        return list.size();
     }
 
+
     public void addData(Data data, int position) {
-        mDatas.add(position, data);
+        if (data == null) {
+            return;
+        }
+        list.add(position, data);
         notifyItemInserted(position);
     }
 
-    public void setHeights(List<Integer> heights) {
-        this.heights = heights;
+    public void setData(List<Data> list) {
+        if (list == null || list.size() == 0) {
+            return;
+        }
+        this.list = list;
+        notifyDataSetChanged();
     }
 
-    public void clearData() {
-        notifyItemRangeRemoved(0, mDatas.size());
-        if (mDatas.size() > 0) {
-            mDatas.clear();
+    public void addAll(List<Data> list) {
+        if (list == null || list.size() == 0) {
+            return;
         }
+        this.list.addAll(list);
+        notifyDataSetChanged();
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView iv_news;
-        TextView tv_title, tv_time;
-        CardView cardView;
+        public CardView cardView;
+        public ImageView imageView;
+        public TextView textView;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            cardView = (CardView) itemView.findViewById(R.id.card_view);
-            iv_news = (ImageView) itemView.findViewById(R.id.iv_news);
-            tv_title = (TextView) itemView.findViewById(R.id.tv_title);
-            tv_time = (TextView) itemView.findViewById(R.id.tv_time);
+            cardView = (CardView) itemView.findViewById(R.id.cardview);
+            imageView = (ImageView) itemView.findViewById(R.id.image);
+            textView = (TextView) itemView.findViewById(R.id.text);
         }
-
     }
-
-
 }

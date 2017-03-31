@@ -3,20 +3,22 @@ package com.haoshi.rxjava.cookie;
 
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.haoshi.R;
-import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.BaseListActivity;
 import com.haoshi.hao.Constant;
 import com.haoshi.rxjava.cookie.bean.News;
 import com.haoshi.rxjava.cookie.utils.NetWorks;
 import com.haoshi.utils.LogUtils;
+import com.jude.easyrecyclerview.decoration.SpaceDecoration;
 
 import rx.Observer;
 
 /**
  * @author HaoShi
  */
-public class RxJavaCookieActivity extends BaseActivity {
+public class RxJavaCookieActivity extends BaseListActivity {
 
     private RecyclerView recyclerView;
     private RecyclerAdapter adapter;
@@ -27,29 +29,31 @@ public class RxJavaCookieActivity extends BaseActivity {
     }
 
     @Override
+    public View getListView() {
+        return recyclerView;
+    }
+
+    @Override
     public void setData() {
         adapter = new RecyclerAdapter();
         recyclerView.setAdapter(adapter);
-        LinearLayoutManager manager = new LinearLayoutManager(this);
-        manager.setOrientation(LinearLayoutManager.VERTICAL);
-        manager.setReverseLayout(false);
-        recyclerView.setLayoutManager(manager);
-
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addItemDecoration(new SpaceDecoration(16));
         NetWorks.getNews(Constant.CHANNELS_KEY[0], Constant.API_KEY, new Observer<News>() {
 
             @Override
             public void onCompleted() {
-            
+
             }
 
             @Override
             public void onError(Throwable e) {
-                LogUtils.e(TAG,e.toString());
+                LogUtils.e(TAG, e.toString());
             }
 
             @Override
             public void onNext(News news) {
-                LogUtils.d(TAG,news.toString());
+                LogUtils.d(TAG, news.toString());
                 if (news.getResult().getStat().equals("1"))
                     adapter.setList(news.getResult().getData());
             }

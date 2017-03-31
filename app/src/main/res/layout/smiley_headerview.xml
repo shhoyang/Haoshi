@@ -4,14 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/white"
-    android:orientation="vertical"
-    android:padding="20dp">
+    android:gravity="center_horizontal"
+    android:padding="@dimen/activity_horizontal_margin">
 
     <com.haoshi.customview.xrefreshview.SmileyLoadingView
         android:id="@+id/loading_view"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_gravity="center_horizontal"
         app:duration="2000"
-        app:strokeWidth="4dp" />
+        app:strokeWidth="@dimen/margin_s" />
 </LinearLayout>

@@ -22,7 +22,6 @@ import com.bumptech.glide.Glide;
 import com.haoshi.R;
 import com.haoshi.rxjava.mvp.bean.Data;
 import com.haoshi.rxjava.mvp.common.base.BaseActivity;
-import com.haoshi.rxjava.mvp.common.widget.StatusBarCompat;
 import com.haoshi.rxjava.mvp.ui.contract.NewsDetailContract;
 import com.haoshi.rxjava.mvp.ui.model.NewsDetailModel;
 import com.haoshi.rxjava.mvp.ui.presenter.NewsDetailPresenter;
@@ -38,9 +37,9 @@ public class NewsDetailActivity extends BaseActivity<NewsDetailContract.Presente
     private CoordinatorLayout rootLayout;
 
     private Data data;
-    float startX, startY;
-    boolean isBack;
-    long time;
+    private float startX, startY;
+    private boolean isBack;
+    private long time;
 
     @Override
     protected int getLayoutId() {
@@ -49,13 +48,13 @@ public class NewsDetailActivity extends BaseActivity<NewsDetailContract.Presente
 
     @Override
     protected void initPM() {
-        mModel = new NewsDetailModel();
-        mPresenter = new NewsDetailPresenter(this, mModel);
+        model = new NewsDetailModel();
+        presenter = new NewsDetailPresenter(this, model);
     }
 
     @Override
     protected void initView() {
-        StatusBarCompat.translucentStatusBar(this);
+        //StatusBarCompat.translucentStatusBar(this);
         iv_header = (ImageView) findViewById(R.id.iv_header);
         webView = (WebView) findViewById(R.id.wv_content);
         toolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolBarLayout);
@@ -159,6 +158,5 @@ public class NewsDetailActivity extends BaseActivity<NewsDetailContract.Presente
                 break;
         }
         return false;
-
     }
 }

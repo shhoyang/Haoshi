@@ -2,11 +2,9 @@ package com.haoshi.rxjava.mvp.ui.fragment;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.StaggeredGridLayoutManager;
-import android.view.View;
-import android.view.animation.OvershootInterpolator;
 
 import com.haoshi.R;
 import com.haoshi.rxjava.mvp.bean.Data;
@@ -19,22 +17,21 @@ import com.haoshi.rxjava.mvp.ui.event.SwipeEvent;
 import com.haoshi.rxjava.mvp.ui.event.TopEvent;
 import com.haoshi.rxjava.mvp.ui.model.NewsModel;
 import com.haoshi.rxjava.mvp.ui.presenter.NewsPresenter;
+import com.jude.easyrecyclerview.decoration.SpaceDecoration;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import jp.wasabeef.recyclerview.animators.SlideInUpAnimator;
 
 /**
  * @author Haoshi
  */
 public class NewsFragment extends BaseFragment<NewsContract.Presenter, NewsContract.Model>
         implements NewsContract.View, NewsAdapter.OnItemClickListener {
+
     private SwipeRefreshLayout refreshLayout;
     private RecyclerView recyclerView;
-
-    private List<Data> list;
-    private NewsAdapter adapter, adapter_grid;
+    private List<Data> list = new ArrayList<>();
+    private NewsAdapter adapter;
     private String channelName;
     private boolean isGrid;
 
@@ -46,8 +43,8 @@ public class NewsFragment extends BaseFragment<NewsContract.Presenter, NewsContr
 
     @Override
     protected void initPM() {
-        mModel = new NewsModel();
-        mPresenter = new NewsPresenter(this, mModel);
+        model = new NewsModel();
+        presenter = new NewsPresenter(this, model);
     }
 
     @Override
@@ -57,22 +54,18 @@ public class NewsFragment extends BaseFragment<NewsContract.Presenter, NewsContr
         }
 
         refreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe);
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.rv_list);
         refreshLayout.setColorSchemeResources(new int[]{R.color.tab_blue, R.color.tab_purple, R.color.tab_pink});
-        refreshLayout.setOnRefreshListener(() -> mPresenter.getChannelList(channelName));
-        list = new ArrayList<>();
-
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        refreshLayout.setOnRefreshListener(() -> presenter.getChannelList(channelName));
+        recyclerView = (RecyclerView) rootView.findViewById(R.id.rv_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(activity));
+        recyclerView.addItemDecoration(new SpaceDecoration(32));
         recyclerView.setHasFixedSize(false);
-        recyclerView.setAdapter(adapter = new NewsAdapter(getContext(), list, R.layout.adapter_news_list));
-        adapter_grid = new NewsAdapter(getContext(), list, R.layout.adapter_news_grid);
-        recyclerView.setItemAnimator(new SlideInUpAnimator(new OvershootInterpolator(1f)));
-        recyclerView.getItemAnimator().setAddDuration(800);
+        adapter = new NewsAdapter();
+        recyclerView.setAdapter(adapter);
 
         adapter.setOnItemClickListener(this);
-        adapter_grid.setOnItemClickListener(this);
         if (list.size() <= 0) {
-            mPresenter.getChannelList(channelName);
+            presenter.getChannelList(channelName);
             startLoading();
         }
     }
@@ -82,7 +75,6 @@ public class NewsFragment extends BaseFragment<NewsContract.Presenter, NewsContr
      */
     @Override
     protected void handleEvent(Object o) {
-        //回到顶部事件
         if (o instanceof TopEvent) {
             TopEvent event = (TopEvent) o;
             if (event.getType().equals(channelName)) {
@@ -94,18 +86,15 @@ public class NewsFragment extends BaseFragment<NewsContract.Presenter, NewsContr
             refreshLayout.setEnabled(event.isEnable());
         } else if (o instanceof ChangeEvent) {
             ChangeEvent event = (ChangeEvent) o;
-            List<Data> dataList = new ArrayList<>(list);
             isGrid = event.isGrid();
             recyclerView.setLayoutManager(isGrid ?
-                    new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-                    : new LinearLayoutManager(getContext()));
-            recyclerView.setAdapter(isGrid ? adapter_grid : adapter);
-            returnChannelList(dataList);
+                    new GridLayoutManager(activity, 2, LinearLayoutManager.VERTICAL, false)
+                    : new LinearLayoutManager(activity));
         }
     }
 
     @Override
-    public void onItemClick(View view, int position) {
+    public void onItemClick(int position) {
         Bundle b = new Bundle();
         b.putSerializable("data", list.get(position));
         startActivity(NewsDetailActivity.class, b);
@@ -131,17 +120,7 @@ public class NewsFragment extends BaseFragment<NewsContract.Presenter, NewsContr
 
     @Override
     public void returnChannelList(List<Data> dataList) {
-        if (isGrid) {
-            List<Integer> heights = new ArrayList<>(dataList.size());
-            for (int i = 0; i < dataList.size(); i++) {
-                heights.add((int) (Math.random() * 400 + 300));
-            }
-            adapter_grid.setHeights(heights);
-        }
-        NewsAdapter mAdapter = isGrid ? adapter_grid : adapter;
-        mAdapter.clearData();
-        for (int i = 0; i < dataList.size(); i++) {
-            mAdapter.addData(dataList.get(i), i);
-        }
+        list = dataList;
+        adapter.setData(list);
     }
 }

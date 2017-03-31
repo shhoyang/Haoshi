@@ -6,36 +6,35 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.haoshi.R;
-import com.haoshi.hao.BaseActivity;
+import com.haoshi.hao.BaseListActivity;
 import com.haoshi.utils.ToastUtils;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.jude.easyrecyclerview.decoration.SpaceDecoration;
 
 /**
  * @author HaoShi
  */
-public class RecyclerViewActivity extends BaseActivity {
+public class RecyclerViewActivity extends BaseListActivity {
 
     private RecyclerView recyclerView;
-    private List<String> texts = new ArrayList<>();
-    private List<Integer> images = new ArrayList<>();
 
     @Override
     public void initView() {
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
+        recyclerView.addItemDecoration(new SpaceDecoration(16));
+    }
+
+    @Override
+    public View getListView() {
+        return recyclerView;
     }
 
     @Override
     public void setData() {
-        for (int i = 0; i < 50; i++) {
-            texts.add("条目" + i);
-            images.add(R.mipmap.ic_launcher);
-        }
 
-        RecyclerAdapter adapter = new RecyclerAdapter(texts, images, position -> ToastUtils.showShort(RecyclerViewActivity.this, "点击了条目" + position));
+        RecyclerAdapter adapter = new RecyclerAdapter(position -> ToastUtils.showShort(RecyclerViewActivity.this, "点击了条目" + position));
         recyclerView.setAdapter(adapter);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
@@ -90,4 +89,6 @@ public class RecyclerViewActivity extends BaseActivity {
     public String setTitle() {
         return TAG = RecyclerViewActivity.class.getSimpleName();
     }
+
+
 }

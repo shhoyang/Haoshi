@@ -65,7 +65,7 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
-            convertView = View.inflate(context, R.layout.expandable_group_item, null);
+            convertView = View.inflate(context, R.layout.list_item_0, null);
             holder = new ViewHolder();
             holder.textView = (TextView) convertView.findViewById(R.id.text);
             convertView.setTag(holder);
@@ -80,7 +80,7 @@ public class ExpandableAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         ViewHolder holder;
         if (convertView == null) {
-            convertView = View.inflate(context, R.layout.expandable_child_item, null);
+            convertView = View.inflate(context, R.layout.list_item_1, null);
             holder = new ViewHolder();
             holder.textView = (TextView) convertView.findViewById(R.id.text);
             convertView.setTag(holder);

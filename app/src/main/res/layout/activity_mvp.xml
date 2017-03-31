@@ -20,13 +20,13 @@
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:text="用户名:"
-            android:textSize="20sp" />
+            android:textSize="@dimen/text_l" />
 
         <EditText
             android:id="@+id/edit_username"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:hint="haoshi" />
     </LinearLayout>
 
@@ -39,13 +39,13 @@
             android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:text="密   码："
-            android:textSize="20sp" />
+            android:textSize="@dimen/text_l" />
 
         <EditText
             android:id="@+id/edit_password"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="@dimen/activity_horizontal_margin"
             android:hint="123456"
             android:inputType="numberPassword" />
     </LinearLayout>

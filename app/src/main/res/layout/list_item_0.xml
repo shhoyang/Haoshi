@@ -6,11 +6,10 @@
     <TextView
         android:id="@+id/text"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#DDDDDD"
-        android:gravity="center_vertical"
-        android:paddingLeft="40dp"
-        android:textColor="@android:color/black"
-        android:textSize="25sp" />
+        android:layout_height="@dimen/item_height_m"
+        android:gravity="bottom"
+        android:paddingBottom="@dimen/margin_s"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:textSize="@dimen/text_l" />
 
 </LinearLayout>
