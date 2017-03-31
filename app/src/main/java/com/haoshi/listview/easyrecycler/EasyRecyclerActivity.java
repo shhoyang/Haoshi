@@ -54,7 +54,7 @@ public class EasyRecyclerActivity extends BaseListActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.easy_recycler_menu, menu);
+        getMenuInflater().inflate(R.menu.easy_recycler, menu);
         return true;
     }
 

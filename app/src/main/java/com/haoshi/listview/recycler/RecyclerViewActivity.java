@@ -45,7 +45,7 @@ public class RecyclerViewActivity extends BaseListActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.recycler_menu, menu);
+        getMenuInflater().inflate(R.menu.recycler, menu);
         return true;
     }
 

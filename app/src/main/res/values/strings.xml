@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">豪〤世</string>
+    <string name="text">欢迎各位同仁star</string>
+    <string name="github">GitHub</string>
+    <string name="github_url">https://github.com/haoshiy/Haoshi</string>
 </resources>

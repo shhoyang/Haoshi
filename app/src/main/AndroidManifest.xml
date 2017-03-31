@@ -89,7 +89,9 @@
         <activity android:name=".lottie.ProgressAnimActivity" />
         <activity android:name=".baidumap.BaiduMapActivity" />
         <activity android:name=".sms.SmsActivity" />
-        <activity android:name=".sharesdk.ShareSdkActivity" />
+        <activity android:name=".listview.easyrecycler.EasyRecyclerActivity" />
+        <activity android:name=".listview.easyrecyclerwithrefresh.EasyRecyclerWithRefreshActivity" />
+        <activity android:name=".listview.indexablerecyclerview.IndexableRecyclerActivity" />
 
         <service android:name=".service.MessengerService" />
         <service
@@ -105,7 +107,6 @@
             android:name="com.mob.tools.MobUIShell"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize">
             <intent-filter>
                 <data android:scheme="tencent100371282" />
@@ -124,9 +125,7 @@
             android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name=".listview.easyrecycler.EasyRecyclerActivity" />
-        <activity android:name=".listview.easyrecyclerwithrefresh.EasyRecyclerWithRefreshActivity" />
-        <activity android:name=".listview.indexablerecyclerview.IndexableRecyclerActivity" />
+
     </application>
 
 </manifest>

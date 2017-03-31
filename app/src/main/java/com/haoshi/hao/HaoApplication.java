@@ -18,6 +18,8 @@ import com.tencent.tinker.loader.shareutil.ShareConstants;
 import java.io.File;
 import java.io.IOException;
 
+import cn.sharesdk.framework.ShareSDK;
+
 /**
  * @author HaoShi
  */

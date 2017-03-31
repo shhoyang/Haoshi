@@ -1,67 +1,45 @@
 package com.haoshi.hao;
 
-import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.andview.refreshview.XRefreshView;
-import com.andview.refreshview.XRefreshViewFooter;
-import com.andview.refreshview.XRefreshViewHeader;
-import com.andview.refreshview.recyclerview.BaseRecyclerAdapter;
 import com.haoshi.R;
-import com.haoshi.androidtest.AndroidTestActivity;
-import com.haoshi.baidumap.BaiduMapActivity;
-import com.haoshi.bluetooth.BluetoothActivity;
 import com.haoshi.customview.MarqueeTextView;
-import com.haoshi.customview.ViewActivity;
 import com.haoshi.customview.xrefreshview.SmileyHeaderView;
-import com.haoshi.dialog.DialogActivity;
-import com.haoshi.javajs.JavaJsActivity;
-import com.haoshi.listview.easyrecycler.EasyRecyclerActivity;
-import com.haoshi.listview.easyrecyclerwithrefresh.EasyRecyclerWithRefreshActivity;
-import com.haoshi.listview.expandable.ExpandableListViewActivity;
-import com.haoshi.listview.indexablerecyclerview.IndexableRecyclerActivity;
-import com.haoshi.listview.recycler.RecyclerViewActivity;
-import com.haoshi.lottie.LottieActivity;
-import com.haoshi.mvp.activity.MvpActivity;
-import com.haoshi.rxjava.RxJavaActivity;
-import com.haoshi.rxjava.cookie.RxJavaCookieActivity;
-import com.haoshi.rxjava.mvp.ui.activity.RxJavaMvpActivity;
-import com.haoshi.scrollview.ScrollActivity;
-import com.haoshi.service.ServiceActivity;
-import com.haoshi.sharesdk.ShareSdkActivity;
-import com.haoshi.sms.SmsActivity;
-import com.haoshi.sqlite.greendao.GreenDaoActivity;
-import com.haoshi.sqlite.ormlite.OrmliteActivity;
-import com.haoshi.swipe.SwipeActivity;
-import com.haoshi.tinker.TinkerActivity;
-import com.haoshi.toast.StyleableToastActivity;
-import com.haoshi.toast.ToastyActivity;
-import com.haoshi.tts.TTSActivity;
 import com.haoshi.utils.ScreenUtils;
+import com.haoshi.utils.ToastUtils;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+
+import cn.sharesdk.framework.Platform;
+import cn.sharesdk.framework.PlatformActionListener;
+import cn.sharesdk.framework.ShareSDK;
+import cn.sharesdk.tencent.qq.QQ;
+import cn.sharesdk.tencent.qzone.QZone;
+import cn.sharesdk.wechat.friends.Wechat;
+import cn.sharesdk.wechat.moments.WechatMoments;
 
 /**
  * @author HaoShi
  */
-public class IndexActivity extends BaseActivity implements XRefreshView.XRefreshViewListener {
+public class IndexActivity extends BaseActivity implements XRefreshView.XRefreshViewListener, PlatformActionListener {
 
     private MarqueeTextView marqueeTextView;
     private XRefreshView xRefreshView;
     private RecyclerView recyclerView;
-    private List<ActionBean> list = new ArrayList<>();
+    private ShareDialog shareDialog = null;
+    private ShareDialog loginDialog = null;
     private Handler handler = new Handler();
 
     @Override
     public void initView() {
+        ShareSDK.initSDK(this);
         setEnableSwipe(false);
         marqueeTextView = (MarqueeTextView) findViewById(R.id.marquee);
         marqueeTextView.setText("天行健,君子以自强不息;地势坤,君子以厚德载物");
@@ -74,11 +52,12 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
         xRefreshView.setPullLoadEnable(true);
         xRefreshView.setPinnedTime(500);
         xRefreshView.setCustomHeaderView(new SmileyHeaderView(this));
-        adapter.setCustomLoadMoreView(new XRefreshViewFooter(this));
         xRefreshView.setXRefreshViewListener(this);
+
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(new IndexAdapter(this));
 
         findViewById(R.id.button_up).setOnClickListener(this);
     }
@@ -97,36 +76,6 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
 
     @Override
     public void setData() {
-
-        list.add(new ActionBean("AndroidTest", AndroidTestActivity.class));
-        list.add(new ActionBean("BaiduMap", BaiduMapActivity.class));
-        list.add(new ActionBean("Bluetooth", BluetoothActivity.class));
-        list.add(new ActionBean("CustomView", ViewActivity.class));
-        list.add(new ActionBean("Dialog", DialogActivity.class));
-        list.add(new ActionBean("EasyRecyclerView", EasyRecyclerActivity.class));
-        list.add(new ActionBean("EasyRecyclerViewWithRefresh", EasyRecyclerWithRefreshActivity.class));
-        list.add(new ActionBean("ExpandableListView", ExpandableListViewActivity.class));
-        list.add(new ActionBean("IndexableRecyclerView", IndexableRecyclerActivity.class));
-        list.add(new ActionBean("GreenDao", GreenDaoActivity.class));
-        list.add(new ActionBean("JavaJs", JavaJsActivity.class));
-        list.add(new ActionBean("Lottie", LottieActivity.class));
-        list.add(new ActionBean("MVP", MvpActivity.class));
-        list.add(new ActionBean("Ormlite", OrmliteActivity.class));
-        list.add(new ActionBean("RecyclerView", RecyclerViewActivity.class));
-        list.add(new ActionBean("RxJava", RxJavaActivity.class));
-        list.add(new ActionBean("RxJavaCookie", RxJavaCookieActivity.class));
-        list.add(new ActionBean("RxJavaMvp", RxJavaMvpActivity.class));
-        list.add(new ActionBean("Service", ServiceActivity.class));
-        list.add(new ActionBean("ShareSdk", ShareSdkActivity.class));
-        list.add(new ActionBean("SMS", SmsActivity.class));
-        list.add(new ActionBean("StickScroll", ScrollActivity.class));
-        list.add(new ActionBean("StyleableToast", StyleableToastActivity.class));
-        list.add(new ActionBean("SwipeLayout", SwipeActivity.class));
-        list.add(new ActionBean("Tinker", TinkerActivity.class));
-        list.add(new ActionBean("Toasty", ToastyActivity.class));
-        list.add(new ActionBean("TTS", TTSActivity.class));
-
-        recyclerView.setAdapter(adapter);
     }
 
     @Override
@@ -147,30 +96,65 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
             case R.id.button_up:
                 recyclerView.scrollToPosition(0);
                 break;
+            case R.id.share_qq:
+                share(QQ.NAME);
+                break;
+            case R.id.share_qzone:
+                share(QZone.NAME);
+                break;
+            case R.id.share_wechat:
+                share(Wechat.NAME);
+                break;
+            case R.id.share_moments:
+                share(WechatMoments.NAME);
+                break;
+            case R.id.login_qq:
+                login();
+                break;
+            case R.id.login_wechat:
+                login();
+                break;
+            case R.id.login_message:
+                login();
+                break;
         }
     }
 
     @Override
-    public void onRefresh() {
-
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.index, menu);
+        return true;
     }
 
-    /**
-     * XRefreshView
-     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_share:
+                showShare();
+                break;
+            case R.id.action_login:
+                showLogin();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onRefresh() {
+        handler.postDelayed(() -> xRefreshView.stopRefresh(), 1500);
+    }
+
     @Override
     public void onRefresh(boolean isPullDown) {
-        handler.postDelayed(() -> xRefreshView.stopRefresh(), 2000);
+
     }
 
     @Override
     public void onLoadMore(boolean isSilence) {
         handler.postDelayed(() -> {
-            //无更多数据
-            //xRefreshView.setLoadComplete(true);
-            //成功/失败
-            xRefreshView.stopLoadMore();
-        }, 2000);
+            //xRefreshView.setLoadComplete(true); //无更多数据
+            xRefreshView.stopLoadMore(); //成功/失败
+        }, 1000);
     }
 
     @Override
@@ -183,40 +167,65 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
 
     }
 
-    private BaseRecyclerAdapter adapter = new BaseRecyclerAdapter<VH>() {
-        @Override
-        public VH getViewHolder(View view) {
-            return new VH(view, false);
+    private void showShare() {
+        if (shareDialog == null) {
+            View view = View.inflate(this, R.layout.dialog_share, null);
+            view.findViewById(R.id.share_qq).setOnClickListener(this);
+            view.findViewById(R.id.share_qzone).setOnClickListener(this);
+            view.findViewById(R.id.share_wechat).setOnClickListener(this);
+            view.findViewById(R.id.share_moments).setOnClickListener(this);
+            shareDialog = new ShareDialog(this, view);
         }
 
-        @Override
-        public VH onCreateViewHolder(ViewGroup parent, int viewType, boolean isItem) {
-            View view = LayoutInflater.from(IndexActivity.this).inflate(R.layout.index_item, parent, false);
-            return new VH(view, true);
+        shareDialog.show();
+    }
+
+    private void share(String name) {
+        shareDialog.dismiss();
+        Platform.ShareParams params = new Platform.ShareParams();
+        params.setShareType(Platform.SHARE_TEXT);
+        params.setShareType(Platform.SHARE_WEBPAGE);
+        params.setTitle(getString(R.string.app_name));
+        params.setTitleUrl(getString(R.string.github_url));
+        params.setText(getString(R.string.text));
+        params.setUrl(getString(R.string.github_url));
+        params.setSite(getString(R.string.github));
+        params.setSiteUrl(getString(R.string.github_url));
+        params.setImageUrl("https://avatars0.githubusercontent.com/u/22501621?v=3&u=3801eec13694e72875faf6aa20e5020ed87047dc&s=400");
+        Platform platform = ShareSDK.getPlatform(name);
+        platform.setPlatformActionListener(this);
+        platform.share(params);
+    }
+
+    private void showLogin() {
+        if (loginDialog == null) {
+            View view = View.inflate(this, R.layout.dialog_login, null);
+            view.findViewById(R.id.login_qq).setOnClickListener(this);
+            view.findViewById(R.id.login_wechat).setOnClickListener(this);
+            view.findViewById(R.id.login_message).setOnClickListener(this);
+            loginDialog = new ShareDialog(this, view);
         }
 
-        @Override
-        public void onBindViewHolder(VH holder, int position, boolean isItem) {
-            holder.textView.setText(list.get(position).getAction());
-            holder.textView.setOnClickListener(view ->
-                    startActivity(new Intent(IndexActivity.this, list.get(position).getCls())));
-        }
+        loginDialog.show();
+    }
 
-        @Override
-        public int getAdapterItemCount() {
-            return list.size();
-        }
-    };
+    private void login() {
+        loginDialog.dismiss();
+    }
 
-    public static class VH extends RecyclerView.ViewHolder {
 
-        public TextView textView = null;
+    @Override
+    public void onComplete(Platform platform, int i, HashMap<String, Object> hashMap) {
+        ToastUtils.showShort(this, "分享成功!");
+    }
 
-        public VH(View itemView, boolean isItem) {
-            super(itemView);
-            if (isItem) {
-                textView = (TextView) itemView;
-            }
-        }
+    @Override
+    public void onError(Platform platform, int i, Throwable throwable) {
+        ToastUtils.showShort(this, "分享成功!");
+    }
+
+    @Override
+    public void onCancel(Platform platform, int i) {
+        ToastUtils.showShort(this, "分享取消!");
     }
 }

@@ -38,7 +38,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.VH> {
 
     @Override
     public int getItemCount() {
-        return 30;
+        return 50;
     }
 
     public interface OnRecyclerItemClickListener {

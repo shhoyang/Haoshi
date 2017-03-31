@@ -151,7 +151,7 @@ public class RxJavaMvpActivity extends BaseActivity {
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(isGrid ? R.menu.list : R.menu.grid, menu);
+        inflater.inflate(isGrid ? R.menu.rxjava_list : R.menu.rxjava_grid, menu);
         return super.onPrepareOptionsMenu(menu);
     }
 

@@ -68,7 +68,7 @@ public class BaiduMapActivity extends BaseActivity implements TextView.OnEditorA
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.baidumap_menu, menu);
+        getMenuInflater().inflate(R.menu.baidumap, menu);
         return true;
     }
 

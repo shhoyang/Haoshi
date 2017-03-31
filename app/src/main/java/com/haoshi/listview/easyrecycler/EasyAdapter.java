@@ -41,7 +41,7 @@ public class EasyAdapter extends EasyRecyclerViewAdapter {
 
     @Override
     public int getItemCount() {
-        return 30;
+        return 50;
     }
 
     @Override

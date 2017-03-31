@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/share_qq"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/margin_m">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/qq" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QQ"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_s" />
+
+    </LinearLayout>
+
+    <include layout="@layout/line_hor" />
+
+    <LinearLayout
+        android:id="@+id/share_qzone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/margin_m">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/qzone" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QQ空间"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_s" />
+
+    </LinearLayout>
+
+    <include layout="@layout/line_hor" />
+
+    <LinearLayout
+        android:id="@+id/share_wechat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/margin_m">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/wechat" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="微信好友"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_s" />
+
+    </LinearLayout>
+
+    <include layout="@layout/line_hor" />
+
+    <LinearLayout
+        android:id="@+id/share_moments"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/margin_m">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/moments" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="微信朋友圈"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_s" />
+    </LinearLayout>
+
+</LinearLayout>
