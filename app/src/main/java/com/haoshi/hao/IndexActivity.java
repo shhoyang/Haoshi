@@ -4,9 +4,11 @@ import android.os.Handler;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
 
 import com.andview.refreshview.XRefreshView;
 import com.haoshi.R;
@@ -36,6 +38,8 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
     private ShareDialog shareDialog = null;
     private ShareDialog loginDialog = null;
     private Handler handler = new Handler();
+
+    private boolean isExit = false;
 
     @Override
     public void initView() {
@@ -227,5 +231,23 @@ public class IndexActivity extends BaseActivity implements XRefreshView.XRefresh
     @Override
     public void onCancel(Platform platform, int i) {
         ToastUtils.showShort(this, "分享取消!");
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK:
+                if (isExit) {
+                    finish();
+                    android.os.Process.killProcess(android.os.Process.myPid());
+                    System.exit(0);
+                } else {
+                    ToastUtils.showShort(this, "再按一次退出");
+                    isExit = true;
+                    handler.postDelayed(() -> isExit = false, 3000);
+                }
+                break;
+        }
+        return false;
     }
 }
