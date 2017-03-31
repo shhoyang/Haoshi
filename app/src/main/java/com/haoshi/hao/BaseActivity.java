@@ -2,31 +2,28 @@ package com.haoshi.hao;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.haoshi.R;
+import com.haoshi.swipe.SwipeBackActivity;
+import com.haoshi.swipe.SwipeBackLayout;
 
 /**
  * @author HaoShi
  */
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener {
+public abstract class BaseActivity extends SwipeBackActivity implements View.OnClickListener {
 
     protected static String TAG;
 
-    protected ImageView menu;
     protected ProgressDialog dialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
-
+        setDragEdge(SwipeBackLayout.DragEdge.LEFT);
         FrameLayout frameLayout = (FrameLayout) findViewById(R.id.frame);
         View view = View.inflate(this, setContentViewID(), null);
         frameLayout.addView(view);
@@ -40,6 +37,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
 
         initView();
         setData();
+        setListener();
     }
 
     public abstract void initView();
@@ -49,6 +47,10 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     public abstract int setContentViewID();
 
     public abstract String setTitle();
+
+    public void setListener() {
+
+    }
 
     @Override
     public void onClick(View v) {

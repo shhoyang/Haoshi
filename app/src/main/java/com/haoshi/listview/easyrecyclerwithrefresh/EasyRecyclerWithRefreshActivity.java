@@ -42,10 +42,10 @@ public class EasyRecyclerWithRefreshActivity extends BaseActivity {
         adapter.setNotifyOnChange(true);
         ScaleInAnimatorAdapter animatorAdapter = new ScaleInAnimatorAdapter(adapter, recyclerView.getRecyclerView());
         recyclerView.setAdapter(animatorAdapter);
-        setListener();
     }
 
-    private void setListener() {
+    @Override
+    public void setListener() {
         adapter.setMore(R.layout.view_more, () -> {
             handler.postDelayed(() -> {
                 adapter.pauseMore();

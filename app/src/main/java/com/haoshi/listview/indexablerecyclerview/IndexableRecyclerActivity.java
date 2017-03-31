@@ -55,10 +55,10 @@ public class IndexableRecyclerActivity extends BaseActivity {
             gpsCity.get(0).setName("洛阳市");
             gpsCitysAdapter.notifyDataSetChanged();
         }, 2000);
-        setListener();
     }
 
-    private void setListener() {
+    @Override
+    public void setListener() {
         cityAdapter.setOnItemContentClickListener((v, originalPosition, currentPosition, entity) -> {
             if (originalPosition >= 0) {
                 ToastUtils.showShort(IndexableRecyclerActivity.this, "选中:" + entity.getName() + "  当前位置:" + currentPosition + "  原始所在数组位置:" + originalPosition);

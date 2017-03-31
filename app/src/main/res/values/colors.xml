@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#3F51B5</color>
    <!-- <color name="colorPrimaryDark">#303F9F</color>-->
     <color name="colorAccent">#FF4081</color>
+    <!--滑动阴影颜色-->
+    <color name="shadow">#7f000000</color>
 
     <color name="titleWhite">#FFFFFF</color>
     <color name="fab_blue">#408CFF</color>

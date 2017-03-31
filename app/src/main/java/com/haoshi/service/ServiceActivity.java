@@ -122,16 +122,15 @@ public class ServiceActivity extends BaseActivity {
         }
     }
 
-    /******************************************************************/
-    private IAidlInterface iAidlInterface;
     private ServiceConnection connection = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            iAidlInterface = IAidlInterface.Stub.asInterface(service);
-            String info = null;
+            IAidlInterface iAidlInterface = IAidlInterface.Stub.asInterface(service);
             try {
-                info = iAidlInterface.getInfo("hello");
-                ToastUtils.showLong(ServiceActivity.this, info);
+                String info = iAidlInterface.getInfo("hello");
+                if (info != null) {
+                    ToastUtils.showLong(ServiceActivity.this, info);
+                }
             } catch (RemoteException e) {
                 e.printStackTrace();
             }
@@ -154,7 +153,7 @@ public class ServiceActivity extends BaseActivity {
             ComponentName componentName = new ComponentName(packageName, className);
             Intent explicitIntent = new Intent(intent);
             explicitIntent.setComponent(componentName);
-            bindService(intent, connection, BIND_AUTO_CREATE);
+            bindService(explicitIntent, connection, BIND_AUTO_CREATE);
         }
     }
 }

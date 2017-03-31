@@ -7,6 +7,7 @@ import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
 import com.haoshi.rxjava.cookie.RxJavaCookieActivity;
 import com.haoshi.rxjava.mvp.ui.activity.RxJavaMvpActivity;
+import com.haoshi.rxjava.rxbus.RxBus;
 import com.haoshi.rxjava.rxbus.RxBusActivity;
 
 /**
@@ -48,7 +49,7 @@ public class RxJavaActivity extends BaseActivity {
                 intent = new Intent(this, RxJavaSimple2Activity.class);
                 break;
             case R.id.button2:
-                intent = new Intent(this, RxJavaCookieActivity.class);
+                intent = new Intent(this, RxBusActivity.class);
                 break;
         }
         startActivity(intent);

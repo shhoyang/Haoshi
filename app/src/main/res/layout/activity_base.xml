@@ -8,17 +8,16 @@
     android:orientation="vertical"
     tools:context=".hao.BaseActivity">
 
-    <!--app:popupTheme="@style/AppTheme.PopupOverlay"-->
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@color/colorPrimary"
-
         app:titleTextColor="@android:color/white" />
 
     <FrameLayout
         android:id="@+id/frame"
+        android:background="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </LinearLayout>
