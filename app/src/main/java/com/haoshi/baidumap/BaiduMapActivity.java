@@ -1,40 +1,41 @@
 package com.haoshi.baidumap;
 
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.AutoCompleteTextView;
 
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.MapView;
+import com.baidu.mapapi.search.poi.PoiDetailResult;
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
 import com.haoshi.utils.KeyBoardUtils;
-import com.haoshi.utils.ToastUtils;
 
-public class BaiduMapActivity extends BaseActivity implements TextView.OnEditorActionListener {
+public class BaiduMapActivity extends BaseActivity {
 
     private MapView mapView;
-    private EditText editSearch;
+    private AutoCompleteTextView textSearch;
     private BaiduMap baiduMap;
     private LocationUtils locationUtils;
+    private SearchUtils searchUtils;
+    private NavUtils navUtils;
 
     @Override
     public void initView() {
+        setEnableSwipe(false);
         mapView = (MapView) findViewById(R.id.map);
-        editSearch = (EditText) findViewById(R.id.edit_search);
-        editSearch.setImeOptions(EditorInfo.IME_ACTION_SEARCH);
-        editSearch.setOnEditorActionListener(this);
+        textSearch = (AutoCompleteTextView) findViewById(R.id.text_search);
     }
 
     @Override
     public void setData() {
         baiduMap = mapView.getMap();
-        baiduMap = mapView.getMap();
         locationUtils = new LocationUtils(this, baiduMap);
+        searchUtils = new SearchUtils(this, baiduMap, textSearch);
+        navUtils = new NavUtils(this);
+
+        locationUtils.start();
     }
 
     @Override
@@ -64,6 +65,7 @@ public class BaiduMapActivity extends BaseActivity implements TextView.OnEditorA
         super.onDestroy();
         mapView.onDestroy();
         locationUtils.stop();
+        searchUtils.destroy();
     }
 
     @Override
@@ -76,35 +78,30 @@ public class BaiduMapActivity extends BaseActivity implements TextView.OnEditorA
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_search:
-                editSearch.setVisibility(View.VISIBLE);
-                editSearch.setFocusable(true);
-                editSearch.setFocusableInTouchMode(true);
-                editSearch.requestFocus();
-                KeyBoardUtils.openKeybord(editSearch, BaiduMapActivity.this);
+                textSearch.setVisibility(View.VISIBLE);
+                textSearch.setFocusable(true);
+                textSearch.setFocusableInTouchMode(true);
+                textSearch.requestFocus();
+                KeyBoardUtils.openKeybord(textSearch, BaiduMapActivity.this);
                 break;
             case R.id.action_location:
-                locationUtils.start();
-                break;
-            case R.id.action_my_location:
                 locationUtils.createMyLocation();
-                break;
-            case R.id.action_start_nav:
-                break;
-            case R.id.action_end_nav:
                 break;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-        if (actionId == EditorInfo.IME_ACTION_SEARCH) {//修改回车键功能
-            ToastUtils.showShort(this, "开始搜索");
-            editSearch.setText("");
-            editSearch.setVisibility(View.GONE);
-            KeyBoardUtils.closeKeybord(editSearch, BaiduMapActivity.this);
-            return false;
+    public String getCity() {
+        if (locationUtils.getBdLocation() == null) {
+            return "杭州";
+        } else {
+            return locationUtils.getBdLocation().getCity();
         }
-        return true;
+    }
+
+    public void startNavi(PoiDetailResult poiDetailResult) {
+        if (locationUtils.getBdLocation() != null) {
+            navUtils.routeplanToNavi(locationUtils.getBdLocation(), poiDetailResult);
+        }
     }
 }

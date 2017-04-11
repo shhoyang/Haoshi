@@ -10,22 +10,7 @@
 
     <item
         android:id="@+id/action_location"
-        android:title="定位"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_my_location"
         android:title="我的位置"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_start_nav"
-        android:title="开始导航"
-        app:showAsAction="never" />
-
-    <item
-        android:id="@+id/action_end_nav"
-        android:title="结束导航"
         app:showAsAction="never" />
 
 </menu>

@@ -52,17 +52,17 @@
         android:theme="@style/AppTheme">
 
         <activity android:name=".hao.WelcomeActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
 
         <activity
             android:name=".hao.IndexActivity"
             android:theme="@style/MainTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".rxjava.RxJavaActivity" />
         <activity android:name=".rxjava.RxJavaSimple1Activity" />
@@ -93,6 +93,15 @@
         <activity android:name=".lottie.LottieSimpleActivity" />
         <activity android:name=".lottie.ProgressAnimActivity" />
         <activity android:name=".baidumap.BaiduMapActivity" />
+        <activity
+            android:name=".baidumap.NavGuideActivity"
+            android:configChanges="orientation|screenSize|keyboard|keyboardHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
         <activity android:name=".sms.SmsActivity" />
         <activity android:name=".listview.easyrecycler.EasyRecyclerActivity" />
         <activity android:name=".listview.easyrecyclerwithrefresh.EasyRecyclerWithRefreshActivity" />

@@ -42,7 +42,7 @@ public class TinkerActivity extends BaseActivity {
         switch (v.getId()) {
             case R.id.button:
                 //命令tinkerPatchRelease
-                TinkerInstaller.onReceiveUpgradePatch(HaoApplication.getInstance(), PATCH_PATH);
+                TinkerInstaller.onReceiveUpgradePatch(HaoApplication.getInstance().getApplication(), PATCH_PATH);
                 break;
         }
     }

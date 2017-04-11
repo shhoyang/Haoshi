@@ -26,7 +26,7 @@ public abstract class RxSubscriber<T> extends Subscriber<T> {
 
     @Override
     public void onError(Throwable t) {
-        Context context = HaoApplication.getInstance();
+        Context context = HaoApplication.getInstance().getApplication();
         if (!NetWorkUtil.isNetworkConnected(context)) {
             ToastUtils.showShort(context, "请检查网络");
         } else {

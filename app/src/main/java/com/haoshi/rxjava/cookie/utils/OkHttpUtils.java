@@ -1,5 +1,8 @@
 package com.haoshi.rxjava.cookie.utils;
 
+import android.app.Application;
+import android.content.Context;
+
 import com.haoshi.hao.Constant;
 import com.haoshi.hao.HaoApplication;
 import com.haoshi.utils.NetWorkUtil;
@@ -61,16 +64,17 @@ public class OkHttpUtils {
     private static class HaoIntercepter implements Interceptor {
         @Override
         public Response intercept(Chain chain) throws IOException {
+            Context context = HaoApplication.getInstance().getApplication();
             Request request = chain.request();
-            if (!NetWorkUtil.isNetworkConnected(HaoApplication.getInstance())) {
-                ToastUtils.showShort(HaoApplication.getInstance(), "暂无网络");
+            if (!NetWorkUtil.isNetworkConnected(context)) {
+                ToastUtils.showShort(context, "暂无网络");
                 request = request.newBuilder()
                         .cacheControl(CacheControl.FORCE_CACHE)//无网络时只从缓存中读取
                         .build();
             }
 
             Response response = chain.proceed(request);
-            if (NetWorkUtil.isNetworkConnected(HaoApplication.getInstance())) {
+            if (NetWorkUtil.isNetworkConnected(context)) {
                 int maxAge = 60 * 60; // 有网络时设置缓存超时时间1个小时
                 response.newBuilder()
                         .removeHeader("Pragma")
@@ -92,7 +96,7 @@ public class OkHttpUtils {
      * 自动管理Cookies
      */
     private static class CookiesManager implements CookieJar {
-        private final PersistentCookieStore cookieStore = new PersistentCookieStore(HaoApplication.getInstance());
+        private final PersistentCookieStore cookieStore = new PersistentCookieStore(HaoApplication.getInstance().getApplication());
 
         @Override
         public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {

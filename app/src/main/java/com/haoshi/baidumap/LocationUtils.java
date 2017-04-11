@@ -1,7 +1,5 @@
 package com.haoshi.baidumap;
 
-import android.content.Context;
-
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
@@ -22,63 +20,65 @@ import com.haoshi.utils.ToastUtils;
  * @author Haoshi
  */
 
-public class LocationUtils implements BDLocationListener {
+public class LocationUtils {
 
-    private Context context;
+    private BaiduMapActivity activity;
     private BaiduMap baiduMap;
     private LocationClient locationClient;
     private BitmapDescriptor descriptor;
     private MyLocationConfiguration configuration;
-    private double latitude;
-    private double longitude;
-    private boolean isFirst = true;
+    private OrientationListener orientationListener;
+    private float rotate = 0;
+    private BDLocation bdLocation = null;
 
-    public LocationUtils(Context context, BaiduMap baiduMap) {
-        this.context = context;
+    public LocationUtils(BaiduMapActivity activity, BaiduMap baiduMap) {
+        this.activity = activity;
         this.baiduMap = baiduMap;
         LocationClientOption option = new LocationClientOption();
         option.setCoorType("bd09ll");
         option.setIsNeedAddress(true);
         option.setOpenGps(true);
         option.setScanSpan(1000);
-        locationClient = new LocationClient(context, option);
-        locationClient.registerLocationListener(this);
+        locationClient = new LocationClient(activity, option);
+        locationClient.registerLocationListener(bdLocationListener);
         descriptor = BitmapDescriptorFactory.fromResource(R.mipmap.arrow);
         configuration = new MyLocationConfiguration(MyLocationConfiguration.LocationMode.NORMAL, true, descriptor);
-
+        orientationListener = new OrientationListener(activity, onOrientationListener);
     }
 
-    @Override
-    public void onReceiveLocation(BDLocation bdLocation) {
-        MyLocationData locationData = new MyLocationData.Builder()
-                .accuracy(bdLocation.getRadius())
-                .direction(0) // 此处设置开发者获取到的方向信息，顺时针0-360
-                .latitude(bdLocation.getLatitude())
-                .longitude(bdLocation.getLongitude())
-                .build();
-        baiduMap.setMyLocationData(locationData);
-        //设置自定义图标
-        baiduMap.setMyLocationConfigeration(configuration);
-        latitude = bdLocation.getLatitude();
-        longitude = bdLocation.getLongitude();
+    public BDLocation getBdLocation() {
+        return bdLocation;
+    }
 
-        if (isFirst) {
-            createMyLocation();
-            ToastUtils.showShort(context, bdLocation.getAddrStr());
-            isFirst = false;
+    private BDLocationListener bdLocationListener = new BDLocationListener() {
+        @Override
+        public void onReceiveLocation(BDLocation bdLocation) {
+            LocationUtils.this.bdLocation = bdLocation;
+            MyLocationData locationData = new MyLocationData.Builder()
+                    .accuracy(bdLocation.getRadius())
+                    .direction(rotate) // 此处设置开发者获取到的方向信息，顺时针0-360
+                    .latitude(bdLocation.getLatitude())
+                    .longitude(bdLocation.getLongitude())
+                    .build();
+            baiduMap.setMyLocationData(locationData);
+            //设置自定义图标
+            //baiduMap.setMyLocationConfigeration(configuration);
         }
-    }
 
-    @Override
-    public void onConnectHotSpotMessage(String s, int i) {
+        @Override
+        public void onConnectHotSpotMessage(String s, int i) {
 
-    }
+        }
+    };
+
+    private OrientationListener.OnOrientationListener onOrientationListener = x -> rotate = x;
 
     public void start() {
         baiduMap.setMyLocationEnabled(true);
         if (!locationClient.isStarted()) {
             locationClient.start();
         }
+        orientationListener.start();
     }
 
     public void stop() {
@@ -86,17 +86,20 @@ public class LocationUtils implements BDLocationListener {
         if (locationClient.isStarted()) {
             locationClient.stop();
         }
+        orientationListener.stop();
     }
 
     public void createMyLocation() {
-        if (latitude == 0 || longitude == 0) {
+        if (bdLocation == null) {
             return;
         }
+
         MapStatus mapStatus = new MapStatus.Builder()
-                .target(new LatLng(latitude, longitude))
-                .zoom(20.0f)
+                .target(new LatLng(bdLocation.getLatitude(), bdLocation.getLongitude()))
+                .zoom(18f)
                 .build();
         MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory.newMapStatus(mapStatus);
         baiduMap.animateMapStatus(mapStatusUpdate);
+        ToastUtils.showShort(activity, bdLocation.getAddrStr());
     }
 }

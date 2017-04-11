@@ -8,6 +8,7 @@ import android.content.res.Resources;
 
 import com.alipay.euler.andfix.patch.PatchManager;
 import com.baidu.mapapi.SDKInitializer;
+import com.baidu.mapapi.utils.CoordinateConverter;
 import com.haoshi.utils.LogUtils;
 import com.tencent.tinker.anno.DefaultLifeCycle;
 import com.tencent.tinker.lib.tinker.TinkerInstaller;
@@ -29,7 +30,8 @@ public class HaoApplication extends DefaultApplicationLike {
 
     private static final String TAG = HaoApplication.class.getSimpleName();
 
-    private static Application application;
+    private Application application;
+    private static HaoApplication haoApplication;
 
     public HaoApplication(Application application, int tinkerFlags, boolean tinkerLoadVerifyFlag, long applicationStartElapsedTime, long applicationStartMillisTime, Intent tinkerResultIntent, Resources[] resources, ClassLoader[] classLoader, AssetManager[] assetManager) {
         super(application, tinkerFlags, tinkerLoadVerifyFlag, applicationStartElapsedTime, applicationStartMillisTime, tinkerResultIntent, resources, classLoader, assetManager);
@@ -38,11 +40,13 @@ public class HaoApplication extends DefaultApplicationLike {
     @Override
     public void onCreate() {
         super.onCreate();
+
     }
 
     @Override
     public void onBaseContextAttached(Context base) {
         super.onBaseContextAttached(base);
+        haoApplication = this;
         application = getApplication();
         //初始化百度地图
         SDKInitializer.initialize(application);
@@ -52,8 +56,8 @@ public class HaoApplication extends DefaultApplicationLike {
         andFix();
     }
 
-    public static Application getInstance() {
-        return application;
+    public static HaoApplication getInstance() {
+        return haoApplication;
     }
 
     private void andFix() {

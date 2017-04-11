@@ -4,13 +4,8 @@
     android:id="@+id/activity_welcome"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@mipmap/motto2"
     tools:context="com.haoshi.hao.WelcomeActivity">
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"
-        android:src="@mipmap/motto" />
 
     <ImageView
         android:id="@+id/image_load"
@@ -19,6 +14,6 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="70dp"
-        android:src="@mipmap/loading2" />
+        android:src="@mipmap/loading" />
 
 </RelativeLayout>
