@@ -38,16 +38,6 @@
                 android:progress="40"
                 android:secondaryProgress="80" />
 
-            <ProgressBar
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:layout_marginTop="@dimen/activity_horizontal_margin"
-                android:max="100"
-                android:progress="40"
-                android:progressDrawable="@drawable/horizontal_progress_bar"
-                android:secondaryProgress="80" />
-
             <com.haoshi.customview.HorizontalProgressBar
                 android:id="@+id/progressbar"
                 style="?android:attr/progressBarStyleHorizontal"
@@ -97,13 +87,5 @@
                 app:border_width="2dp" />
 
         </com.haoshi.customview.ClickLinearLayout>
-
-        <Button
-            android:layout_width="@dimen/item_height_xl"
-            android:layout_height="@dimen/item_height_xl"
-            android:layout_marginTop="@dimen/activity_horizontal_margin"
-            android:background="@drawable/circle"
-            android:text="圆"
-            android:textColor="@android:color/white" />
     </LinearLayout>
 </ScrollView>

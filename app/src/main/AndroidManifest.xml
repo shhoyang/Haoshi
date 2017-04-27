@@ -13,6 +13,7 @@
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
@@ -23,7 +24,6 @@
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     <!-- ShareSdk -->
-
 
     <!-- 百度地图权限 -->
     <uses-permission android:name="android.permission.ACCES_MOCK_LOCATION" />
@@ -50,11 +50,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".hao.WelcomeActivity">
-
-        </activity>
-
+        <activity android:name=".hao.WelcomeActivity" />
         <activity
             android:name=".hao.IndexActivity"
             android:theme="@style/MainTheme">
@@ -106,6 +102,11 @@
         <activity android:name=".listview.easyrecycler.EasyRecyclerActivity" />
         <activity android:name=".listview.easyrecyclerwithrefresh.EasyRecyclerWithRefreshActivity" />
         <activity android:name=".listview.indexablerecyclerview.IndexableRecyclerActivity" />
+        <activity android:name=".audiorecorder.AudioRecorderActivity" />
+        <activity android:name=".audiorecorder.FileModeActivity" />
+        <activity android:name=".audiorecorder.StreamModeActivity" />
+        <activity android:name=".shopcart.ShopCartActivity" />
+        <activity android:name=".photopicker.PhotoPickerActivity" />
 
         <service android:name=".service.MessengerService" />
         <service
@@ -140,6 +141,18 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
+        <!-- PhotoPicker -->
+        <activity
+            android:name="com.foamtrace.photopicker.PhotoPickerActivity"
+            android:configChanges="orientation|screenSize"
+            android:theme="@style/PhotoPickerTheme" />
+        <activity
+            android:name="com.foamtrace.photopicker.PhotoPreviewActivity"
+            android:theme="@style/PhotoPickerTheme" />
+        <activity android:name=".videorecorder.VideoRecorderActivity" />
+        <activity android:name=".videorecorder.MovieRecorderActivity" />
+        <activity android:name=".videorecorder.VideoPreviewActivity" />
+        //<activity android:name="mabeijianxi.camera.MediaRecorderActivity" />
     </application>
 
 </manifest>

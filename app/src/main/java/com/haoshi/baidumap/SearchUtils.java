@@ -1,6 +1,7 @@
 package com.haoshi.baidumap;
 
 import android.app.AlertDialog;
+import android.media.MediaRecorder;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -104,7 +105,6 @@ public class SearchUtils {
 
         @Override
         public void afterTextChanged(Editable editable) {
-
         }
     };
 

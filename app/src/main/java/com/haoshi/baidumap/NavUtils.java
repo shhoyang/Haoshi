@@ -76,8 +76,8 @@ public class NavUtils {
                     //authInfo = "key校验成功!";
                 } else {
                     authInfo = "key校验失败, " + msg;
+                    activity.runOnUiThread(() -> ToastUtils.showShort(activity, authInfo));
                 }
-                activity.runOnUiThread(() -> ToastUtils.showShort(activity, authInfo));
             }
 
             @Override

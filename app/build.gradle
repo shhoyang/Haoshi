@@ -57,8 +57,8 @@ android {
     }
 }
 
-repositories{
-    flatDir{
+repositories {
+    flatDir {
         dirs 'libs'
     }
 }
@@ -104,9 +104,14 @@ dependencies {
     compile 'com.github.GrenderG:Toasty:1.1.4'
     compile 'com.airbnb.android:lottie:2.0.0-beta2'
     compile 'me.yokeyword:indexablerecyclerview:1.2.3'
+    //购物车
+    compile 'com.flipboard:bottomsheet-core:1.5.1'
+    compile 'com.foamtrace:photopicker:1.0'
+    //压缩小视频
+    //compile 'com.mabeijianxi:small-video-record:1.2.0'
 
-    compile(name:'SMSSDK-2.1.3', ext:'aar')
-    compile(name:'SMSSDKGUI-2.1.3', ext:'aar')
+    compile(name: 'SMSSDK-2.1.3', ext: 'aar')
+    compile(name: 'SMSSDKGUI-2.1.3', ext: 'aar')
 }
 
 apply plugin: 'com.tencent.tinker.patch'
@@ -114,29 +119,28 @@ tinkerPatch {
     oldApk = "W://app_bug.apk"
     ignoreWarning = false
     useSign = true
-    buildConfig{
+    buildConfig {
         tinkerId = "1.0"
     }
-    packageConfig{
+    packageConfig {
         //写这个为了修复一个bug,相见issue #22
         configField("TINKER_ID", "1.0")
     }
-    dex{
+    dex {
         dexMode = "jar"
         pattern = ["classes*.dex", "assets/secondary-dex-?.jar"]
         loader = ["com.tencent.tinker.loader.*", "com.yusong.tinker.Application"]
     }
-    lib{
-        pattern = ["lib/armeabi/*.so","lib/arm64-v8a/*.so","lib/armeabi-v7a/*.so","lib/mips/*.so","lib/mips64/*.so","lib/x86/*.so","lib/x86_64/*.so"]
+    lib {
+        pattern = ["lib/armeabi/*.so", "lib/arm64-v8a/*.so", "lib/armeabi-v7a/*.so", "lib/mips/*.so", "lib/mips64/*.so", "lib/x86/*.so", "lib/x86_64/*.so"]
     }
-    res{
+    res {
         pattern = ["res/*", "assets/*", "resources.arsc", "AndroidManifest.xml"]
         largeModSize = 100
     }
-    sevenZip{
+    sevenZip {
         zipArtifact = "com.tencent.mm:SevenZip:1.1.10"
     }
-
 
     /* 这个里边生成的是本次build的apk,用来当做old apk,也就是上边配置中的W:/old.apk */
     def bakPath = file("${buildDir}/bakApk/")

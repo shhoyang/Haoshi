@@ -24,12 +24,15 @@ import com.haoshi.listview.indexablerecyclerview.IndexableRecyclerActivity;
 import com.haoshi.listview.recycler.RecyclerViewActivity;
 import com.haoshi.lottie.LottieActivity;
 import com.haoshi.mvp.activity.MvpActivity;
+import com.haoshi.photopicker.PhotoPickerActivity;
 import com.haoshi.rxjava.RxJavaActivity;
 import com.haoshi.rxjava.cookie.RxJavaCookieActivity;
 import com.haoshi.rxjava.mvp.ui.activity.RxJavaMvpActivity;
 import com.haoshi.scrollview.ScrollActivity;
 import com.haoshi.service.ServiceActivity;
+import com.haoshi.shopcart.ShopCartActivity;
 import com.haoshi.sms.SmsActivity;
+import com.haoshi.audiorecorder.AudioRecorderActivity;
 import com.haoshi.sqlite.greendao.GreenDaoActivity;
 import com.haoshi.sqlite.ormlite.OrmliteActivity;
 import com.haoshi.swipe.SwipeActivity;
@@ -37,6 +40,7 @@ import com.haoshi.tinker.TinkerActivity;
 import com.haoshi.toast.StyleableToastActivity;
 import com.haoshi.toast.ToastyActivity;
 import com.haoshi.tts.TTSActivity;
+import com.haoshi.videorecorder.VideoRecorderActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +57,7 @@ public class IndexAdapter extends BaseRecyclerAdapter<IndexAdapter.VH> {
     public IndexAdapter(Context context) {
         this.context = context;
         list.add(new ActionBean("AndroidTest", AndroidTestActivity.class));
+        list.add(new ActionBean("AudioRecorder", AudioRecorderActivity.class));
         list.add(new ActionBean("BaiduMap", BaiduMapActivity.class));
         list.add(new ActionBean("Bluetooth", BluetoothActivity.class));
         list.add(new ActionBean("CustomView", ViewActivity.class));
@@ -60,17 +65,20 @@ public class IndexAdapter extends BaseRecyclerAdapter<IndexAdapter.VH> {
         list.add(new ActionBean("EasyRecyclerView", EasyRecyclerActivity.class));
         list.add(new ActionBean("EasyRecyclerViewWithRefresh", EasyRecyclerWithRefreshActivity.class));
         list.add(new ActionBean("ExpandableListView", ExpandableListViewActivity.class));
-        list.add(new ActionBean("IndexableRecyclerView", IndexableRecyclerActivity.class));
+        //list.add(new ActionBean("FFmpeg", FFmpegActivity.class));
         list.add(new ActionBean("GreenDao", GreenDaoActivity.class));
+        list.add(new ActionBean("IndexableRecyclerView", IndexableRecyclerActivity.class));
         list.add(new ActionBean("JavaJs", JavaJsActivity.class));
         list.add(new ActionBean("Lottie", LottieActivity.class));
         list.add(new ActionBean("MVP", MvpActivity.class));
         list.add(new ActionBean("Ormlite", OrmliteActivity.class));
+        list.add(new ActionBean("PhotoPicker", PhotoPickerActivity.class));
         list.add(new ActionBean("RecyclerView", RecyclerViewActivity.class));
         list.add(new ActionBean("RxJava", RxJavaActivity.class));
         list.add(new ActionBean("RxJavaCookie", RxJavaCookieActivity.class));
         list.add(new ActionBean("RxJavaMvp", RxJavaMvpActivity.class));
         list.add(new ActionBean("Service", ServiceActivity.class));
+        list.add(new ActionBean("ShopCart", ShopCartActivity.class));
         list.add(new ActionBean("SMS", SmsActivity.class));
         list.add(new ActionBean("StickScroll", ScrollActivity.class));
         list.add(new ActionBean("StyleableToast", StyleableToastActivity.class));
@@ -78,6 +86,7 @@ public class IndexAdapter extends BaseRecyclerAdapter<IndexAdapter.VH> {
         list.add(new ActionBean("Tinker", TinkerActivity.class));
         list.add(new ActionBean("Toasty", ToastyActivity.class));
         list.add(new ActionBean("TTS", TTSActivity.class));
+        list.add(new ActionBean("VideoRecorder", VideoRecorderActivity.class));
 
         setCustomLoadMoreView(new XRefreshViewFooter(context));
     }

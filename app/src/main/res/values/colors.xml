@@ -6,6 +6,7 @@
     <color name="colorAccent">#FF4081</color>
     <!--滑动阴影颜色-->
     <color name="shadow">#7f000000</color>
+    <color name="green">#0F0</color>
 
     <color name="titleWhite">#FFFFFF</color>
     <color name="fab_blue">#408CFF</color>
@@ -14,4 +15,6 @@
     <color name="tab_blue">#10B5DE</color>
     <color name="tab_green">#009688</color>
     <color name="tab_brown">#795548</color>
+    <!--PhotoPicker-->
+    <color name="photopicker_background">#181819</color>
 </resources>

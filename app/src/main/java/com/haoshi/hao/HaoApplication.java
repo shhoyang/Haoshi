@@ -8,7 +8,6 @@ import android.content.res.Resources;
 
 import com.alipay.euler.andfix.patch.PatchManager;
 import com.baidu.mapapi.SDKInitializer;
-import com.baidu.mapapi.utils.CoordinateConverter;
 import com.haoshi.utils.LogUtils;
 import com.tencent.tinker.anno.DefaultLifeCycle;
 import com.tencent.tinker.lib.tinker.TinkerInstaller;
