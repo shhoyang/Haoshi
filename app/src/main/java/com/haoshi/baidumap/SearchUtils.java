@@ -1,7 +1,6 @@
 package com.haoshi.baidumap;
 
 import android.app.AlertDialog;
-import android.media.MediaRecorder;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;

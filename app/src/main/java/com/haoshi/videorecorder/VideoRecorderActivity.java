@@ -4,7 +4,7 @@ import android.content.Intent;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.videorecorder.view.RingProgressBar;
+import com.haoshi.view.RingProgressBar;
 
 public class VideoRecorderActivity extends BaseActivity {
 

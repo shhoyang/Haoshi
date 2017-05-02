@@ -1,6 +1,5 @@
 package com.haoshi.rxjava.cookie.utils;
 
-import android.app.Application;
 import android.content.Context;
 
 import com.haoshi.hao.Constant;

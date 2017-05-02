@@ -103,7 +103,7 @@ public class StatusBarCompat {
                 } else {
                     window.setStatusBarColor(calculateStatusBarColor(COLOR_TRANSLUCENT, DEFAULT_COLOR_ALPHA));
                 }
-                //must call requestApplyInsets, otherwise it will have space in screen bottom
+                //must call requestApplyInsets, otherwise it will have space in screen card_bottom
                 if (mChildView != null) {
                     ViewCompat.requestApplyInsets(mChildView);
                 }
@@ -116,7 +116,7 @@ public class StatusBarCompat {
                     mChildView = mContentView.getChildAt(0);
                     if (mChildView != null) {
                         FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mChildView.getLayoutParams();
-                        //cancel the margin top
+                        //cancel the margin card_top
                         if (lp != null && lp.topMargin >= statusBarHeight) {
                             lp.topMargin -= statusBarHeight;
                             mChildView.setLayoutParams(lp);

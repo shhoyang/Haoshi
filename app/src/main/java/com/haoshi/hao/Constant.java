@@ -14,5 +14,5 @@ public class Constant {
     public static final String NEWS_URL = "index";
     public static final String API_KEY = "1fcd54967cb53b647e67d4b5411d2b9a";
     public static final String[] CHANNELS = {"头条", "社会", "国内", "国际", "娱乐", "体育", "军事", "科技", "财经", "时尚"};
-    public static final String[] CHANNELS_KEY = {"top", "shehui", "guonei", "guoji", "yule", "tiyu", "junshi", "keji", "caijing", "shishang"};
+    public static final String[] CHANNELS_KEY = {"card_top", "shehui", "guonei", "guoji", "yule", "tiyu", "junshi", "keji", "caijing", "shishang"};
 }

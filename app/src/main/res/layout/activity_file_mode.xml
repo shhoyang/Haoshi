@@ -10,6 +10,24 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.haoshi.audiorecorder.FileModeActivity">
 
+    <LinearLayout
+        android:id="@+id/linear_mic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@drawable/mic_bg"
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/image_mic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/record_mic" />
+
+    </LinearLayout>
+
+
     <TextView
         android:id="@+id/text_speak_result"
         android:layout_width="wrap_content"

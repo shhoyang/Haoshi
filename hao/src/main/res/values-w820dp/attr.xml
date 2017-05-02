@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- FlickeringTextView -->
+    <declare-styleable name="FlickeringTextView">
+        <attr name="flickeringColor" format="color" />
+    </declare-styleable>
+
+    <!-- RingProgressBar -->
+    <declare-styleable name="RingProgressBar">
+        <attr name="startColor" format="color" />
+        <attr name="centerColor" format="color" />
+        <attr name="endColor" format="color" />
+        <attr name="max" format="float" />
+        <attr name="progress" format="float" />
+    </declare-styleable>
+</resources>

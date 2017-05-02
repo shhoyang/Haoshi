@@ -14,7 +14,8 @@ import com.haoshi.R;
 import com.haoshi.androidtest.AndroidTestActivity;
 import com.haoshi.baidumap.BaiduMapActivity;
 import com.haoshi.bluetooth.BluetoothActivity;
-import com.haoshi.customview.ViewActivity;
+import com.haoshi.cardslidepanel.CardSlidePanelActivity;
+import com.haoshi.view.ViewActivity;
 import com.haoshi.dialog.DialogActivity;
 import com.haoshi.javajs.JavaJsActivity;
 import com.haoshi.listview.easyrecycler.EasyRecyclerActivity;
@@ -60,12 +61,11 @@ public class IndexAdapter extends BaseRecyclerAdapter<IndexAdapter.VH> {
         list.add(new ActionBean("AudioRecorder", AudioRecorderActivity.class));
         list.add(new ActionBean("BaiduMap", BaiduMapActivity.class));
         list.add(new ActionBean("Bluetooth", BluetoothActivity.class));
-        list.add(new ActionBean("CustomView", ViewActivity.class));
+        list.add(new ActionBean("CardSlidePanel", CardSlidePanelActivity.class));
         list.add(new ActionBean("Dialog", DialogActivity.class));
         list.add(new ActionBean("EasyRecyclerView", EasyRecyclerActivity.class));
         list.add(new ActionBean("EasyRecyclerViewWithRefresh", EasyRecyclerWithRefreshActivity.class));
         list.add(new ActionBean("ExpandableListView", ExpandableListViewActivity.class));
-        //list.add(new ActionBean("FFmpeg", FFmpegActivity.class));
         list.add(new ActionBean("GreenDao", GreenDaoActivity.class));
         list.add(new ActionBean("IndexableRecyclerView", IndexableRecyclerActivity.class));
         list.add(new ActionBean("JavaJs", JavaJsActivity.class));
@@ -87,6 +87,7 @@ public class IndexAdapter extends BaseRecyclerAdapter<IndexAdapter.VH> {
         list.add(new ActionBean("Toasty", ToastyActivity.class));
         list.add(new ActionBean("TTS", TTSActivity.class));
         list.add(new ActionBean("VideoRecorder", VideoRecorderActivity.class));
+        list.add(new ActionBean("View", ViewActivity.class));
 
         setCustomLoadMoreView(new XRefreshViewFooter(context));
     }

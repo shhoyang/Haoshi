@@ -1,5 +1,6 @@
 package com.haoshi.hao;
 
+import android.os.Build;
 import android.os.Handler;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,14 +9,13 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.andview.refreshview.XRefreshView;
 import com.haoshi.R;
-import com.haoshi.customview.MarqueeTextView;
-import com.haoshi.customview.xrefreshview.SmileyHeaderView;
 import com.haoshi.utils.ScreenUtils;
 import com.haoshi.utils.ToastUtils;
+import com.haoshi.view.MarqueeTextView;
+import com.haoshi.view.xrefreshview.SmileyHeaderView;
 
 import java.util.HashMap;
 

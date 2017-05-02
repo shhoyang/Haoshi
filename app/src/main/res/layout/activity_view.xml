@@ -5,7 +5,7 @@
     android:id="@+id/activity_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.haoshi.customview.ViewActivity">
+    tools:context="com.haoshi.view.ViewActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
                 android:progress="40"
                 android:secondaryProgress="80" />
 
-            <com.haoshi.customview.HorizontalProgressBar
+            <com.haoshi.view.HorizontalProgressBar
                 android:id="@+id/progressbar"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
@@ -55,7 +55,7 @@
             android:layout_height="200dp"
             android:layout_marginTop="@dimen/activity_horizontal_margin">
 
-            <com.haoshi.customview.AutoViewPager
+            <com.haoshi.view.AutoViewPager
                 android:id="@+id/viewpager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
@@ -71,7 +71,7 @@
 
         </RelativeLayout>
 
-        <com.haoshi.customview.ClickLinearLayout
+        <com.haoshi.view.ClickLinearLayout
             android:id="@+id/click_linear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -86,6 +86,6 @@
                 app:border_color="@android:color/white"
                 app:border_width="2dp" />
 
-        </com.haoshi.customview.ClickLinearLayout>
+        </com.haoshi.view.ClickLinearLayout>
     </LinearLayout>
 </ScrollView>

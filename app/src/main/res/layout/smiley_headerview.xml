@@ -7,7 +7,7 @@
     android:gravity="center_horizontal"
     android:padding="@dimen/activity_horizontal_margin">
 
-    <com.haoshi.customview.xrefreshview.SmileyLoadingView
+    <com.haoshi.view.xrefreshview.SmileyLoadingView
         android:id="@+id/loading_view"
         android:layout_width="36dp"
         android:layout_height="36dp"

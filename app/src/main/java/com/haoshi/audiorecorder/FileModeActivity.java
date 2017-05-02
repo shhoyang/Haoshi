@@ -4,8 +4,11 @@ import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Handler;
+import android.os.Message;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.haoshi.R;
@@ -21,18 +24,28 @@ import java.util.concurrent.Executors;
 public class FileModeActivity extends BaseActivity implements View.OnTouchListener {
 
     private TextView textResult, textSpeak;
+    private LinearLayout linearMic;
+    private ImageView imageMic;
     private ExecutorService executorService;
     private MediaRecorder mediaRecorder;
     private MediaPlayer mediaPlayer;
     private File audioFile;
     private long startRecordTime;
     private volatile boolean isPlaying;
-    private Handler handler = new Handler();
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            updateMic();
+        }
+    };
 
     @Override
     public void initView() {
         textResult = (TextView) findViewById(R.id.text_speak_result);
         textSpeak = (TextView) findViewById(R.id.text_speak);
+        linearMic = (LinearLayout) findViewById(R.id.linear_mic);
+        imageMic = (ImageView) findViewById(R.id.image_mic);
         textSpeak.setOnTouchListener(this);
         findViewById(R.id.text_play).setOnClickListener(this);
     }
@@ -83,10 +96,23 @@ public class FileModeActivity extends BaseActivity implements View.OnTouchListen
         return true;
     }
 
+    private void updateMic() {
+        if (mediaRecorder != null) {
+            double ratio = (double) mediaRecorder.getMaxAmplitude();
+            double db = 0;// 分贝
+            if (ratio > 1) {
+                db = 20 * Math.log10(ratio);
+                imageMic.getDrawable().setLevel((int) (3000 + 6000 * db / 100));
+            }
+            handler.sendEmptyMessageDelayed(0, 100);
+        }
+    }
+
     /**
      * 按下说话
      */
     private void startRecord() {
+        linearMic.setVisibility(View.VISIBLE);
         textSpeak.setText("正在说话...");
         textSpeak.setBackgroundColor(Color.parseColor("#ff99cc00"));
         executorService.submit(() -> {
@@ -102,6 +128,7 @@ public class FileModeActivity extends BaseActivity implements View.OnTouchListen
      * 松开
      */
     private void stopRecord() {
+        linearMic.setVisibility(View.GONE);
         textSpeak.setText("按下录音");
         textSpeak.setBackgroundColor(Color.parseColor("#ff33b5e5"));
         executorService.submit(() -> {
@@ -143,6 +170,7 @@ public class FileModeActivity extends BaseActivity implements View.OnTouchListen
             mediaRecorder.start();
             startRecordTime = System.currentTimeMillis();
             //记录时间
+            handler.sendEmptyMessage(0);
         } catch (IOException | RuntimeException e) {
             return false;
         }

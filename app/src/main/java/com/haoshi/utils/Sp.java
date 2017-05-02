@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.ContextWrapper;
 import android.content.SharedPreferences;
 
-
 import java.io.File;
 import java.lang.reflect.Field;
 

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context="com.haoshi.videorecorder.VideoRecorderActivity">
 
-    <com.haoshi.videorecorder.view.RingProgressBar
+    <com.haoshi.view.RingProgressBar
         android:id="@+id/progress"
         android:layout_width="185dp"
         android:layout_height="185dp"
@@ -16,7 +16,7 @@
         app:endColor="#3F51B5"
         app:startColor="#3F51B5" />
 
-    <com.haoshi.videorecorder.view.FlickeringTextView
+    <com.haoshi.view.FlickeringTextView
         android:id="@+id/text_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

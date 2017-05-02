@@ -1,11 +1,8 @@
 package com.haoshi.photopicker;
 
 import android.content.Intent;
-import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import com.foamtrace.photopicker.ImageCaptureManager;
 import com.foamtrace.photopicker.ImageConfig;
@@ -16,8 +13,6 @@ import com.foamtrace.photopicker.intent.PhotoPreviewIntent;
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
 import com.haoshi.utils.ToastUtils;
-
-import org.json.JSONArray;
 
 import java.io.IOException;
 import java.util.ArrayList;

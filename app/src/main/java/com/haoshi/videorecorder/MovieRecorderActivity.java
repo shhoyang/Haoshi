@@ -17,7 +17,6 @@ import android.widget.TextView;
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
 import com.haoshi.utils.ToastUtils;
-import com.haoshi.videorecorder.view.MovieRecorderView;
 
 import java.io.File;
 import java.io.IOException;

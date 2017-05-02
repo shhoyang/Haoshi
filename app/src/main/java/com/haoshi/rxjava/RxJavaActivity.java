@@ -5,9 +5,6 @@ import android.view.View;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.rxjava.cookie.RxJavaCookieActivity;
-import com.haoshi.rxjava.mvp.ui.activity.RxJavaMvpActivity;
-import com.haoshi.rxjava.rxbus.RxBus;
 import com.haoshi.rxjava.rxbus.RxBusActivity;
 
 /**

@@ -41,4 +41,12 @@
         <attr name="max" format="float" />
         <attr name="progress" format="float" />
     </declare-styleable>
+
+    <!--CardSlidePanel-->
+    <declare-styleable name="CardSlidePanel">
+        <attr name="itemMarginTop" format="dimension" />
+        <attr name="bottomMarginTop" format="dimension" />
+        <attr name="yOffsetStep" format="dimension" />
+        <attr name="widthHeightRate" format="float" />
+    </declare-styleable>
 </resources>
