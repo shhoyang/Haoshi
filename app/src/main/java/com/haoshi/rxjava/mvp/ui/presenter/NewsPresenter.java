@@ -12,6 +12,7 @@ import java.util.List;
  */
 
 public class NewsPresenter extends NewsContract.Presenter {
+
     public NewsPresenter(NewsContract.View view, NewsContract.Model model) {
         super(view, model);
     }

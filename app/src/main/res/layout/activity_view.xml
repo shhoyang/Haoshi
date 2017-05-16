@@ -79,12 +79,11 @@
             android:gravity="center"
             android:padding="@dimen/margin_xl">
 
-            <com.haoshi.customview.CircleImageView
-                android:id="@+id/click_image"
-                android:layout_width="@dimen/item_height_xl"
-                android:layout_height="@dimen/item_height_xl"
-                app:border_color="@android:color/white"
-                app:border_width="2dp" />
+           <ImageView
+               android:scaleType="centerCrop"
+               android:src="@mipmap/lamborghini"
+               android:layout_width="100dp"
+               android:layout_height="100dp" />
 
         </com.haoshi.view.ClickLinearLayout>
     </LinearLayout>

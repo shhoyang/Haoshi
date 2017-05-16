@@ -39,7 +39,6 @@ public class BluetoothActivity extends BaseActivity {
         filter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
         filter.setPriority(Integer.MAX_VALUE);
         registerReceiver(receiver, filter);
-
     }
 
     @Override
@@ -50,6 +49,12 @@ public class BluetoothActivity extends BaseActivity {
     @Override
     public String setTitle() {
         return TAG = BluetoothActivity.class.getSimpleName();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(receiver);
     }
 
     @Override

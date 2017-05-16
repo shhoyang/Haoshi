@@ -144,7 +144,7 @@ public class ShopCartActivity extends BaseActivity implements AdapterView.OnItem
 
     @Override
     public String setTitle() {
-        return null;
+        return TAG = ShopCartActivity.class.getSimpleName();
     }
 
     @Override

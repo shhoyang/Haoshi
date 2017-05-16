@@ -1,17 +1,25 @@
 package com.haoshi.listview.easyrecycler;
 
+import android.content.Context;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.camnter.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.camnter.easyrecyclerview.holder.EasyRecyclerViewHolder;
 import com.haoshi.R;
+import com.haoshi.utils.ImageManeger;
 
 /**
  * @author Haoshi
  */
 
 public class EasyAdapter extends EasyRecyclerViewAdapter {
+
+    private Context context;
+
+    public EasyAdapter(Context context) {
+        this.context = context;
+    }
 
     @Override
     public int[] getItemLayouts() {
@@ -20,8 +28,6 @@ public class EasyAdapter extends EasyRecyclerViewAdapter {
 
     /**
      * 模拟多布局
-     * @param viewHolder
-     * @param position
      */
     @Override
     public void onBindRecycleViewHolder(EasyRecyclerViewHolder viewHolder, int position) {
@@ -29,12 +35,12 @@ public class EasyAdapter extends EasyRecyclerViewAdapter {
         if (type == 0) {
             ImageView imageView = viewHolder.findViewById(R.id.image);
             TextView textView = viewHolder.findViewById(R.id.text);
-            imageView.setImageResource(R.mipmap.ic_launcher);
+            ImageManeger.loadImage(context, R.mipmap.ic_launcher, imageView);
             textView.setText("item" + position);
         } else if (type == 1) {
             ImageView imageView = viewHolder.findViewById(R.id.image);
             TextView textView = viewHolder.findViewById(R.id.text);
-            imageView.setImageResource(R.mipmap.ic_launcher2);
+            ImageManeger.loadImage(context, R.mipmap.ic_launcher2, imageView);
             textView.setText("item" + position);
         }
     }

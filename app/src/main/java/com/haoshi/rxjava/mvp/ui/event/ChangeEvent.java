@@ -5,6 +5,7 @@ package com.haoshi.rxjava.mvp.ui.event;
  */
 
 public class ChangeEvent {
+
     private boolean isGrid;
 
     public ChangeEvent(boolean isGrid) {

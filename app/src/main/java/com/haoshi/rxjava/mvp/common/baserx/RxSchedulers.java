@@ -7,6 +7,7 @@ import com.haoshi.rxjava.mvp.exception.NewsException;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 /**
@@ -18,11 +19,14 @@ public class RxSchedulers {
         return new Observable.Transformer<BaseResponse<T>, T>() {
             @Override
             public Observable<T> call(Observable<BaseResponse<T>> tObservable) {
-                return tObservable.flatMap(tBaseResponse -> {
-                    if (tBaseResponse.isStatus()) {
-                        return createData(tBaseResponse.result);
-                    } else {
-                        return Observable.error(new NewsException(tBaseResponse.reason));
+                return tObservable.flatMap(new Func1<BaseResponse<T>, Observable<? extends T>>() {
+                    @Override
+                    public Observable<? extends T> call(BaseResponse<T> tBaseResponse) {
+                        if (tBaseResponse.isStatus()) {
+                            return createData(tBaseResponse.result);
+                        } else {
+                            return Observable.error(new NewsException(tBaseResponse.reason));
+                        }
                     }
                 }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
             }

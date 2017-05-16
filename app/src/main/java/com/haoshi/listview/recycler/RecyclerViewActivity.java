@@ -36,7 +36,6 @@ public class RecyclerViewActivity extends BaseListActivity {
 
         RecyclerAdapter adapter = new RecyclerAdapter(position -> ToastUtils.showShort(RecyclerViewActivity.this, "点击了条目" + position));
         recyclerView.setAdapter(adapter);
-
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         linearLayoutManager.setReverseLayout(false);

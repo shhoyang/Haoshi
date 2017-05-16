@@ -24,7 +24,7 @@ public class EasyRecyclerActivity extends BaseListActivity {
     @Override
     public void initView() {
         recyclerView = (EasyRecyclerView) findViewById(R.id.recycler);
-        recyclerView.setAdapter(new EasyAdapter());
+        recyclerView.setAdapter(new EasyAdapter(this));
     }
 
     @Override

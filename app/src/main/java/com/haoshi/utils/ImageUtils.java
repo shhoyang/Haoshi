@@ -9,7 +9,7 @@ import android.graphics.BitmapFactory;
  */
 public class ImageUtils {
 
-    public static Bitmap createImageThumbnail(Resources res, int id) {
+    public static Bitmap createImageThumbnail1(Resources res, int id) {
         Bitmap bitmap = null;
         BitmapFactory.Options opts = new BitmapFactory.Options();
         //只解析图片边缘，获取宽高

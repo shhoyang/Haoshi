@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.haoshi.R;
+import com.haoshi.utils.ImageManeger;
 import com.jude.easyrecyclerview.adapter.BaseViewHolder;
 import com.jude.easyrecyclerview.adapter.RecyclerArrayAdapter;
 
@@ -68,7 +69,7 @@ public class EasyAdapter extends RecyclerArrayAdapter<String> {
         @Override
         public void setData(String data) {
             super.setData(data);
-            imageView.setImageResource(R.mipmap.ic_launcher);
+            ImageManeger.loadImage(itemView.getContext(),R.mipmap.ic_launcher,imageView);
             textView.setText(data);
         }
     }

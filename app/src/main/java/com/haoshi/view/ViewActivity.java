@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
+import com.haoshi.utils.ImageManeger;
 import com.haoshi.utils.ImageUtils;
 
 import java.util.ArrayList;
@@ -24,11 +25,7 @@ public class ViewActivity extends BaseActivity {
 
     @Override
     public void initView() {
-
         initViewPager();
-
-        CircleImageView clickImage = (CircleImageView) findViewById(R.id.click_image);
-        clickImage.setImageBitmap(ImageUtils.createImageThumbnail(getResources(), R.mipmap.lamborghini));
     }
 
     @Override
@@ -58,7 +55,7 @@ public class ViewActivity extends BaseActivity {
             image = new ImageView(this);
             image.setLayoutParams(imageParams);
             image.setScaleType(ImageView.ScaleType.FIT_XY);
-            image.setImageBitmap(ImageUtils.createImageThumbnail(getResources(), R.mipmap.lamborghini));
+            ImageManeger.loadImage(this,R.mipmap.lamborghini,image);
             imageList.add(image);
 
             image = new ImageView(this);

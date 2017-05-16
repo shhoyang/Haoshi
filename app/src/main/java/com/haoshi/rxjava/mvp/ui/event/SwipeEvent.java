@@ -7,6 +7,7 @@ package com.haoshi.rxjava.mvp.ui.event;
  */
 
 public class SwipeEvent {
+
     private boolean enable;
 
     public SwipeEvent(boolean enable) {

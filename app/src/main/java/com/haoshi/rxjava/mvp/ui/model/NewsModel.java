@@ -20,12 +20,7 @@ public class NewsModel implements NewsContract.Model {
     public Observable<List<Data>> getChannelList(String type) {
         return Api.getDefault()
                 .getNews(type, Constant.API_KEY)
-                .map(new Func1<News, List<Data>>() {
-                    @Override
-                    public List<Data> call(News news) {
-                        return news.getResult().getData();
-                    }
-                })
+                .map(news -> news.getResult().getData())
                 .compose(RxSchedulers.io_main());
     }
 }
