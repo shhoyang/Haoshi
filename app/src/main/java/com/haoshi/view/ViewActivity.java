@@ -8,8 +8,7 @@ import android.widget.LinearLayout;
 
 import com.haoshi.R;
 import com.haoshi.hao.BaseActivity;
-import com.haoshi.utils.ImageManeger;
-import com.haoshi.utils.ImageUtils;
+import com.haoshi.utils.ImageManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +54,7 @@ public class ViewActivity extends BaseActivity {
             image = new ImageView(this);
             image.setLayoutParams(imageParams);
             image.setScaleType(ImageView.ScaleType.FIT_XY);
-            ImageManeger.loadImage(this,R.mipmap.lamborghini,image);
+            ImageManager.loadImage(this,R.mipmap.lamborghini,image);
             imageList.add(image);
 
             image = new ImageView(this);

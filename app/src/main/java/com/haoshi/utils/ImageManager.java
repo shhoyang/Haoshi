@@ -13,12 +13,28 @@ import com.haoshi.view.GlideRoundTransform;
 import java.io.File;
 
 /**
- * @author Haoshi
- * <p>
- * Glide图片管理类
+ * @author Yang Shihao
+ *         <p>
+ *         Glide图片管理类
  */
 
-public class ImageManeger {
+public class ImageManager {
+
+    public static void loadImageObject(Context context, Object url, ImageView iv) {
+        if (url instanceof Bitmap) {
+            loadImage(context, (Bitmap) url, iv);
+        } else {
+            Glide.with(context).load(url).crossFade().placeholder(R.mipmap.placeholder).error(R.mipmap.placeholder).into(iv);
+        }
+    }
+
+    public static void loadImageObject(Context context, Object url, int emptyImg, int errorImg, ImageView iv) {
+        if (url instanceof Bitmap) {
+            loadImage(context, (Bitmap) url, errorImg, emptyImg, iv);
+        } else {
+            Glide.with(context).load(url).crossFade().placeholder(emptyImg).error(errorImg).into(iv);
+        }
+    }
 
     /**
      * 加载网络图片
@@ -28,7 +44,7 @@ public class ImageManeger {
     }
 
     public static void loadImage(Context context, String url, ImageView iv) {
-        Glide.with(context).load(url).crossFade().into(iv);
+        Glide.with(context).load(url).crossFade().placeholder(R.mipmap.placeholder).error(R.mipmap.placeholder).into(iv);
     }
 
     /**
@@ -39,7 +55,7 @@ public class ImageManeger {
     }
 
     public static void loadImage(Context context, File file, ImageView imageView) {
-        Glide.with(context).load(file).crossFade().into(imageView);
+        Glide.with(context).load(file).crossFade().placeholder(R.mipmap.placeholder).error(R.mipmap.placeholder).into(imageView);
     }
 
     /**
@@ -50,39 +66,39 @@ public class ImageManeger {
     }
 
     public static void loadImage(Context context, int resourceId, ImageView imageView) {
-        Glide.with(context).load(resourceId).into(imageView);
+        Glide.with(context).load(resourceId).placeholder(R.mipmap.placeholder).error(R.mipmap.placeholder).into(imageView);
     }
 
     /**
      * 加载Bitmap
      */
-    public static void loadImage(Context context, Bitmap bitmap, int errorImg, int emptyImg, ImageView iv) {
+    private static void loadImage(Context context, Bitmap bitmap, int errorImg, int emptyImg, ImageView iv) {
         Glide.with(context).load(bitmap).asBitmap().placeholder(emptyImg).error(errorImg).into(iv);
     }
 
-    public static void loadBitmap(Context context, Bitmap bitmap, ImageView iv) {
-        Glide.with(context).load(bitmap).asBitmap().into(iv);
+    private static void loadImage(Context context, Bitmap bitmap, ImageView iv) {
+        Glide.with(context).load(bitmap).asBitmap().placeholder(R.mipmap.placeholder).error(R.mipmap.placeholder).into(iv);
     }
 
     /**
      * 加载Gif图片
      */
     public static void loadGifImage(Context context, String url, ImageView iv) {
-        Glide.with(context).load(url).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).into(iv);
+        Glide.with(context).load(url).asGif().diskCacheStrategy(DiskCacheStrategy.SOURCE).placeholder(R.mipmap.placeholder).error(R.mipmap.placeholder).into(iv);
     }
 
     /**
      * 加载圆形图片
      */
     public static void loadCircleImage(Context context, String url, ImageView iv) {
-        Glide.with(context).load(url).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).transform(new GlideCircleTransform(context)).into(iv);
+        Glide.with(context).load(url).placeholder(R.mipmap.placeholder).error(R.mipmap.placeholder).transform(new GlideCircleTransform(context)).into(iv);
     }
 
     /**
      * 加载圆角图片
      */
     public static void loadRoundCornerImage(Context context, String url, ImageView iv) {
-        Glide.with(context).load(url).placeholder(R.mipmap.ic_launcher).error(R.mipmap.ic_launcher).transform(new GlideRoundTransform(context, 10)).into(iv);
+        Glide.with(context).load(url).placeholder(R.mipmap.placeholder).error(R.mipmap.placeholder).transform(new GlideRoundTransform(context, 10)).into(iv);
     }
 
     /**

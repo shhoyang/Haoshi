@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.camnter.easyrecyclerview.adapter.EasyRecyclerViewAdapter;
 import com.camnter.easyrecyclerview.holder.EasyRecyclerViewHolder;
 import com.haoshi.R;
-import com.haoshi.utils.ImageManeger;
+import com.haoshi.utils.ImageManager;
 
 /**
  * @author Haoshi
@@ -35,12 +35,12 @@ public class EasyAdapter extends EasyRecyclerViewAdapter {
         if (type == 0) {
             ImageView imageView = viewHolder.findViewById(R.id.image);
             TextView textView = viewHolder.findViewById(R.id.text);
-            ImageManeger.loadImage(context, R.mipmap.ic_launcher, imageView);
+            ImageManager.loadImage(context, R.mipmap.ic_launcher, imageView);
             textView.setText("item" + position);
         } else if (type == 1) {
             ImageView imageView = viewHolder.findViewById(R.id.image);
             TextView textView = viewHolder.findViewById(R.id.text);
-            ImageManeger.loadImage(context, R.mipmap.ic_launcher2, imageView);
+            ImageManager.loadImage(context, R.mipmap.ic_launcher2, imageView);
             textView.setText("item" + position);
         }
     }
